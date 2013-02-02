@@ -44,15 +44,15 @@ public class ArticleFactory {
         if (name.isEmpty()) {
             throw new IllegalArgumentException("name was empty");
         }
-        
-       // Check price
-        if(price <= 0){
-            throw new IllegalArgumentException("price was "+ price);
+
+        // Check price
+        if (price <= 0) {
+            throw new IllegalArgumentException("price was " + price);
         }
-        
+
         //Check numberSink
-        if(numberSink <= 0){
-            throw new IllegalArgumentException("numberSink was "+ numberSink);
+        if (numberSink <= 0) {
+            throw new IllegalArgumentException("numberSink was " + numberSink);
         }
 
         return new ConcreteArticle(new Bath(articleId, name, price, material,
@@ -70,19 +70,19 @@ public class ArticleFactory {
         if (name.isEmpty()) {
             throw new IllegalArgumentException("name was empty");
         }
-        
-       // Check price
-        if(price <= 0){
-            throw new IllegalArgumentException("price was "+ price);
+
+        // Check price
+        if (price <= 0) {
+            throw new IllegalArgumentException("price was " + price);
         }
-        
+
         return new ConcreteArticle(new Couch(articleId, name, price,
                 material, pullOut, corner), generator.getNextNumber());
     }
 
     public ConcreteArticle createTable(long articleId, String name, float price,
             int material, boolean pullOut, int categorie) {
-        
+
         // Check name 
         if (name == null) {
             throw new IllegalArgumentException("name was null");
@@ -91,15 +91,15 @@ public class ArticleFactory {
         if (name.isEmpty()) {
             throw new IllegalArgumentException("name was empty");
         }
-        
-       // Check price
-        if(price <= 0){
-            throw new IllegalArgumentException("price was "+ price);
+
+        // Check price
+        if (price <= 0) {
+            throw new IllegalArgumentException("price was " + price);
         }
-        
+
         //Check numberSink
-        if(categorie <= 0){
-            throw new IllegalArgumentException("categorie was "+ categorie);
+        if (categorie <= 0) {
+            throw new IllegalArgumentException("categorie was " + categorie);
         }
 
         return new ConcreteArticle(new Table(articleId, name, price, material,
@@ -108,7 +108,7 @@ public class ArticleFactory {
 
     public ConcreteArticle createCloset(long articleId, String name, float price,
             int material, int doors, boolean slope) {
-        
+
         // Check name 
         if (name == null) {
             throw new IllegalArgumentException("name was null");
@@ -117,15 +117,15 @@ public class ArticleFactory {
         if (name.isEmpty()) {
             throw new IllegalArgumentException("name was empty");
         }
-        
-       // Check price
-        if(price <= 0){
-            throw new IllegalArgumentException("price was "+ price);
+
+        // Check price
+        if (price <= 0) {
+            throw new IllegalArgumentException("price was " + price);
         }
-        
+
         //Check numberSink
-        if(doors <= 0){
-            throw new IllegalArgumentException("doors was "+ doors);
+        if (doors <= 0) {
+            throw new IllegalArgumentException("doors was " + doors);
         }
 
         return new ConcreteArticle(new Closet(articleId, name, price, material,

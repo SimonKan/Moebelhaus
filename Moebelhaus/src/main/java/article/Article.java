@@ -1,7 +1,7 @@
 package article;
 
 public abstract class Article {
-  
+
     private long articleId;
     private String name;
     private float price;
