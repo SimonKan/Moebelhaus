@@ -1,13 +1,18 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package Article;
 
-/**
- *
- * @author Simon
- */
-public class Bath {
-    
+import Article.Article;
+
+public class Bath extends Article {
+
+	private boolean bathTub;
+	private int numberSink;
+
+	public boolean getBathTub() {
+		return this.bathTub;
+	}
+
+	public int getNumberSink() {
+		return this.numberSink;
+	}
+
 }
