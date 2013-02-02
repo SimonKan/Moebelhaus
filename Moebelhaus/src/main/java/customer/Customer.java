@@ -2,10 +2,9 @@ package customer;
 
 public class Customer {
 
-	private long id;
+    private long id;
 
-	public long getId() {
-		return this.id;
-	}
-
+    public long getId() {
+        return this.id;
+    }
 }
