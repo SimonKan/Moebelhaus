@@ -1,7 +1,8 @@
 package article;
 
 /**
- * Unterklasse der Klasse Article Erbt 4 Attribute und erweitert um 2 weitere
+ * Unterklasse der Klasse Article. Erbt vier Attribute und erweitert um zwei
+ * weitere
  *
  * @author Simon
  */
@@ -17,7 +18,7 @@ public class Bath extends Article {
         this.bathTub = bathTub;
         this.numberSink = numberSink;
     }
-    //Getter Methoden der erweiterten Attribute
+    //Getter Methoden der erweiterten Attribute.
 
     public boolean getBathTub() {
         return this.bathTub;

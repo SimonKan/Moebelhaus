@@ -25,9 +25,7 @@ public class ArticleFactory {
     }
 
     /**
-     * Für jede Unterklasse existiert ein eigener Konstruktor, der Objekte
-     * erstellt und bei fehlerhaften Eingaben wie negativem Preis oder einem
-     * Namen aus Leerzeichen Fehlermeldungen auswirft
+     *
      *
      * @param uniqueId
      * @param articleId
@@ -37,6 +35,11 @@ public class ArticleFactory {
      * @param bathTub
      * @param numberSink
      * @return
+     */
+    /*
+     *  Für jede Unterklasse existiert ein eigener Konstruktor, der Objekte
+     * erstellt und bei fehlerhaften Eingaben wie negativem Preis oder einem
+     * Namen aus Leerzeichen Fehlermeldungen auswirft
      */
     public ConcreteArticle createBath(long articleId, String name,
             float price, int material, boolean bathTub, int numberSink) {

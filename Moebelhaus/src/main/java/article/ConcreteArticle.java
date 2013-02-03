@@ -7,7 +7,7 @@ package article;
 
 /**
  * ConcreteArticle umschließt die Klasse Article und erweitert sie um die
- * uniqueId Aus schreibgründen wurde nicht der Weg über die Vererbung gewählt
+ * uniqueId. Aus schreibgründen wurde nicht der Weg über die Vererbung gewählt
  *
  * @author Simon
  * @since 02.02.2013
