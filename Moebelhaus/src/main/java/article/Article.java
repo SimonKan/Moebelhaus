@@ -1,5 +1,11 @@
 package article;
 
+/**
+ * Abstrakte Klasse Article mit vier verschiedenen Attribute Diese werden an
+ * vier weitere Unterklassen vererbt
+ *
+ * @author Simon
+ */
 public abstract class Article {
 
     private long articleId;
@@ -7,6 +13,7 @@ public abstract class Article {
     private float price;
     private int material;
 
+    // Konstruktor der Klasse Article
     public Article(long articleId, String name, float price,
             int material) {
 
@@ -16,6 +23,11 @@ public abstract class Article {
         this.material = material;
     }
 
+    /**
+     * Getter Methoden der Klasse Article,dienen zum Aufruf der erstellten Werte
+     *
+     * @return
+     */
     public long getArticleId() {
         return this.articleId;
     }

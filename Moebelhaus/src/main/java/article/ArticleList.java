@@ -5,12 +5,18 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 /**
+ * Liste der Articel die im System geführt werden Liste kann durch verschiedene
+ * Werte durchsucht werden Liste wird durchsucht, indem alle Elemente die dem
+ * Suchkriterium entsprechen in eine NEUE LISTE vom selben Typ kopiert werden,
+ * sodass beide Listen vorhanden sind. Dieses Vorgehen kann wiederholt
+ * ausgeführt werden um die Liste immer weiter zu verkleinern
  *
  * @author Simon
  */
 public class ArticleList {
 
     private List<ConcreteArticle> articles;
+// Liste wird erstellt
 
     public ArticleList() {
         articles = new ArrayList<ConcreteArticle>();
@@ -30,6 +36,14 @@ public class ArticleList {
         this.articles = new ArrayList<ConcreteArticle>(articles);
     }
 
+    /**
+     * Methoden zum Durchsuchen der Liste nach uniqueId, articleId, name,
+     * material, price Rückgabetyp jeweils eine neue Liste die mit den Elementen
+     * gefüllt wird
+     *
+     * @param uid
+     * @return
+     */
     public ConcreteArticle getArticleByUniqueId(long uid) {
         for (ConcreteArticle article : articles) {
             if (article.getUniqueId() == uid) {
@@ -61,7 +75,10 @@ public class ArticleList {
         }
         List<ConcreteArticle> searchList = new ArrayList<ConcreteArticle>();
 
-        //Ermöglicht das suchen von Stichwörtern 
+        /**
+         * Ermöglicht das Suchen von Stichwörtern wie "Stuhl" Sodass alle Stühle
+         * gefunden werden und nicht der GrüneStuhl draußen bleibt
+         */
         Pattern pattern = Pattern.compile("\\.*" + name + "\\.*");
 
         for (ConcreteArticle article : articles) {
@@ -84,6 +101,16 @@ public class ArticleList {
         return new ArticleList(searchList);
     }
 
+    /**
+     * Preis wird um eine Lower und eine UpperBound ergänzt um Preisabschnitte
+     * suchen zu können wird die Grenze falsch gewählt gibt das System eine
+     * Fehlermeldung aus Alle Preise größer etwas können durch die Suche nach
+     * der oberen Grenze unendlich getätigt werden
+     *
+     * @param lowerBound
+     * @param upperBound
+     * @return
+     */
     public ArticleList getArticlesByPrice(float lowerBound, float upperBound) {
         if (Float.isNaN(lowerBound)) {
             throw new IllegalArgumentException("lowerBound was NaN");

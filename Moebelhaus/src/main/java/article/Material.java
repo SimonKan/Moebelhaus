@@ -6,7 +6,8 @@
 package article;
 
 /**
- *
+ * Material teilt verschiedenen Werkstoffen Nummern zu. Diese können dann
+ * leichter mit den einzelnen Artikeln in Verbindung gebracht werden
  *
  * @author Simon
  * @since 02.02.2013
@@ -17,4 +18,5 @@ public class Material {
     public static final int WOOD = 0;
     public static final int IRON = 1;
     public static final int STONE = 2;
+    public static final int Ceramic = 3;
 }

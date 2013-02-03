@@ -6,7 +6,9 @@
 package main;
 
 /**
- *
+ * Der UniqueNumberGenerator generiert die Nummern, die für die Erstellung der
+ * Ids benötigt werden. Er kann dabei so eingestellt werden, dass aber ab einer
+ * bestimmten Zahl anfängt zu zählen in diesem Fall 1,
  *
  * @author Simon
  * @since 02.02.2013

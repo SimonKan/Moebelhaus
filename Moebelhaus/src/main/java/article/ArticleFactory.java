@@ -8,7 +8,9 @@ package article;
 import main.UniqueNumberGenerator;
 
 /**
- *
+ * ArticleFactory ist für das Erstellen der Objekte zuständig, in Abhängigkeit
+ * der Anforderungen an Attributen und für die Überprüfung nach Fehlerhaften
+ * Eingaben
  *
  * @author Simon
  * @since 02.02.2013
@@ -23,6 +25,9 @@ public class ArticleFactory {
     }
 
     /**
+     * Für jede Unterklasse existiert ein eigener Konstruktor, der Objekte
+     * erstellt und bei fehlerhaften Eingaben wie negativem Preis oder einem
+     * Namen aus Leerzeichen Fehlermeldungen auswirft
      *
      * @param uniqueId
      * @param articleId

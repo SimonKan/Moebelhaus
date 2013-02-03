@@ -1,10 +1,17 @@
 package article;
 
+/**
+ * Closet ist eine Unterklasse von Article erweitert diese um zwei Attribute die
+ * mit Gettern aufgerufen werden können
+ *
+ * @author Simon
+ */
 public class Closet extends Article {
 
     private int doors;
     private boolean slope;
 
+    // Konstruktor von Closet
     public Closet(long articleId, String name, float price,
             int material, int doors, boolean slope) {
         super(articleId, name, price, material);
