@@ -19,22 +19,25 @@ public class Customer {
      * Dieser wird vor dem Programm erstellt.
      * Das Objekt wird erstellt bevor die Main Methode aufgerufen wird. 
      */
-    private static  UniqueNumberGenerator generator = new UniqueNumberGenerator();
-    
-            
-    public static Customer create(AddressGermany addressGermany){
-        
-        return null;
+    private static UniqueNumberGenerator generator = new UniqueNumberGenerator();
+
+    public static Customer create(AddressGermany addressGermany, long id) {
+
+        Customer customer = new Customer();
+        customer.id = id;
+        customer.addressGermany = addressGermany;
+
+        return customer;
     }
-    
     private AddressGermany addressGermany;
     private long id;
+
     /*
      * Konstruktor ist privat damit das Programm gezwungen wird die Factory
      * Methode einzusetzen
      */
-
-    private Customer() { }
+    private Customer() {
+    }
 
     /*
      * Get Methoden zum Aufruf von AddressGermany und der Id.
