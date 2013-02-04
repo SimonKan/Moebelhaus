@@ -15,7 +15,7 @@ public abstract class Article {
 
     // Konstruktor der Klasse Article.
     public Article(long articleId, String name, float price,
-            int material) {
+                   int material) {
 
         this.articleId = articleId;
         this.name = name;

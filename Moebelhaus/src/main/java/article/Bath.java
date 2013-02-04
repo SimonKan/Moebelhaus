@@ -13,7 +13,7 @@ public class Bath extends Article {
 
     // Konstruktor der Klasse Bath
     public Bath(long articleId, String name, float price,
-            int material, boolean bathTub, int numberSink) {
+                int material, boolean bathTub, int numberSink) {
         super(articleId, name, price, material);
         this.bathTub = bathTub;
         this.numberSink = numberSink;

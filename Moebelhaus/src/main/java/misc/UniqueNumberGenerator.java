@@ -3,7 +3,7 @@
  *
  * Created on 02.02.2013, 17:51:13
  */
-package main;
+package misc;
 
 /**
  * Der UniqueNumberGenerator generiert die Nummern, die für die Erstellung der

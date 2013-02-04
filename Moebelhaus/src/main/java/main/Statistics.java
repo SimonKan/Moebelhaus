@@ -1,5 +1,6 @@
 package main;
 
+import customer.CustomerList;
 import java.util.Date;
 import order.discount.Discount;
 

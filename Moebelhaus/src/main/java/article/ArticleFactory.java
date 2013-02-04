@@ -5,7 +5,7 @@
  */
 package article;
 
-import main.UniqueNumberGenerator;
+import misc.UniqueNumberGenerator;
 
 /**
  * ArticleFactory ist für das Erstellen der Objekte zuständig, in Abhängigkeit
@@ -34,15 +34,16 @@ public class ArticleFactory {
      * @param material
      * @param bathTub
      * @param numberSink
+     *
      * @return
      */
     /*
-     *  Für jede Unterklasse existiert ein eigener Konstruktor, der Objekte
+     * Für jede Unterklasse existiert ein eigener Konstruktor, der Objekte
      * erstellt und bei fehlerhaften Eingaben wie negativem Preis oder einem
      * Namen aus Leerzeichen Fehlermeldungen auswirft
      */
     public ConcreteArticle createBath(long articleId, String name,
-            float price, int material, boolean bathTub, int numberSink) {
+                                      float price, int material, boolean bathTub, int numberSink) {
 
         // Check name 
         if (name == null) {
@@ -64,11 +65,11 @@ public class ArticleFactory {
         }
 
         return new ConcreteArticle(new Bath(articleId, name, price, material,
-                bathTub, numberSink), generator.getNextNumber());
+                                            bathTub, numberSink), generator.getNextNumber());
     }
 
     public ConcreteArticle createCouch(long articleId, String name, float price,
-            int material, boolean pullOut, boolean corner) {
+                                       int material, boolean pullOut, boolean corner) {
 
         // Check name 
         if (name == null) {
@@ -85,11 +86,11 @@ public class ArticleFactory {
         }
 
         return new ConcreteArticle(new Couch(articleId, name, price,
-                material, pullOut, corner), generator.getNextNumber());
+                                             material, pullOut, corner), generator.getNextNumber());
     }
 
     public ConcreteArticle createTable(long articleId, String name, float price,
-            int material, boolean pullOut, int categorie) {
+                                       int material, boolean pullOut, int categorie) {
 
         // Check name 
         if (name == null) {
@@ -111,11 +112,11 @@ public class ArticleFactory {
         }
 
         return new ConcreteArticle(new Table(articleId, name, price, material,
-                pullOut, categorie), generator.getNextNumber());
+                                             pullOut, categorie), generator.getNextNumber());
     }
 
     public ConcreteArticle createCloset(long articleId, String name, float price,
-            int material, int doors, boolean slope) {
+                                        int material, int doors, boolean slope) {
 
         // Check name 
         if (name == null) {
@@ -137,6 +138,6 @@ public class ArticleFactory {
         }
 
         return new ConcreteArticle(new Closet(articleId, name, price, material,
-                doors, slope), generator.getNextNumber());
+                                              doors, slope), generator.getNextNumber());
     }
 }

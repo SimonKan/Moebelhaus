@@ -13,7 +13,7 @@ public class Couch extends Article {
 // Konstruktor von couch
 
     public Couch(long articleId, String name, float price,
-            int material, boolean pullOut, boolean corner) {
+                 int material, boolean pullOut, boolean corner) {
         super(articleId, name, price, material);
         this.corner = corner;
         this.pullOut = pullOut;

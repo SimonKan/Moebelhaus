@@ -12,7 +12,7 @@ public class Table extends Article {
 
     //Konstruktor von Table
     public Table(long articleId, String name, float price,
-            int material, boolean pullOut, int categorie) {
+                 int material, boolean pullOut, int categorie) {
         super(articleId, name, price, material);
         this.categorie = categorie;
         this.pullOut = pullOut;

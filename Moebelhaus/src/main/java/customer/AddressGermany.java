@@ -12,7 +12,7 @@ public class AddressGermany {
      * Konstruktor zur Erstellung der einzelnen Objekte anhand der Attribute
      */
     public static AddressGermany create(String firstName, String lastName,
-            String city, int plz, String street, String houseNumber) {
+                                        String city, int plz, String street, String houseNumber) {
         //Check fistnName
 
         if (firstName == null) {
@@ -42,8 +42,6 @@ public class AddressGermany {
         if (plz < 10000 || plz > 100000) {
             throw new IllegalArgumentException("plz (" + plz + ") illegal");
         }
-
-
         //Check street
         if (street == null) {
             throw new IllegalArgumentException("street was null");
@@ -56,9 +54,13 @@ public class AddressGermany {
         if (houseNumber == null) {
             throw new IllegalArgumentException("houseNumber was null");
         }
-        lastName = lastName.trim();
-        if (lastName.isEmpty()) {
+        houseNumber = houseNumber.trim();
+        if (houseNumber.isEmpty()) {
             throw new IllegalArgumentException("houseNumber was empty");
+        }
+        if (!houseNumber.matches("\\d+[a-zA-Z]")) {
+            throw new IllegalArgumentException("houseNumber '" + houseNumber
+                + "' invalid");
         }
         AddressGermany address = new AddressGermany();
 
@@ -80,8 +82,8 @@ public class AddressGermany {
     private String houseNumber;
 
     /*
-     * Der eigentlich Konstruktor wird vermieden, damit das Programm 
-     * die Factory Methode verwendet 
+     * Der eigentlich Konstruktor wird vermieden, damit das Programm
+     * die Factory Methode verwendet
      */
     private AddressGermany() {
     }

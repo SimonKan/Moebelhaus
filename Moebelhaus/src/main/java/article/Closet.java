@@ -13,7 +13,7 @@ public class Closet extends Article {
 
     // Konstruktor von Closet
     public Closet(long articleId, String name, float price,
-            int material, int doors, boolean slope) {
+                  int material, int doors, boolean slope) {
         super(articleId, name, price, material);
         this.doors = doors;
         this.slope = slope;

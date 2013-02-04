@@ -1,4 +1,4 @@
-package main;
+package customer;
 
 import customer.Customer;
 import java.util.Set;

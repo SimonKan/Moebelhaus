@@ -5,7 +5,7 @@
  */
 package customer;
 
-import main.UniqueNumberGenerator;
+import misc.UniqueNumberGenerator;
 
 /**
  * Customer besitzt AdressGermany und eine Id.
@@ -17,20 +17,19 @@ public class Customer {
     /*
      * Erstelle Generator um ihn in der statischen Methode verwenden kann.
      * Dieser wird vor dem Programm erstellt.
-     * Das Objekt wird erstellt bevor die Main Methode aufgerufen wird. 
+     * Das Objekt wird erstellt bevor die Main Methode aufgerufen wird.
      */
     private static UniqueNumberGenerator generator = new UniqueNumberGenerator();
 
-    public static Customer create(AddressGermany addressGermany, long id) {
+    public static Customer create(long id, AddressGermany addressGermany) {
 
         Customer customer = new Customer();
         customer.id = id;
         customer.addressGermany = addressGermany;
-
         return customer;
     }
-    private AddressGermany addressGermany;
     private long id;
+    private AddressGermany addressGermany;
 
     /*
      * Konstruktor ist privat damit das Programm gezwungen wird die Factory

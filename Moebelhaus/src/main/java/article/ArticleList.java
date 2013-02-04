@@ -10,7 +10,8 @@ import java.util.regex.Pattern;
  */
 
 /*
- * * Liste der Articel die im System geführt werden Liste kann durch verschiedene
+ * * Liste der Articel die im System geführt werden Liste kann durch
+ * verschiedene
  * Werte durchsucht werden Liste wird durchsucht, indem alle Elemente die dem
  * Suchkriterium entsprechen in eine NEUE LISTE vom selben Typ kopiert werden,
  * sodass beide Listen vorhanden sind. Dieses Vorgehen kann wiederholt
@@ -42,10 +43,11 @@ public class ArticleList {
     /**
      *
      * @param uid
+     *
      * @return
      */
     /*
-     *  Methoden zum Durchsuchen der Liste nach uniqueId, articleId, name,
+     * Methoden zum Durchsuchen der Liste nach uniqueId, articleId, name,
      * material, price Rückgabetyp jeweils eine neue Liste die mit den Elementen
      * gefüllt wird
      */
@@ -114,6 +116,7 @@ public class ArticleList {
      *
      * @param lowerBound
      * @param upperBound
+     *
      * @return
      */
     public ArticleList getArticlesByPrice(float lowerBound, float upperBound) {
@@ -128,7 +131,7 @@ public class ArticleList {
 
         for (ConcreteArticle article : articles) {
             if (lowerBound <= article.getArticle().getPrice()
-                    || article.getArticle().getPrice() <= upperBound) {
+                || article.getArticle().getPrice() <= upperBound) {
                 searchList.add(article);
             }
         }
