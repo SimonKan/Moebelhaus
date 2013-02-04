@@ -8,7 +8,8 @@ package customer;
 import misc.UniqueNumberGenerator;
 
 /**
- * Customer besitzt AdressGermany und eine Id.
+ * Diese Klasse repräsentiert einen Kunden. Ein Kunde besitzt eine eindeutide
+ * Identifizierungsnummer und eine {@link AddressGermany Adresse}.
  *
  * @author Simon
  */
@@ -21,10 +22,17 @@ public class Customer {
      */
     private static UniqueNumberGenerator generator = new UniqueNumberGenerator();
 
-    public static Customer create(long id, AddressGermany addressGermany) {
+    /**
+     *
+     * @param addressGermany die Adresse des zu erstellenden Kunden
+     *
+     * @return ein {@link Customer Kunde} mit der angegebenen Adresse und eine
+     *         UID
+     */
+    public static Customer create(AddressGermany addressGermany) {
 
         Customer customer = new Customer();
-        customer.id = id;
+        customer.id = generator.getNextNumber();
         customer.addressGermany = addressGermany;
         return customer;
     }

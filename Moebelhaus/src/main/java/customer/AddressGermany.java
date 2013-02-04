@@ -1,18 +1,32 @@
 package customer;
 
 /**
- * Abstrakte Klasse mit sechs Attributen, nach denen die Objekte von einander
+ * Klasse mit sechs Attributen, nach denen die Objekte von einander
  * abgegrenzt werden.
  *
  * @author Simon
  */
 public class AddressGermany {
 
-    /*
+    /**
      * Konstruktor zur Erstellung der einzelnen Objekte anhand der Attribute
+     *
+     * @param firstName   der Vorname
+     * @param lastName    der Nachname
+     * @param city        die Stadt
+     * @param plz         die Postleitzahl
+     * @param street      der Straßenname
+     * @param houseNumber die Hausnummer
+     *
+     * @return eine {@link AddressGermany Adresse}
+     *
+     * @throws IllegalArgumentException <ul><li>wenn firstName null ist</li>
+     *                                  <li>wenn firstName leer ist</li>
+     *                                  </ul>
      */
     public static AddressGermany create(String firstName, String lastName,
-                                        String city, int plz, String street, String houseNumber) {
+                                        String city, int plz, String street,
+                                        String houseNumber) {
         //Check fistnName
 
         if (firstName == null) {

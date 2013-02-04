@@ -1,6 +1,5 @@
 package customer;
 
-import customer.Customer;
 import java.util.Set;
 
 public class CustomerList {
