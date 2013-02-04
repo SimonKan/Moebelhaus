@@ -1,14 +1,23 @@
+/*
+ * Discount.java
+ *
+ * Created on 04.02.2013, 19:20:41
+ */
+
 package order.discount;
 
-public class Discount {
+import order.Order;
 
-    private float price;
+/**
+ * 
+ * 
+ * @author Simon
+ * @since 04.02.2013
+ * @version 1.0.0
+ * 
+ */
+public interface Discount {
+    
+    void apply(Order order);
 
-    /**
-     *
-     * @param price
-     */
-    public float getDiscountPrice(float price) {
-        throw new UnsupportedOperationException();
-    }
 }

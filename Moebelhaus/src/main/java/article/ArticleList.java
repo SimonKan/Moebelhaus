@@ -42,6 +42,39 @@ public class ArticleList {
 
     /**
      *
+     * @param article ein neuer Artikel
+     *
+     * @return {@code true} wenn der Artikel neu zur Liste hinzukam,
+     *         {@code false} falls der Artikel bereits in der Liste ist
+     */
+    public boolean add(ConcreteArticle article) {
+        throw new UnsupportedOperationException("Not implemented yet.");
+    }
+
+    /**
+     *
+     * @param article der Artikel der aus der Liste zu entfernen ist
+     *
+     * @return {@code true} wenn der Artikel zuvor in der Liste war,
+     *         {@code false} sonst
+     */
+    public boolean remove(ConcreteArticle article) {
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     *
+     * @param article ein Artikel
+     *
+     * @return {@code true} wenn der Artikel in der Liste ist,
+     *         {@code false} sonst
+     */
+    public boolean contains(ConcreteArticle article) {
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     *
      * @param uid
      *
      * @return
