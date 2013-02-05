@@ -87,8 +87,8 @@ public class CustomerList {
      *
      * @param firstName Name des Customers
      * @return {@link CustomerList searchlist}
-     * @throws IllegalArgumentException <ul><li>wenn Name null ist</li><li>wenn
-     * name leer ist</li><li>wenn der name nicht dem Schema entspricht</li><ul>
+     * @throws IllegalArgumentException <ul><li>wenn FirstName null
+     * ist</li><li>wenn FirstName leer ist</li><ul>
      */
     public CustomerList getCustomerByFirstName(String firstName) {
         if (firstName == null) {
@@ -110,8 +110,8 @@ public class CustomerList {
      *
      * @param lastName Name des Customer
      * @return {@link Customerlist searchlist}
-     * @throws IllegalArgumentException <ul><li>wenn Name null ist</li><li>wenn
-     * name leer ist</li><li>wenn der name nicht dem Schema entspricht</li><ul>
+     * @throws IllegalArgumentException <ul><li>wenn LastName null
+     * ist</li><li>wenn LastName leer ist</li><ul>
      */
     public CustomerList getCustomerByLastName(String lastName) {
         if (lastName == null) {
@@ -129,13 +129,37 @@ public class CustomerList {
     }
 
     /**
+     * Durchsucht die CustomerListe anhand der Stadt und gibt eine Liste der
+     * Customer zurück
+     *
+     * @param city Stadt des Customer
+     * @return {@link Customerlist searchlist}
+     * @throws IllegalArgumentException <ul><li>wenn Stadt null ist</li><li>wenn
+     * Stadt leer ist</li><ul>
+     */
+    public CustomerList getCustomerByCity(String city) {
+        if (city == null) {
+            throw new IllegalArgumentException("city was null");
+        }
+        city = city.trim().toLowerCase();
+        if (city.isEmpty()) {
+            throw new IllegalArgumentException("city is empty");
+        }
+        List<Customer> searchList = new ArrayList<Customer>();
+
+
+
+        return new CustomerList(searchList);
+    }
+
+    /**
      * Durchsucht die CustomerListe anhand der Straße und gibt eine Liste der
      * Customer zurück
      *
      * @param street Straße Customer
      * @return {@link Customerlist searchlist}
-     * @throws IllegalArgumentException <ul><li>wenn Name null ist</li><li>wenn
-     * name leer ist</li><li>wenn der name nicht dem Schema entspricht</li><ul>
+     * @throws IllegalArgumentException <ul><li>wenn Straße null
+     * ist</li><li>wenn Straße leer ist</li><ul>
      */
     public CustomerList getCustomerByStreet(String street) {
         if (street == null) {
