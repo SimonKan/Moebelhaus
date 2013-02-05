@@ -31,7 +31,7 @@ public class ArticleList {
      * neuer Konstruktor zum Übertragen der List<ConcreteArticle> in eine
      * {@link ArticleList}.
      *
-     * @param articles
+     * @param articles Artikel der Liste
      */
     public ArticleList(List<ConcreteArticle> articles) {
         if (articles == null) {
@@ -45,7 +45,7 @@ public class ArticleList {
      * @param article ein neuer Artikel
      *
      * @return {@code true} wenn der Artikel neu zur Liste hinzukam,
-     *         {@code false} falls der Artikel bereits in der Liste ist
+     * {@code false} falls der Artikel bereits in der Liste ist
      */
     public boolean add(ConcreteArticle article) {
         throw new UnsupportedOperationException("Not implemented yet.");
@@ -56,7 +56,7 @@ public class ArticleList {
      * @param article der Artikel der aus der Liste zu entfernen ist
      *
      * @return {@code true} wenn der Artikel zuvor in der Liste war,
-     *         {@code false} sonst
+     * {@code false} sonst
      */
     public boolean remove(ConcreteArticle article) {
         throw new UnsupportedOperationException();
@@ -66,23 +66,23 @@ public class ArticleList {
      *
      * @param article ein Artikel
      *
-     * @return {@code true} wenn der Artikel in der Liste ist,
-     *         {@code false} sonst
+     * @return {@code true} wenn der Artikel in der Liste ist, {@code false}
+     * sonst
      */
     public boolean contains(ConcreteArticle article) {
         throw new UnsupportedOperationException();
     }
 
-    /**
-     *
-     * @param uid
-     *
-     * @return
-     */
     /*
      * Methoden zum Durchsuchen der Liste nach uniqueId, articleId, name,
      * material, price Rückgabetyp jeweils eine neue Liste die mit den Elementen
      * gefüllt wird
+     */
+    /**
+     * Durchsucht die Artikelliste nach einem Artikel anhand der UniqueId
+     *
+     * @param uid
+     * @return {@link Article artikel}
      */
     public ConcreteArticle getArticleByUniqueId(long uid) {
         for (ConcreteArticle article : articles) {
@@ -93,6 +93,13 @@ public class ArticleList {
         return null;
     }
 
+    /**
+     * Durchsucht die Liste der Artikel anhand der ArticleId und gibt eine Liste
+     * zurück
+     *
+     * @param aid ArtikelId
+     * @return {@link ArticleList searchlist}
+     */
     public ArticleList getArticlesByArticleId(long aid) {
         List<ConcreteArticle> searchList = new ArrayList<ConcreteArticle>();
 
@@ -105,6 +112,15 @@ public class ArticleList {
         return new ArticleList(searchList);
     }
 
+    /**
+     * Durchsucht die Artikelliste anhand des Namens und gibt eine Liste der
+     * Artikel zurück
+     *
+     * @param name Name des Artikels
+     * @return {@link Articlelist searchlist}
+     * @throws IllegalArgumentException <ul><li>wenn Name null ist</li><li>wenn
+     * name leer ist</li><li>wenn der name nicht dem Schema entspricht</li><ul>
+     */
     public ArticleList getArticlesByName(String name) {
         if (name == null) {
             throw new IllegalArgumentException("name was null");
@@ -115,7 +131,7 @@ public class ArticleList {
         }
         List<ConcreteArticle> searchList = new ArrayList<ConcreteArticle>();
 
-        /**
+        /*
          * Ermöglicht das Suchen von Stichwörtern wie "Stuhl" Sodass alle Stühle
          * gefunden werden und nicht der GrüneStuhl draußen bleibt
          */
@@ -129,6 +145,13 @@ public class ArticleList {
         return new ArticleList(searchList);
     }
 
+    /**
+     * Durchsucht die Artikelliste nach einem Material und wirft eine Liste aus
+     *
+     * @param material Material des Artikels
+     * @return {@link ArticleList}
+     *
+     */
     public ArticleList getArticlesByMaterial(int material) {
         List<ConcreteArticle> searchList = new ArrayList<ConcreteArticle>();
 
@@ -144,13 +167,15 @@ public class ArticleList {
     /**
      * Preis wird um eine Lower und eine UpperBound ergänzt um Preisabschnitte
      * suchen zu können wird die Grenze falsch gewählt gibt das System eine
-     * Fehlermeldung aus Alle Preise größer etwas können durch die Suche nach
-     * der oberen Grenze unendlich getätigt werden
+     * Fehlermeldung aus. Alle Preise größer etwas können durch die Suche nach
+     * der oberen Grenze unendlich getätigt werden.
      *
-     * @param lowerBound
-     * @param upperBound
+     * @param lowerBound obere Grenze des Preises
+     * @param upperBound untere Grenze des Preises
      *
-     * @return
+     * @return {@link ArticleList}
+     * @throws IllegalArgumentException <ul><li>wenn untere Schranke falsch
+     * ist</li><li>wenn oberer Schranke falsch ist</li><ul>
      */
     public ArticleList getArticlesByPrice(float lowerBound, float upperBound) {
         if (Float.isNaN(lowerBound)) {
@@ -164,7 +189,7 @@ public class ArticleList {
 
         for (ConcreteArticle article : articles) {
             if (lowerBound <= article.getArticle().getPrice()
-                || article.getArticle().getPrice() <= upperBound) {
+                    || article.getArticle().getPrice() <= upperBound) {
                 searchList.add(article);
             }
         }

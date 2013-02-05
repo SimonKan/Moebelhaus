@@ -10,7 +10,15 @@ public class Table extends Article {
     private boolean pullOut;
     private int categorie;
 
-    //Konstruktor von Table
+    /**
+     * Konstruktor der Klasse Tisch
+     * @param articleId
+     * @param name
+     * @param price
+     * @param material
+     * @param pullOut
+     * @param categorie
+     */
     public Table(long articleId, String name, float price,
                  int material, boolean pullOut, int categorie) {
         super(articleId, name, price, material);

@@ -1,8 +1,8 @@
 package customer;
 
 /**
- * Klasse mit sechs Attributen, nach denen die Objekte von einander
- * abgegrenzt werden.
+ * Klasse mit sechs Attributen, nach denen die Objekte von einander abgegrenzt
+ * werden.
  *
  * @author Simon
  */
@@ -11,22 +11,25 @@ public class AddressGermany {
     /**
      * Konstruktor zur Erstellung der einzelnen Objekte anhand der Attribute
      *
-     * @param firstName   der Vorname
-     * @param lastName    der Nachname
-     * @param city        die Stadt
-     * @param plz         die Postleitzahl
-     * @param street      der Straßenname
+     * @param firstName der Vorname
+     * @param lastName der Nachname
+     * @param city die Stadt
+     * @param plz die Postleitzahl
+     * @param street der Straßenname
      * @param houseNumber die Hausnummer
      *
      * @return eine {@link AddressGermany Adresse}
      *
      * @throws IllegalArgumentException <ul><li>wenn firstName null ist</li>
-     *                                  <li>wenn firstName leer ist</li>
-     *                                  </ul>
+     * <li>wenn firstName leer ist</li> <li>wenn lastName null ist</li> <li>wenn
+     * lastName leer ist </li> <li>wenn city null ist </li> <li>wenn city leer
+     * ist </li> <li>wenn plz zu groß ist </li> <li>wenn street null ist </li>
+     * <li>wenn street leer ist </li> <li>wenn houseNumber null ist </li>
+     * <li>wenn houseNumber leer ist </li> </ul>
      */
     public static AddressGermany create(String firstName, String lastName,
-                                        String city, int plz, String street,
-                                        String houseNumber) {
+            String city, int plz, String street,
+            String houseNumber) {
         //Check fistnName
 
         if (firstName == null) {
@@ -74,7 +77,7 @@ public class AddressGermany {
         }
         if (!houseNumber.matches("\\d+[a-zA-Z]")) {
             throw new IllegalArgumentException("houseNumber '" + houseNumber
-                + "' invalid");
+                    + "' invalid");
         }
         AddressGermany address = new AddressGermany();
 

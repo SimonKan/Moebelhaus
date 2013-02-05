@@ -13,9 +13,16 @@ public abstract class Article {
     private float price;
     private int material;
 
-    // Konstruktor der Klasse Article.
+    /**
+     * Konstruktor der Klasse Article
+     *
+     * @param articleId eindeutige Id des Artikels
+     * @param name Name des Artikels
+     * @param price Preis des Artikels
+     * @param material Material des Artikels
+     */
     public Article(long articleId, String name, float price,
-                   int material) {
+            int material) {
 
         this.articleId = articleId;
         this.name = name;
@@ -24,23 +31,37 @@ public abstract class Article {
     }
 
     /**
-     * Getter Methoden der Klasse Article,dienen zum Aufruf der erstellten
-     * Werte.
+     * Getter Methode
      *
-     * @return
+     * @return ArtikelId
      */
     public long getArticleId() {
         return this.articleId;
     }
 
+    /**
+     * Getter Methode
+     *
+     * @return Namen
+     */
     public String getName() {
         return this.name;
     }
 
+    /**
+     * Getter Methode
+     *
+     * @return Preis
+     */
     public float getPrice() {
         return this.price;
     }
 
+    /**
+     * Getter Methode
+     *
+     * @return Material
+     */
     public int getMaterial() {
         return this.material;
     }

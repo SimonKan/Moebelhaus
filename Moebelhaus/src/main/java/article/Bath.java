@@ -11,19 +11,35 @@ public class Bath extends Article {
     private boolean bathTub;
     private int numberSink;
 
-    // Konstruktor der Klasse Bath
+    /**
+     * Konstruktor der Klasse Bad
+     * @param articleId
+     * @param name
+     * @param price
+     * @param material
+     * @param bathTub
+     * @param numberSink
+     */
     public Bath(long articleId, String name, float price,
                 int material, boolean bathTub, int numberSink) {
         super(articleId, name, price, material);
         this.bathTub = bathTub;
         this.numberSink = numberSink;
     }
-    //Getter Methoden der erweiterten Attribute.
 
+
+    /**
+     * Getter Methode der Badewanne
+     * @return
+     */
     public boolean getBathTub() {
         return this.bathTub;
     }
 
+    /**
+     *Getter Methode der Spühlbecken
+     * @return
+     */
     public int getNumberSink() {
         return this.numberSink;
     }

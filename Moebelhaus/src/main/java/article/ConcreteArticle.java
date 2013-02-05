@@ -27,7 +27,7 @@ public class ConcreteArticle {
         this.uniqueId = uniqueId;
     }
 
-    /**
+    /*
      * Get Methoden zum Aufruf der uniqueId und zum Aufruf des ursprünglichen
      * Articles der eingeschlossen wurde
      *
