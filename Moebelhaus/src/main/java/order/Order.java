@@ -6,22 +6,23 @@ import java.util.GregorianCalendar;
 import java.util.List;
 import misc.UniqueNumberGenerator;
 
+// TODO JavaDoc für die Klasse, sehr wichtig!
 public class Order {
+    
+    // TODO JavaDoc für die Getter!
 
     private static UniqueNumberGenerator generator = new UniqueNumberGenerator();
 
     public static Order create() {
-        //TODO
-        // consistency checks
+        //TODO create consistency checks for the factory method
 
         Order order = new Order();
 
-        //TODO
-        // initialize members
         order.id = generator.getNextNumber();
         order.orderingDate = GregorianCalendar.getInstance().getTime();
         order.bookingDate = null;
         order.deliveryDate = null;
+        // TODO initialize price, tax
 
         return order;
     }
@@ -77,9 +78,9 @@ public class Order {
     public Date getDeliveryDate() {
         return deliveryDate;
     }
-    
+
     public void setDeliveryDate(Date date) {
-        // TODO implement this shit
+        // TODO implement setDeliveryDate
         throw new UnsupportedOperationException();
     }
 }

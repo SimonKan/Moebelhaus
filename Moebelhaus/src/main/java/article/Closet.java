@@ -11,9 +11,9 @@ public class Closet extends Article {
     private int doors;
     private boolean slope;
 
-
     /**
      * Konstruktor der Klasse Closet
+     *
      * @param articleId
      * @param name
      * @param price

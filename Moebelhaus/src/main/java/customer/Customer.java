@@ -16,8 +16,8 @@ import misc.UniqueNumberGenerator;
 public class Customer {
 
     /*
-     * Erstelle Generator um ihn in der statischen Methode verwenden kann.
-     * Dieser wird vor dem Programm erstellt.
+     * Erstelle Generator um ihn in der statischen Methode create(...) verwenden
+     * zu können.
      * Das Objekt wird erstellt bevor die Main Methode aufgerufen wird.
      */
     private static UniqueNumberGenerator generator = new UniqueNumberGenerator();
@@ -28,6 +28,8 @@ public class Customer {
      *
      * @return ein {@link Customer Kunde} mit der angegebenen Adresse und eine
      *         UID
+     * 
+     * TODO @link für Adresse ;)
      */
     public static Customer create(AddressGermany addressGermany) {
 
@@ -53,6 +55,7 @@ public class Customer {
         return this.addressGermany;
     }
 
+    // TODO JavaDoc
     public long getId() {
         return this.id;
     }

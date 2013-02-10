@@ -12,6 +12,7 @@ public class Table extends Article {
 
     /**
      * Konstruktor der Klasse Tisch
+     *
      * @param articleId
      * @param name
      * @param price

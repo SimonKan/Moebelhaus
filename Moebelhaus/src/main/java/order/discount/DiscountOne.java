@@ -18,6 +18,7 @@ import order.Order;
 public class DiscountOne implements Discount {
 
     public void apply(Order order) {
+        // TODO implement apply
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }

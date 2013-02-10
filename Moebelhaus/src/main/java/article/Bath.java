@@ -13,6 +13,7 @@ public class Bath extends Article {
 
     /**
      * Konstruktor der Klasse Bad
+     *
      * @param articleId
      * @param name
      * @param price
@@ -27,9 +28,9 @@ public class Bath extends Article {
         this.numberSink = numberSink;
     }
 
-
     /**
      * Getter Methode der Badewanne
+     *
      * @return
      */
     public boolean getBathTub() {
@@ -37,7 +38,8 @@ public class Bath extends Article {
     }
 
     /**
-     *Getter Methode der Spühlbecken
+     * Getter Methode der Spühlbecken
+     *
      * @return
      */
     public int getNumberSink() {

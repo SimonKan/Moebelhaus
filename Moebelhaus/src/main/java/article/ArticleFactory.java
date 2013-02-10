@@ -27,22 +27,29 @@ public class ArticleFactory {
     /**
      * Konstruktor der Klasse Bad
      *
-     * @param uniqueId eindeutige Id des Artikels 
-     * @param articleId Id des Artikels 
-     * @param name Name des Artikels
-     * @param price Preis des Artikels 
-     * @param material Material des Artikels
-     * @param bathTub ob Badewanne vorhanden
-     * @param numberSink wieviele Waschbecken 
+     * @param uniqueId   eindeutige Id des Artikels
+     * @param articleId  Id des Artikels
+     * @param name       Name des Artikels
+     * @param price      Preis des Artikels
+     * @param material   Material des Artikels
+     * @param bathTub    ob Badewanne vorhanden
+     * @param numberSink wieviele Waschbecken
      *
      * @return {@link Article Bad}
      *
-     * @throws IllegalArgumentException <ul><li> wenn Name null ist</li> <li>
-     * wenn Name leer ist</li> <li> wenn Preis negativ</li> <li>wenn Anzahl
-     * Spühlbecken negativ </li><ul>
+     * @throws IllegalArgumentException <ul>
+     *                                  <li> wenn Name null ist</li>
+     *                                  <li>wenn Name leer ist</li>
+     *                                  <li> wenn Preis negativ</li>
+     *                                  <li>wenn Anzahl Spühlbecken negativ </li>
+     *                                  <ul>
+     *
+     * TODO Anzahl Spülbecken ist kein Argument, hier ist wohl numberSink gemeint
+     * TODO uniqueId ist kein Argument, warum also @param-Tag?
      */
     public ConcreteArticle createBath(long articleId, String name,
-            float price, int material, boolean bathTub, int numberSink) {
+                                      float price, int material,
+                                      boolean bathTub, int numberSink) {
 
         // Check name 
         if (name == null) {
@@ -64,25 +71,29 @@ public class ArticleFactory {
         }
 
         return new ConcreteArticle(new Bath(articleId, name, price, material,
-                bathTub, numberSink), generator.getNextNumber());
+                                            bathTub, numberSink), generator.getNextNumber());
     }
 
     /**
      * Konstruktor für einen Artikel Typ Couch
      *
-     * @param articleId Id des Artikels 
-     * @param name Name des Artikels 
-     * @param price Preis des Artikels 
-     * @param material Material des Artikels 
-     * @param pullOut ob die Couch ausziehbar ist
-     * @param corner Ob couch eine Ecke hat
+     * @param articleId Id des Artikels
+     * @param name      Name des Artikels
+     * @param price     Preis des Artikels
+     * @param material  Material des Artikels
+     * @param pullOut   ob die Couch ausziehbar ist
+     * @param corner    Ob couch eine Ecke hat
+     *
      * @return {@link Article Couch}
      *
-     * @throws IllegalArgumentException <ul><li>wenn Name null ist </li> <li>wenn
-     * Name leer ist</li> <li>wenn Preis negativ ist</li><ul>
+     * @throws IllegalArgumentException <ul>
+     *                                  <li>wenn Name null ist</li>
+     *                                  <li>wenn Name leer ist</li>
+     *                                  <li>wenn Preis negativ ist</li>
+     *                                  <ul>
      */
     public ConcreteArticle createCouch(long articleId, String name, float price,
-            int material, boolean pullOut, boolean corner) {
+                                       int material, boolean pullOut, boolean corner) {
 
         // Check name 
         if (name == null) {
@@ -99,25 +110,33 @@ public class ArticleFactory {
         }
 
         return new ConcreteArticle(new Couch(articleId, name, price,
-                material, pullOut, corner), generator.getNextNumber());
+                                             material, pullOut, corner), generator.getNextNumber());
     }
 
     /**
      * Konstruktor für eine Klasse vom Typ Tisch
      *
-     * @param articleId Id des Artikels 
-     * @param name Name des Artikels 
-     * @param price Preis des Artikels 
-     * @param material Material des Artikels 
-     * @param pullOut ob ausziehbar
+     * @param articleId Id des Artikels
+     * @param name      Name des Artikels
+     * @param price     Preis des Artikels
+     * @param material  Material des Artikels
+     * @param pullOut   ob ausziehbar
      * @param categorie welche Kategorie
+     *
      * @return {@link Article Tisch}
-     * @throws IllegalArgumentException <ul><li>wenn Name null ist</li> <li>wenn
-     * Name leer ist </li> <li>wenn Preis negativ ist </li> <li>wenn categorie
-     * leer ist</li><ul>
+     *
+     * @throws IllegalArgumentException <ul>
+     *                                  <li>wenn Name null ist</li>
+     *                                  <li>wenn Name leer ist </li>
+     *                                  <li>wenn Preis negativ ist </li>
+     *                                  <li>wenn categorie leer ist</li>
+     *                                  <ul>
+     *
+     * TODO überarbeite throws: categorie (engl. category):
+     * wann wird exception geworfen?
      */
     public ConcreteArticle createTable(long articleId, String name, float price,
-            int material, boolean pullOut, int categorie) {
+                                       int material, boolean pullOut, int categorie) {
 
         // Check name 
         if (name == null) {
@@ -139,25 +158,31 @@ public class ArticleFactory {
         }
 
         return new ConcreteArticle(new Table(articleId, name, price, material,
-                pullOut, categorie), generator.getNextNumber());
+                                             pullOut, categorie), generator.getNextNumber());
     }
 
     /**
      * Konstruktor für Artikel vom Typ Schrank
      *
-     * @param articleId Id des Artikels 
-     * @param name Name des Artikels 
-     * @param price Preis des Artikels 
-     * @param material Material des Artikels 
+     * @param articleId Id des Artikels
+     * @param name      Name des Artikels
+     * @param price     Preis des Artikels
+     * @param material  Material des Artikels
      * @param doors
      * @param slope
+     *
      * @return {@link Article Closet}
-     * @throws IllegalArgumentException<ul><li>wenn Name null ist</li> <li>wenn
-     * Name leer ist </li> <li>wenn Preis negativ ist</li> <li>wenn Türen kleiner
-     * null ist </li><ul>
+     *
+     * @throws IllegalArgumentException <ul><li>wenn Name null ist</li>
+     *                                  <li>wenn Name leer ist </li>
+     *                                  <li>wenn Preis negativ ist</li>
+     *                                  <li>wenn Türen kleiner null ist </li>
+     *                                  </ul>
+     *
+     * TODO Türen ist kein Argument, hier ist doors gemeint!
      */
     public ConcreteArticle createCloset(long articleId, String name, float price,
-            int material, int doors, boolean slope) {
+                                        int material, int doors, boolean slope) {
 
         // Check name 
         if (name == null) {
@@ -179,6 +204,6 @@ public class ArticleFactory {
         }
 
         return new ConcreteArticle(new Closet(articleId, name, price, material,
-                doors, slope), generator.getNextNumber());
+                                              doors, slope), generator.getNextNumber());
     }
 }

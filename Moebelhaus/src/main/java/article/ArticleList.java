@@ -8,14 +8,12 @@ import java.util.regex.Pattern;
  *
  * @author Simon
  */
-
-/*
- * * Liste der Articel die im System geführt werden Liste kann durch
- * verschiedene
- * Werte durchsucht werden Liste wird durchsucht, indem alle Elemente die dem
- * Suchkriterium entsprechen in eine NEUE LISTE vom selben Typ kopiert werden,
- * sodass beide Listen vorhanden sind. Dieses Vorgehen kann wiederholt
- * ausgeführt werden um die Liste immer weiter zu verkleinern
+/**
+ * Liste der Articel die im System geführt werden. Liste kann durch
+ * verschiedene Werte durchsucht werden. Liste wird durchsucht, indem alle
+ * Elemente die dem Suchkriterium entsprechen in eine NEUE LISTE vom selben Typ
+ * kopiert werden, sodass beide Listen vorhanden sind. Dieses Vorgehen kann
+ * wiederholt ausgeführt werden, um die Liste immer weiter zu verkleinern.
  */
 public class ArticleList {
 
@@ -28,7 +26,7 @@ public class ArticleList {
 
     /**
      *
-     * neuer Konstruktor zum Übertragen der List<ConcreteArticle> in eine
+     * neuer Konstruktor zum Übertragen der {@link List} in eine
      * {@link ArticleList}.
      *
      * @param articles Artikel der Liste
@@ -45,9 +43,10 @@ public class ArticleList {
      * @param article ein neuer Artikel
      *
      * @return {@code true} wenn der Artikel neu zur Liste hinzukam,
-     * {@code false} falls der Artikel bereits in der Liste ist
+     *         {@code false} falls der Artikel bereits in der Liste ist
      */
     public boolean add(ConcreteArticle article) {
+        // TODO implement add
         throw new UnsupportedOperationException("Not implemented yet.");
     }
 
@@ -56,9 +55,10 @@ public class ArticleList {
      * @param article der Artikel der aus der Liste zu entfernen ist
      *
      * @return {@code true} wenn der Artikel zuvor in der Liste war,
-     * {@code false} sonst
+     *         {@code false} sonst
      */
     public boolean remove(ConcreteArticle article) {
+        // TODO implement remove
         throw new UnsupportedOperationException();
     }
 
@@ -67,9 +67,10 @@ public class ArticleList {
      * @param article ein Artikel
      *
      * @return {@code true} wenn der Artikel in der Liste ist, {@code false}
-     * sonst
+     *         sonst
      */
     public boolean contains(ConcreteArticle article) {
+        // TODO implement contains
         throw new UnsupportedOperationException();
     }
 
@@ -82,7 +83,12 @@ public class ArticleList {
      * Durchsucht die Artikelliste nach einem Artikel anhand der UniqueId
      *
      * @param uid
+     *
      * @return {@link Article artikel}
+     *
+     * TODO param spezifizieren
+     * TODO return spezifizieren für den Fall, dass kein Artikel mit gegebener
+     * UID existiert
      */
     public ConcreteArticle getArticleByUniqueId(long uid) {
         for (ConcreteArticle article : articles) {
@@ -98,6 +104,7 @@ public class ArticleList {
      * zurück
      *
      * @param aid ArtikelId
+     *
      * @return {@link ArticleList searchlist}
      */
     public ArticleList getArticlesByArticleId(long aid) {
@@ -117,9 +124,11 @@ public class ArticleList {
      * Artikel zurück
      *
      * @param name Name des Artikels
+     *
      * @return {@link Articlelist searchlist}
+     *
      * @throws IllegalArgumentException <ul><li>wenn Name null ist</li><li>wenn
-     * name leer ist</li><li>wenn der name nicht dem Schema entspricht</li><ul>
+     *                                  name leer ist</li><li>wenn der name nicht dem Schema entspricht</li><ul>
      */
     public ArticleList getArticlesByName(String name) {
         if (name == null) {
@@ -149,8 +158,8 @@ public class ArticleList {
      * Durchsucht die Artikelliste nach einem Material und wirft eine Liste aus
      *
      * @param material Material des Artikels
-     * @return {@link ArticleList}
      *
+     * @return {@link ArticleList}
      */
     public ArticleList getArticlesByMaterial(int material) {
         List<ConcreteArticle> searchList = new ArrayList<ConcreteArticle>();
@@ -174,8 +183,9 @@ public class ArticleList {
      * @param upperBound untere Grenze des Preises
      *
      * @return {@link ArticleList}
+     *
      * @throws IllegalArgumentException <ul><li>wenn untere Schranke falsch
-     * ist</li><li>wenn oberer Schranke falsch ist</li><ul>
+     *                                  ist</li><li>wenn oberer Schranke falsch ist</li><ul>
      */
     public ArticleList getArticlesByPrice(float lowerBound, float upperBound) {
         if (Float.isNaN(lowerBound)) {
@@ -189,7 +199,7 @@ public class ArticleList {
 
         for (ConcreteArticle article : articles) {
             if (lowerBound <= article.getArticle().getPrice()
-                    || article.getArticle().getPrice() <= upperBound) {
+                || article.getArticle().getPrice() <= upperBound) {
                 searchList.add(article);
             }
         }
@@ -197,6 +207,7 @@ public class ArticleList {
         return new ArticleList(searchList);
     }
 
+    // TODO JavaDoc erzeugen :)
     public List<ConcreteArticle> toList() {
         return new ArrayList<ConcreteArticle>(articles);
     }

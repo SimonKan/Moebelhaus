@@ -21,6 +21,8 @@ public class ConcreteArticle {
     /**
      * Konstruktor der Klasse ConcreteArticle abhängig von einem Element article
      * vom Typ Article, sodass alle Attribute von Article übernommen werden.
+     * 
+     * TODO param-Tags hinzufügen
      */
     public ConcreteArticle(Article article, long uniqueId) {
         this.article = article;
@@ -37,6 +39,7 @@ public class ConcreteArticle {
         return this.article;
     }
 
+    // TODO JavaDoc erzeugen
     public long getUniqueId() {
         return this.uniqueId;
     }

@@ -11,9 +11,9 @@ public class Couch extends Article {
     private boolean corner;
     private boolean pullOut;
 
-
     /**
      * Konstruktor der Klasse Couch
+     *
      * @param articleId
      * @param name
      * @param price
@@ -27,9 +27,10 @@ public class Couch extends Article {
         this.corner = corner;
         this.pullOut = pullOut;
     }
-/*
- * Getter Methoden der ergänzten Attribute
- */
+    /*
+     * Getter Methoden der ergänzten Attribute
+     */
+
     public boolean getCorner() {
         return this.corner;
     }
