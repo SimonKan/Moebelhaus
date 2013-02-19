@@ -27,7 +27,6 @@ public class ArticleFactory {
     /**
      * Konstruktor der Klasse Bad
      *
-     * @param uniqueId   eindeutige Id des Artikels
      * @param articleId  Id des Artikels
      * @param name       Name des Artikels
      * @param price      Preis des Artikels
@@ -41,11 +40,8 @@ public class ArticleFactory {
      *                                  <li> wenn Name null ist</li>
      *                                  <li>wenn Name leer ist</li>
      *                                  <li> wenn Preis negativ</li>
-     *                                  <li>wenn Anzahl Spühlbecken negativ </li>
+     *                                  <li>wenn Anzahl numberSink negativ </li>
      *                                  <ul>
-     *
-     * TODO Anzahl Spülbecken ist kein Argument, hier ist wohl numberSink gemeint
-     * TODO uniqueId ist kein Argument, warum also @param-Tag?
      */
     public ConcreteArticle createBath(long articleId, String name,
                                       float price, int material,
@@ -131,9 +127,7 @@ public class ArticleFactory {
      *                                  <li>wenn Preis negativ ist </li>
      *                                  <li>wenn categorie leer ist</li>
      *                                  <ul>
-     *
-     * TODO überarbeite throws: categorie (engl. category):
-     * wann wird exception geworfen?
+
      */
     public ConcreteArticle createTable(long articleId, String name, float price,
                                        int material, boolean pullOut, int categorie) {
@@ -168,18 +162,17 @@ public class ArticleFactory {
      * @param name      Name des Artikels
      * @param price     Preis des Artikels
      * @param material  Material des Artikels
-     * @param doors
+     * @param doors  Anzahl der Türen 
      * @param slope
      *
      * @return {@link Article Closet}
      *
-     * @throws IllegalArgumentException <ul><li>wenn Name null ist</li>
-     *                                  <li>wenn Name leer ist </li>
-     *                                  <li>wenn Preis negativ ist</li>
-     *                                  <li>wenn Türen kleiner null ist </li>
+     * @throws IllegalArgumentException <ul><li>wenn name null ist</li>
+     *                                  <li>wenn name leer ist </li>
+     *                                  <li>wenn price negativ ist</li>
+     *                                  <li>wenn doors kleiner null ist </li>
      *                                  </ul>
      *
-     * TODO Türen ist kein Argument, hier ist doors gemeint!
      */
     public ConcreteArticle createCloset(long articleId, String name, float price,
                                         int material, int doors, boolean slope) {

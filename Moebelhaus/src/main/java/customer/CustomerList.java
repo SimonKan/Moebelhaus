@@ -1,20 +1,25 @@
 package customer;
 
-import java.util.Set;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Pattern;
 
-// TODO kleiner Tipp: hier sind überflüssige imports. Mit einem Klick auf das
-// gelbe Lämpchen kann Netbeans die imports "organisieren". ;)
-
-// TODO JavaDoc für die Klasse, ganz wichtig!!
+/**
+ * Klasse CustomerList enthält alle Customer.
+ *
+ * @param Customer
+ * @author Simon
+ */
 public class CustomerList {
 
     private List<Customer> customers;
 // Liste wird erstellt
 
-    // TODO JavaDoc für den Konstruktor, ganz wichtig
+    /**
+     * Konstruktor der Klasse CustomerList erzeugt die Liste.
+     *
+     * @param CustomerList
+     * @return Arraylist<Customer>
+     */
     public CustomerList() {
         customers = new ArrayList<Customer>();
     }
@@ -24,9 +29,8 @@ public class CustomerList {
      * neuer Konstruktor zum Übertragen der List<Customer> in eine
      * {@link ArticleList}.
      *
-     * @param articles Kunden der Liste
-     * 
-     * TODO falsches param-Tag!
+     * @param customer Kunden der Liste
+     *
      */
     public CustomerList(List<Customer> customer) {
         if (customer == null) {
@@ -40,7 +44,7 @@ public class CustomerList {
      * @param customer ein neuer Kunde
      *
      * @return {@code true} wenn der Kunde neu zur Liste hinzukam, {@code false}
-     *         falls der Kunde bereits in der Liste ist
+     * falls der Kunde bereits in der Liste ist
      */
     public boolean add(Customer customer) {
         // TODO implement add
@@ -52,7 +56,7 @@ public class CustomerList {
      * @param customer der Kunde der aus der Liste zu entfernen ist
      *
      * @return {@code true} wenn der Kunde zuvor in der Liste war, {@code false}
-     *         sonst
+     * sonst
      */
     public boolean remove(Customer customer) {
         // TODO implement remove
@@ -64,7 +68,7 @@ public class CustomerList {
      * @param customer ein Kunde
      *
      * @return {@code true} wenn der Artikel in der Liste ist, {@code false}
-     *         sonst
+     * sonst
      */
     public boolean contains(Customer customer) {
         // TODO implement contains
@@ -101,7 +105,7 @@ public class CustomerList {
      * @return {@link CustomerList searchlist}
      *
      * @throws IllegalArgumentException <ul><li>wenn FirstName null
-     *                                  ist</li><li>wenn FirstName leer ist</li><ul>
+     * ist</li><li>wenn FirstName leer ist</li><ul>
      */
     public CustomerList getCustomerByFirstName(String firstName) {
         if (firstName == null) {
@@ -126,7 +130,7 @@ public class CustomerList {
      * @return {@link Customerlist searchlist}
      *
      * @throws IllegalArgumentException <ul><li>wenn LastName null
-     *                                  ist</li><li>wenn LastName leer ist</li><ul>
+     * ist</li><li>wenn LastName leer ist</li><ul>
      */
     public CustomerList getCustomerByLastName(String lastName) {
         if (lastName == null) {
@@ -152,7 +156,7 @@ public class CustomerList {
      * @return {@link Customerlist searchlist}
      *
      * @throws IllegalArgumentException <ul><li>wenn Stadt null ist</li><li>wenn
-     *                                  Stadt leer ist</li><ul>
+     * Stadt leer ist</li><ul>
      */
     public CustomerList getCustomerByCity(String city) {
         if (city == null) {
@@ -178,7 +182,7 @@ public class CustomerList {
      * @return {@link Customerlist searchlist}
      *
      * @throws IllegalArgumentException <ul><li>wenn Straße null
-     *                                  ist</li><li>wenn Straße leer ist</li><ul>
+     * ist</li><li>wenn Straße leer ist</li><ul>
      */
     public CustomerList getCustomerByStreet(String street) {
         if (street == null) {
@@ -195,7 +199,11 @@ public class CustomerList {
         return new CustomerList(searchList);
     }
 
-    // TODO erstelle JavaDoc
+
+    /**
+     * @param customers
+     * @return ArrayList<Customer>
+     */
     public List<Customer> toList() {
         return new ArrayList<Customer>(customers);
     }

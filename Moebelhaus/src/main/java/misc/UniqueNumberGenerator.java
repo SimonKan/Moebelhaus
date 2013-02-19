@@ -18,7 +18,11 @@ public class UniqueNumberGenerator {
 
     private long number = 1;
 
-    // TODO auch diese Methode sollte eine JavaDoc besitzen
+    /**
+     * Generiert eine Zahlenreihe
+     *
+     * @return number
+     */
     public long getNextNumber() {
         return number++;
     }

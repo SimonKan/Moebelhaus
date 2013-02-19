@@ -115,30 +115,51 @@ public class AddressGermany {
     /*
      * Get Methoden zum Aufruf der einzelnen Werte der verschiedenen Attribute
      */
-    
-    // TODO JavaDoc für alle getter!!
-    // Bei gettern genügt es, das return-Tag anzugeben
 
+    /**
+     *
+     * @return firstName
+     */
     public String getFirstName() {
         return this.firstName;
     }
 
+    /**
+     *
+     * @return lastName
+     */
     public String getLastName() {
         return this.lastName;
     }
 
+    /**
+     *
+     * @return City
+     */
     public String getCity() {
         return this.city;
     }
 
+    /**
+     *
+     * @return Plz
+     */
     public int getPlz() {
         return this.plz;
     }
 
+    /**
+     *
+     * @return Street
+     */
     public String getStreet() {
         return this.street;
     }
 
+    /**
+     *
+     * @return HouseNumber
+     */
     public String getHouseNumber() {
         return this.houseNumber;
     }

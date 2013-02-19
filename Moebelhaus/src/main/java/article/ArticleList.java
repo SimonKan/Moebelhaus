@@ -82,12 +82,10 @@ public class ArticleList {
     /**
      * Durchsucht die Artikelliste nach einem Artikel anhand der UniqueId
      *
-     * @param uid
+     * @param uid UniqueId
      *
-     * @return {@link Article artikel}
-     *
-     * TODO param spezifizieren
-     * TODO return spezifizieren für den Fall, dass kein Artikel mit gegebener
+     * @return {@link Article artikel} Artikel vom Typ Article
+
      * UID existiert
      */
     public ConcreteArticle getArticleByUniqueId(long uid) {
@@ -207,7 +205,10 @@ public class ArticleList {
         return new ArticleList(searchList);
     }
 
-    // TODO JavaDoc erzeugen :)
+    /**
+     * Erzeugt eine Arraylist bestehend aus Articles
+     * @return {@link List<Concrete Article>}
+     */
     public List<ConcreteArticle> toList() {
         return new ArrayList<ConcreteArticle>(articles);
     }

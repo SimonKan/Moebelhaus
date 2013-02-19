@@ -24,12 +24,10 @@ public class Customer {
 
     /**
      *
-     * @param addressGermany die Adresse des zu erstellenden Kunden
+     * @param {@link addressGermany} die Adresse des zu erstellenden Kunden
      *
      * @return ein {@link Customer Kunde} mit der angegebenen Adresse und eine
-     *         UID
-     * 
-     * TODO @link für Adresse ;)
+     * UID
      */
     public static Customer create(AddressGermany addressGermany) {
 
@@ -51,11 +49,18 @@ public class Customer {
     /*
      * Get Methoden zum Aufruf von AddressGermany und der Id.
      */
+    /**
+     *
+     * @return {@link AddressGermany}
+     */
     public AddressGermany getAddressGermany() {
         return this.addressGermany;
     }
 
-    // TODO JavaDoc
+    /**
+     *
+     * @return {@link Id}
+     */
     public long getId() {
         return this.id;
     }
