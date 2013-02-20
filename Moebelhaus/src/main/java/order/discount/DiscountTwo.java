@@ -1,0 +1,40 @@
+/*
+ * DiscountTwo.java
+ *
+ * Created on 20.02.2013, 20:15:55
+ */
+package order.discount;
+
+import order.Order;
+
+/**
+ *
+ *
+ * @author Immanuel Haffner <s9imhaff@stud.uni-saarland.de>
+ * @since 20.02.2013
+ * @version 1.0.0
+ *
+ */
+public class DiscountTwo extends Discount {
+
+    private final float threshold;
+    private final float offtake;
+
+    public DiscountTwo(float threshold, float offtake) {
+        super(2);
+        if (offtake >= threshold) {
+            throw new IllegalArgumentException("offtake must be smaller than "
+                + "threshold");
+        }
+        this.threshold = threshold;
+        this.offtake = offtake;
+    }
+
+    @Override
+    public void apply(Order order) {
+        float price = order.getPrice();
+        if (price >= threshold) {
+            order.setPrice(price - offtake);
+        }
+    }
+}

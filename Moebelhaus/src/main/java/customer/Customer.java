@@ -24,12 +24,16 @@ public class Customer {
 
     /**
      *
-     * @param {@link addressGermany} die Adresse des zu erstellenden Kunden
+     * @param addressGermany die {@link AddressGermany Adresse} des zu
+     *                       erstellenden Kunden
      *
      * @return ein {@link Customer Kunde} mit der angegebenen Adresse und eine
-     * UID
+     *         UID
      */
     public static Customer create(AddressGermany addressGermany) {
+        if (addressGermany == null) {
+            throw new IllegalArgumentException("addressGermany was null");
+        }
 
         Customer customer = new Customer();
         customer.id = generator.getNextNumber();
@@ -63,5 +67,10 @@ public class Customer {
      */
     public long getId() {
         return this.id;
+    }
+
+    @Override
+    public String toString() {
+        return id + " - " + addressGermany.toString();
     }
 }

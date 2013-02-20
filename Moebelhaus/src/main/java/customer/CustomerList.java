@@ -2,11 +2,11 @@ package customer;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 /**
  * Klasse CustomerList enthält alle Customer.
  *
- * @param Customer
  * @author Simon
  */
 public class CustomerList {
@@ -17,11 +17,9 @@ public class CustomerList {
     /**
      * Konstruktor der Klasse CustomerList erzeugt die Liste.
      *
-     * @param CustomerList
-     * @return Arraylist<Customer>
      */
     public CustomerList() {
-        customers = new ArrayList<Customer>();
+        customers = new ArrayList<>();
     }
 
     /**
@@ -36,7 +34,7 @@ public class CustomerList {
         if (customer == null) {
             throw new IllegalArgumentException("customer was null");
         }
-        this.customers = new ArrayList<Customer>(customer);
+        this.customers = new ArrayList<>(customer);
     }
 
     /**
@@ -44,11 +42,14 @@ public class CustomerList {
      * @param customer ein neuer Kunde
      *
      * @return {@code true} wenn der Kunde neu zur Liste hinzukam, {@code false}
-     * falls der Kunde bereits in der Liste ist
+     *         falls der Kunde bereits in der Liste ist
      */
     public boolean add(Customer customer) {
-        // TODO implement add
-        throw new UnsupportedOperationException("Not implemented yet.");
+        boolean b = !customers.contains(customer);
+        if (b) {
+            customers.add(customer);
+        }
+        return b;
     }
 
     /**
@@ -56,7 +57,7 @@ public class CustomerList {
      * @param customer der Kunde der aus der Liste zu entfernen ist
      *
      * @return {@code true} wenn der Kunde zuvor in der Liste war, {@code false}
-     * sonst
+     *         sonst
      */
     public boolean remove(Customer customer) {
         // TODO implement remove
@@ -68,7 +69,7 @@ public class CustomerList {
      * @param customer ein Kunde
      *
      * @return {@code true} wenn der Artikel in der Liste ist, {@code false}
-     * sonst
+     *         sonst
      */
     public boolean contains(Customer customer) {
         // TODO implement contains
@@ -105,7 +106,7 @@ public class CustomerList {
      * @return {@link CustomerList searchlist}
      *
      * @throws IllegalArgumentException <ul><li>wenn FirstName null
-     * ist</li><li>wenn FirstName leer ist</li><ul>
+     *                                  ist</li><li>wenn FirstName leer ist</li><ul>
      */
     public CustomerList getCustomerByFirstName(String firstName) {
         if (firstName == null) {
@@ -115,10 +116,17 @@ public class CustomerList {
         if (firstName.isEmpty()) {
             throw new IllegalArgumentException("name is empty");
         }
-        List<Customer> searchList = new ArrayList<Customer>();
+        CustomerList searchList = new CustomerList();
 
+        Pattern pattern = Pattern.compile("\.*" + firstName + "\.*");
 
-        return new CustomerList(searchList);
+        for (Customer c : customers) {
+            if (pattern.matcher(c.getAddressGermany().getFirstName().toLowerCase()).matches()) {
+                searchList.add(c);
+            }
+        }
+
+        return searchList;
     }
 
     /**
@@ -127,10 +135,10 @@ public class CustomerList {
      *
      * @param lastName Name des Customer
      *
-     * @return {@link Customerlist searchlist}
+     * @return {@link CustomerList searchlist}
      *
      * @throws IllegalArgumentException <ul><li>wenn LastName null
-     * ist</li><li>wenn LastName leer ist</li><ul>
+     *                                  ist</li><li>wenn LastName leer ist</li><ul>
      */
     public CustomerList getCustomerByLastName(String lastName) {
         if (lastName == null) {
@@ -140,11 +148,17 @@ public class CustomerList {
         if (lastName.isEmpty()) {
             throw new IllegalArgumentException("lastName is empty");
         }
-        List<Customer> searchList = new ArrayList<Customer>();
+        CustomerList searchList = new CustomerList();
 
+        Pattern pattern = Pattern.compile("\.*" + lastName + "\.*");
 
+        for (Customer c : customers) {
+            if (pattern.matcher(c.getAddressGermany().getLastName().toLowerCase()).matches()) {
+                searchList.add(c);
+            }
+        }
 
-        return new CustomerList(searchList);
+        return searchList;
     }
 
     /**
@@ -153,10 +167,10 @@ public class CustomerList {
      *
      * @param city Stadt des Customer
      *
-     * @return {@link Customerlist searchlist}
+     * @return {@link CustomerList searchlist}
      *
      * @throws IllegalArgumentException <ul><li>wenn Stadt null ist</li><li>wenn
-     * Stadt leer ist</li><ul>
+     *                                  Stadt leer ist</li><ul>
      */
     public CustomerList getCustomerByCity(String city) {
         if (city == null) {
@@ -166,11 +180,17 @@ public class CustomerList {
         if (city.isEmpty()) {
             throw new IllegalArgumentException("city is empty");
         }
-        List<Customer> searchList = new ArrayList<Customer>();
+        CustomerList searchList = new CustomerList();
 
+        Pattern pattern = Pattern.compile("\.*" + city + "\.*");
 
+        for (Customer c : customers) {
+            if (pattern.matcher(c.getAddressGermany().getCity().toLowerCase()).matches()) {
+                searchList.add(c);
+            }
+        }
 
-        return new CustomerList(searchList);
+        return searchList;
     }
 
     /**
@@ -179,10 +199,10 @@ public class CustomerList {
      *
      * @param street Straße Customer
      *
-     * @return {@link Customerlist searchlist}
+     * @return {@link CustomerList searchlist}
      *
      * @throws IllegalArgumentException <ul><li>wenn Straße null
-     * ist</li><li>wenn Straße leer ist</li><ul>
+     *                                  ist</li><li>wenn Straße leer ist</li><ul>
      */
     public CustomerList getCustomerByStreet(String street) {
         if (street == null) {
@@ -192,19 +212,23 @@ public class CustomerList {
         if (street.isEmpty()) {
             throw new IllegalArgumentException("street is empty");
         }
-        List<Customer> searchList = new ArrayList<Customer>();
+        CustomerList searchList = new CustomerList();
 
+        Pattern pattern = Pattern.compile("\.*" + street + "\.*");
 
+        for (Customer c : customers) {
+            if (pattern.matcher(c.getAddressGermany().getStreet().toLowerCase()).matches()) {
+                searchList.add(c);
+            }
+        }
 
-        return new CustomerList(searchList);
+        return searchList;
     }
 
-
     /**
-     * @param customers
      * @return ArrayList<Customer>
      */
     public List<Customer> toList() {
-        return new ArrayList<Customer>(customers);
+        return new ArrayList<>(customers);
     }
 }

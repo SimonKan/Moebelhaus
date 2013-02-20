@@ -82,7 +82,7 @@ public class AddressGermany {
         if (houseNumber.isEmpty()) {
             throw new IllegalArgumentException("houseNumber was empty");
         }
-        if (!houseNumber.matches("\\d+[a-zA-Z]")) {
+        if (!houseNumber.matches("\\d+[a-zA-Z]?")) {
             throw new IllegalArgumentException("houseNumber '" + houseNumber
                 + "' invalid");
         }
@@ -165,6 +165,7 @@ public class AddressGermany {
 
     @Override
     public String toString() {
-        throw new UnsupportedOperationException();
+        return firstName + " " + lastName + ", "
+            + plz + " " + city + ", " + street + " " + houseNumber;
     }
 }

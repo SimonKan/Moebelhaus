@@ -15,10 +15,19 @@ import order.Order;
  * @version 1.0.0
  *
  */
-public class DiscountOne implements Discount {
+public class DiscountOne extends Discount {
 
+    private final float percentage0;
+    private final float percentage1;
+
+    public DiscountOne(float percentage0, float percentage1) {
+        super(1);
+        this.percentage0 = percentage0;
+        this.percentage1 = percentage1;
+    }
+
+    @Override
     public void apply(Order order) {
-        // TODO implement apply
-        throw new UnsupportedOperationException("Not supported yet.");
+        order.setPrice(order.getPrice() * (1 - percentage0) * (1 - percentage1));
     }
 }

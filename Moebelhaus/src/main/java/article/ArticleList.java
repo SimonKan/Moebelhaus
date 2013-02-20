@@ -21,7 +21,7 @@ public class ArticleList {
 // Liste wird erstellt
 
     public ArticleList() {
-        articles = new ArrayList<ConcreteArticle>();
+        articles = new ArrayList<>();
     }
 
     /**
@@ -35,7 +35,7 @@ public class ArticleList {
         if (articles == null) {
             throw new IllegalArgumentException("articles was null");
         }
-        this.articles = new ArrayList<ConcreteArticle>(articles);
+        this.articles = new ArrayList<>(articles);
     }
 
     /**
@@ -120,7 +120,7 @@ public class ArticleList {
      * @return {@link ArticleList searchlist}
      */
     public ArticleList getArticlesByArticleId(long aid) {
-        List<ConcreteArticle> searchList = new ArrayList<ConcreteArticle>();
+        ArticleList searchList = new ArticleList();
 
         for (ConcreteArticle article : articles) {
             if (article.getArticle().getArticleId() == aid) {
@@ -128,7 +128,7 @@ public class ArticleList {
             }
         }
 
-        return new ArticleList(searchList);
+        return searchList;
     }
 
     /**
@@ -150,20 +150,20 @@ public class ArticleList {
         if (name.isEmpty()) {
             throw new IllegalArgumentException("name is empty");
         }
-        List<ConcreteArticle> searchList = new ArrayList<ConcreteArticle>();
+        ArticleList searchList = new ArticleList();
 
         /*
          * Ermöglicht das Suchen von Stichwörtern wie "Stuhl" Sodass alle Stühle
          * gefunden werden und nicht der GrüneStuhl draußen bleibt
          */
-        Pattern pattern = Pattern.compile("\\.*" + name + "\\.*");
+        Pattern pattern = Pattern.compile("\.*" + name + "\.*");
 
         for (ConcreteArticle article : articles) {
             if (pattern.matcher(article.getArticle().getName().toLowerCase()).matches()) {
                 searchList.add(article);
             }
         }
-        return new ArticleList(searchList);
+        return searchList;
     }
 
     /**
@@ -174,7 +174,7 @@ public class ArticleList {
      * @return {@link ArticleList}
      */
     public ArticleList getArticlesByMaterial(int material) {
-        List<ConcreteArticle> searchList = new ArrayList<ConcreteArticle>();
+        ArticleList searchList = new ArticleList();
 
         for (ConcreteArticle article : articles) {
             if (article.getArticle().getMaterial() == material) {
@@ -182,7 +182,7 @@ public class ArticleList {
             }
         }
 
-        return new ArticleList(searchList);
+        return searchList;
     }
 
     /**
@@ -207,7 +207,7 @@ public class ArticleList {
             throw new IllegalArgumentException("upperBound was NaN");
         }
 
-        List<ConcreteArticle> searchList = new ArrayList<ConcreteArticle>();
+        ArticleList searchList = new ArticleList();
 
         for (ConcreteArticle article : articles) {
             if (lowerBound <= article.getArticle().getPrice()
@@ -216,7 +216,7 @@ public class ArticleList {
             }
         }
 
-        return new ArticleList(searchList);
+        return searchList;
     }
 
     /**
@@ -225,6 +225,6 @@ public class ArticleList {
      * @return {@link List<Concrete Article>}
      */
     public List<ConcreteArticle> toList() {
-        return new ArrayList<ConcreteArticle>(articles);
+        return new ArrayList<>(articles);
     }
 }

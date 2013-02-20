@@ -9,7 +9,7 @@ import order.Order;
 
 /**
  * Discount realisiert ein KommandPattern Die Order ruft die Methode apply des
- * Discounts auf, sodass Discount auf die Summe der Order angewand wird
+ * Discounts auf, sodass Discount auf die Summe der Order angewandt wird
  *
  * @author Simon
  * @since 04.02.2013
@@ -25,8 +25,6 @@ public abstract class Discount implements Comparable<Discount> {
     }
 
     /**
-     * TODO Implementiern
-     *
      * @param order
      */
     public abstract void apply(Order order);
