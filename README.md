@@ -1,6 +1,6 @@
 Möbelhaus
 =========
 
-Description
+Beschreibung
 -----------
 Coming soon.
