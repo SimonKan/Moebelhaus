@@ -8,7 +8,9 @@ package order.discount;
 import order.Order;
 
 /**
- * TODO hier muss noch eine ordentliche Beschreibung des interface hin!
+ * Discount realisiert ein KommandPattern
+ * Die Order ruft die Methode apply des Discounts auf, sodass Discount auf die
+ * Summe der Order angewand wird
  *
  * @author Simon
  * @since 04.02.2013
@@ -17,6 +19,9 @@ import order.Order;
  */
 public interface Discount {
 
-    // TODO JavaDoc
+    /**
+     * TODO Implementiern
+     * @param order
+     */
     void apply(Order order);
 }

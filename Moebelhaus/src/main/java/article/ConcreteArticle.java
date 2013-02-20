@@ -48,4 +48,21 @@ public class ConcreteArticle {
     public long getUniqueId() {
         return this.uniqueId;
     }
+    
+    @Override
+    public int hashCode() {
+        return (int) uniqueId;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final ConcreteArticle other = (ConcreteArticle) obj;
+        return this.uniqueId == other.uniqueId;
+    }
 }

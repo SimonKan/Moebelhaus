@@ -27,14 +27,13 @@ public class AddressGermany {
      *                                  <li>wenn lastName leer ist </li>
      *                                  <li>wenn city null ist </li>
      *                                  <li>wenn city leer ist </li>
-     *                                  <li>wenn plz zu groß ist </li>
+     *                                  <li>wenn plz zuviele Stellen hat</li>
      *                                  <li>wenn street null ist </li>
      *                                  <li>wenn street leer ist </li>
      *                                  <li>wenn houseNumber null ist </li>
      *                                  <li>wenn houseNumber leer ist </li>
      *                                  </ul>
-     * 
-     * TODO throws für argument plz überarbeiten
+     *
      */
     public static AddressGermany create(String firstName, String lastName,
                                         String city, int plz, String street,

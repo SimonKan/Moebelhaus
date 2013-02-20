@@ -44,10 +44,20 @@ public class ArticleList {
      *
      * @return {@code true} wenn der Artikel neu zur Liste hinzukam,
      *         {@code false} falls der Artikel bereits in der Liste ist
+     *
+     * @throws IllegalArgumentException <ul>
+     *                                  <li>if article is null</li>
+     *                                  </ul>
      */
     public boolean add(ConcreteArticle article) {
-        // TODO implement add
-        throw new UnsupportedOperationException("Not implemented yet.");
+        if (article == null) {
+            throw new IllegalArgumentException("article was null");
+        }
+        if (!articles.contains(article)) {
+            articles.add(article);
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -58,8 +68,10 @@ public class ArticleList {
      *         {@code false} sonst
      */
     public boolean remove(ConcreteArticle article) {
-        // TODO implement remove
-        throw new UnsupportedOperationException();
+        if (article == null) {
+            throw new IllegalArgumentException("article was null");
+        }
+        return articles.remove(article);
     }
 
     /**
@@ -70,8 +82,10 @@ public class ArticleList {
      *         sonst
      */
     public boolean contains(ConcreteArticle article) {
-        // TODO implement contains
-        throw new UnsupportedOperationException();
+        if (article == null) {
+            throw new IllegalArgumentException("article was null");
+        }
+        return articles.contains(article);
     }
 
     /*
@@ -85,7 +99,7 @@ public class ArticleList {
      * @param uid UniqueId
      *
      * @return {@link Article artikel} Artikel vom Typ Article
-
+     *
      * UID existiert
      */
     public ConcreteArticle getArticleByUniqueId(long uid) {
@@ -207,6 +221,7 @@ public class ArticleList {
 
     /**
      * Erzeugt eine Arraylist bestehend aus Articles
+     *
      * @return {@link List<Concrete Article>}
      */
     public List<ConcreteArticle> toList() {

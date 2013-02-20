@@ -5,27 +5,24 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 import misc.UniqueNumberGenerator;
+import order.discount.Discount;
 
 /**
  * Eine Bestellung von Artikeln
  *
  * @author Simon
- * @param id eine OrderId
- * @param price Preis der Order
- * @param orderingDate Tag der Order
- * @param bookingDate Tag der Buchung
- * @param deliveryDate Tag der Lierferung
- * @param tax Steuern
- *
- * @return Order
  *
  */
 public class Order {
 
     private static UniqueNumberGenerator generator = new UniqueNumberGenerator();
 
+    /**
+     *
+     * @return Die Order ist leer und hat keinen Preis.
+     *
+     */
     public static Order create() {
-        //TODO create consistency checks for the factory method
 
         Order order = new Order();
 
@@ -33,12 +30,14 @@ public class Order {
         order.orderingDate = GregorianCalendar.getInstance().getTime();
         order.bookingDate = null;
         order.deliveryDate = null;
-        // TODO initialize price, tax
+        order.tax = 0.19f;
+        order.price = 0f;
 
         return order;
     }
     private long id;
     private List<ConcreteArticle> articles;
+    private List<Discount> discounts;
     private float price;
     private Date orderingDate;
     private Date bookingDate;
@@ -61,7 +60,13 @@ public class Order {
      * @return price Preis
      */
     public float getPrice() {
-        return this.price;
+        float sum = 0f;
+        for(ConcreteArticle article : articles) {
+            sum += article.getArticle().getPrice();
+        }
+        sum += sum * tax;
+        
+        return sum;
     }
 
     /**
@@ -102,7 +107,7 @@ public class Order {
         }
         if (date.before(orderingDate)) {
             throw new IllegalArgumentException("bookingDate '" + bookingDate
-                    + "' cannot be before orderingDate '" + orderingDate + "'");
+                + "' cannot be before orderingDate '" + orderingDate + "'");
         }
         bookingDate = date;
     }
@@ -127,6 +132,7 @@ public class Order {
      * Legt das Lieferdatum fest
      *
      * @param date
+     *
      * @ return deliveryDate Lieferdatum
      */
     public void setDeliveryDate(Date date) {
@@ -138,7 +144,7 @@ public class Order {
         }
         if (date.before(orderingDate)) {
             throw new IllegalArgumentException("deliveryDate '" + bookingDate
-                    + "' cannot be before orderingDate '" + orderingDate + "'");
+                + "' cannot be before orderingDate '" + orderingDate + "'");
         }
         deliveryDate = date;
     }
