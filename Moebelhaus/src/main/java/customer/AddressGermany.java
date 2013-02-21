@@ -13,8 +13,8 @@ public class AddressGermany {
      *
      * @param firstName   der Vorname
      * @param lastName    der Nachname
-     * @param city        die Stadt
      * @param plz         die Postleitzahl
+     * @param city        die Stadt
      * @param street      der Straßenname
      * @param houseNumber die Hausnummer
      *
@@ -36,7 +36,8 @@ public class AddressGermany {
      *
      */
     public static AddressGermany create(String firstName, String lastName,
-                                        String city, int plz, String street,
+                                        int plz,
+                                        String city, String street,
                                         String houseNumber) {
         //Check fistnName
         if (firstName == null) {
@@ -82,7 +83,7 @@ public class AddressGermany {
         if (houseNumber.isEmpty()) {
             throw new IllegalArgumentException("houseNumber was empty");
         }
-        if (!houseNumber.matches("\\d+[a-zA-Z]?")) {
+        if (!houseNumber.matches("\\d+[a-z]?")) {
             throw new IllegalArgumentException("houseNumber '" + houseNumber
                 + "' invalid");
         }

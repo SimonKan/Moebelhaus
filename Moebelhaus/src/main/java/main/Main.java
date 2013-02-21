@@ -5,10 +5,13 @@
  */
 package main;
 
-import controller.Controller;
-import controller.CustomerController;
-import controller.MainNavigator;
-import controller.SearchNavigator;
+import controller.CustomerManagementController;
+import controller.CustomerSearchController;
+import controller.StatisticsController;
+import controller.navigator.ArticleNavigator;
+import controller.navigator.CustomerNavigator;
+import controller.navigator.MainNavigator;
+import controller.navigator.OrderNavigator;
 import customer.AddressGermany;
 import customer.Customer;
 
@@ -28,21 +31,28 @@ public class Main {
         Model model = Model.create();
 
         model.getCustomerList().add(Customer.create(AddressGermany.create(
-            "Hans", "Lollo", "Saarbrücken", 66111, "Im Flitzepuff", "12")));
+            "Hans", "Lollo", 66111, "Saarbrücken", "Im Flitzepuff", "12")));
 
         model.getCustomerList().add(Customer.create(AddressGermany.create(
-            "Max", "Mustermann", "Saarbrücken", 66111, "Im Flitzepuff", "12")));
+            "Max", "Mustermann", 66111, "Saarbrücken", "Im Flitzepuff", "12")));
 
         model.getCustomerList().add(Customer.create(AddressGermany.create(
-            "Dieter", "Schmitt", "Saarbrücken", 66111, "Im Flitzepuff", "12")));
+            "Dieter", "Schmitt", 66111, "Saarbrücken", "Im Flitzepuff", "12")));
+
+        CustomerNavigator cn = new CustomerNavigator(model);
+        cn.add(new CustomerManagementController(model));
+        cn.add(new CustomerSearchController(model));
+
+        OrderNavigator on = new OrderNavigator(model);
+
+        ArticleNavigator an = new ArticleNavigator(model);
 
 
         MainNavigator main = new MainNavigator(model);
-        SearchNavigator sn = new SearchNavigator(model);
-        CustomerController cc = new CustomerController(model);
-
-        sn.add(cc);
-        main.add(sn);
+        main.add(an);
+        main.add(cn);
+        main.add(on);
+        main.add(new StatisticsController(model));
 
         main.execute(0);
     }

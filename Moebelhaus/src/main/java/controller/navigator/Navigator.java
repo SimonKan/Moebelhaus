@@ -1,5 +1,6 @@
-package controller;
+package controller.navigator;
 
+import controller.Controller;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

@@ -3,8 +3,9 @@
  *
  * Created on 20.02.2013, 22:11:53
  */
-package controller;
+package controller.navigator;
 
+import controller.Controller;
 import main.Model;
 
 /**
@@ -33,13 +34,14 @@ public class MainNavigator extends Navigator {
 
     @Override
     public void showMenu() {
-        println("Willkommen im Möbelhaus Management System.\n");
+        println("Willkommen im Möbelhaus Management System.");
         println("Von hier aus stehen Ihnen eine Liste von Möglichkeiten zur");
-        println("Verfügung.\n");
+        println("Verfügung.");
         println("Zum Auswählen geben Sie entweder die Nummer oder den Befehl ");
-        println("in den runden Klammern ein.\n");
+        println("in den runden Klammern ein.");
         println("Um das Programm zu Beenden, geben Sie 'exit' ein. Um den ");
-        println("aktuellen Vorgang abzubrechen, geben Sie 'abort' ein.\n");
+        println("aktuellen Vorgang abzubrechen, geben Sie 'abort' ein.");
+        println("");
         super.showMenu();
     }
 
@@ -80,7 +82,6 @@ public class MainNavigator extends Navigator {
                 println("(!) Fehlerhafte Eingabe, versuchen Sie es erneut.");
                 println("");
                 println("");
-                super.showMenu();
             } else {
                 result = FAILURE;
                 println("");

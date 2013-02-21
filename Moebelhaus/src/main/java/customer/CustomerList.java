@@ -1,7 +1,10 @@
 package customer;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import order.Order;
 
 /**
  * Klasse CustomerList enthält alle Customer.
@@ -59,8 +62,7 @@ public class CustomerList {
      *         sonst
      */
     public boolean remove(Customer customer) {
-        // TODO implement remove
-        throw new UnsupportedOperationException();
+        return customers.remove(customer);
     }
 
     /**
@@ -71,8 +73,21 @@ public class CustomerList {
      *         sonst
      */
     public boolean contains(Customer customer) {
-        // TODO implement contains
-        throw new UnsupportedOperationException();
+        return customers.contains(customer);
+    }
+
+    public void sortByUniqueId(final boolean ascendent) {
+
+        Collections.sort(customers, new Comparator<Customer>() {
+            @Override
+            public int compare(Customer o1, Customer o2) {
+                int r = (int) (o1.getId() - o2.getId());
+                if (ascendent) {
+                    return r;
+                }
+                return -r;
+            }
+        });
     }
 
     /*

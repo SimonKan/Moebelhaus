@@ -1,9 +1,9 @@
 /*
- * SearchNavigator.java
+ * ArticleNavigator.java
  *
- * Created on 20.02.2013, 22:23:37
+ * Created on 21.02.2013, 13:38:09
  */
-package controller;
+package controller.navigator;
 
 import main.Model;
 
@@ -11,29 +11,29 @@ import main.Model;
  *
  *
  * @author Immanuel Haffner <s9imhaff@stud.uni-saarland.de>
- * @since 20.02.2013
+ * @since 21.02.2013
  * @version 1.0.0
  *
  */
-public class SearchNavigator extends Navigator {
+public class ArticleNavigator extends Navigator {
 
-    public SearchNavigator(Model model) {
+    public ArticleNavigator(Model model) {
         super(model);
     }
 
     @Override
     public String getName() {
-        return "Suchen";
+        return "Artikel";
     }
 
     @Override
     public String getToken() {
-        return "search";
+        return "article";
     }
-    
+
     @Override
     public void showMenu() {
-        println("Wählen Sie einen Bereich aus, den Sie durchsuchen möchten.");
+        println("Articlecontroller");
         println("");
         super.showMenu();
     }
