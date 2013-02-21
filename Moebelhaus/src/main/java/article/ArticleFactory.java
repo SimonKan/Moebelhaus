@@ -127,7 +127,7 @@ public class ArticleFactory {
      *                                  <li>wenn Preis negativ ist </li>
      *                                  <li>wenn categorie leer ist</li>
      *                                  <ul>
-
+     *
      */
     public ConcreteArticle createTable(long articleId, String name, float price,
                                        int material, boolean pullOut, int categorie) {
@@ -162,7 +162,7 @@ public class ArticleFactory {
      * @param name      Name des Artikels
      * @param price     Preis des Artikels
      * @param material  Material des Artikels
-     * @param doors  Anzahl der Türen 
+     * @param doors     Anzahl der Türen
      * @param slope
      *
      * @return {@link Article Closet}

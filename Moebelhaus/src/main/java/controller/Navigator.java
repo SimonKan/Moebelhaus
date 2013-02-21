@@ -1,5 +1,8 @@
 package controller;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import main.Model;
 
 /**
@@ -7,36 +10,73 @@ import main.Model;
  * @author Simon
  */
 public abstract class Navigator extends Controller {
-    
+
+    protected final List<Controller> controllers;
+
     public Navigator(Model model) {
         super(model);
+        controllers = new ArrayList<>();
+    }
+
+    public void add(Controller c) {
+        if (!controllers.contains(c)) {
+            controllers.add(c);
+        }
+    }
+
+    public void remove(Controller c) {
+        controllers.remove(c);
+    }
+
+    @Override
+    public void showMenu() {
+        for (int i = 0; i < controllers.size(); i++) {
+            println("\t" + (i + 1) + ") " + controllers.get(i).getName()
+                + " (" + controllers.get(i).getToken() + ")");
+        }
+        println("");
     }
 
     @Override
     protected int read() {
         int result = FAILURE;
+        showMenu();
         do {
+            print("Eingabe: ");
             String in = input.next();
-            if ("abort".equals(in)) {
-                return ABORT;
-            }
             if ("exit".equals(in)) {
                 return EXIT;
             }
+            if ("abort".equals(in)) {
+                return ABORT;
+            }
+            if ("help".equals(in)) {
+                println("");
+                println("");
+                showMenu();
+                continue;
+            }
             for (Controller c : controllers) {
                 if (in.equals(c.getToken())) {
+                    println("");
+                    println("");
+
                     result = SUCCESS;
                     int successor = c.execute(getOffset() + 1);
 
-                    if (successor == EXIT) {
-                        return EXIT;
-                    }
                     if (successor == FAILURE) {
                         throw new IllegalStateException(
                             "cannot return with FAILURE");
                     }
-                    return result;
+                    if (successor == EXIT) {
+                        return EXIT;
+                    }
                 }
+            }
+            if (result == FAILURE) {
+                println("(!) Fehlerhafte Eingabe, versuchen Sie es erneut.");
+                println("");
+                println("");
             }
         } while (result == FAILURE);
         return result;

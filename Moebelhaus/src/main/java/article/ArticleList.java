@@ -2,7 +2,6 @@ package article;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Pattern;
 
 /**
  *
@@ -152,14 +151,8 @@ public class ArticleList {
         }
         ArticleList searchList = new ArticleList();
 
-        /*
-         * Ermöglicht das Suchen von Stichwörtern wie "Stuhl" Sodass alle Stühle
-         * gefunden werden und nicht der GrüneStuhl draußen bleibt
-         */
-        Pattern pattern = Pattern.compile("\.*" + name + "\.*");
-
         for (ConcreteArticle article : articles) {
-            if (pattern.matcher(article.getArticle().getName().toLowerCase()).matches()) {
+            if (article.getArticle().getName().toLowerCase().contains(name)) {
                 searchList.add(article);
             }
         }

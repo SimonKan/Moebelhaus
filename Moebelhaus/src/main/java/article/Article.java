@@ -6,9 +6,10 @@ package article;
  *
  * @author Simon
  * @param articleId eindeutige Id des Artikels
- * @param name Name des Artikels
- * @param price Preis des Artikels
- * @param material Material des Artikels 
+ * @param name      Name des Artikels
+ * @param price     Preis des Artikels
+ * @param material  Material des Artikels
+ *
  * @return Article
  */
 public abstract class Article {
@@ -22,12 +23,12 @@ public abstract class Article {
      * Konstruktor der Klasse Article
      *
      * @param articleId eindeutige Id des Artikels
-     * @param name Name des Artikels
-     * @param price Preis des Artikels
-     * @param material Material des Artikels
+     * @param name      Name des Artikels
+     * @param price     Preis des Artikels
+     * @param material  Material des Artikels
      */
     public Article(long articleId, String name, float price,
-            int material) {
+                   int material) {
 
         this.articleId = articleId;
         this.name = name;

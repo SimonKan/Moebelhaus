@@ -29,8 +29,8 @@ public class Order {
         Order order = new Order();
 
         order.id = generator.getNextNumber();
-        order.articles = new ArrayList<ConcreteArticle>();
-        order.discounts = new ArrayList<Discount>();
+        order.articles = new ArrayList<>();
+        order.discounts = new ArrayList<>();
         order.orderingDate = GregorianCalendar.getInstance().getTime();
         order.bookingDate = null;
         order.deliveryDate = null;
@@ -91,7 +91,7 @@ public class Order {
     }
 
     public List<Discount> getDiscounts() {
-        return new ArrayList<Discount>(discounts);
+        return new ArrayList<>(discounts);
     }
 
     /**

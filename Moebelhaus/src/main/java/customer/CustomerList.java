@@ -2,7 +2,6 @@ package customer;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Pattern;
 
 /**
  * Klasse CustomerList enthält alle Customer.
@@ -118,10 +117,8 @@ public class CustomerList {
         }
         CustomerList searchList = new CustomerList();
 
-        Pattern pattern = Pattern.compile("\.*" + firstName + "\.*");
-
         for (Customer c : customers) {
-            if (pattern.matcher(c.getAddressGermany().getFirstName().toLowerCase()).matches()) {
+            if (c.getAddressGermany().getFirstName().toLowerCase().contains(firstName)) {
                 searchList.add(c);
             }
         }
@@ -150,10 +147,26 @@ public class CustomerList {
         }
         CustomerList searchList = new CustomerList();
 
-        Pattern pattern = Pattern.compile("\.*" + lastName + "\.*");
+        for (Customer c : customers) {
+            if (c.getAddressGermany().getLastName().toLowerCase().contains(lastName)) {
+                searchList.add(c);
+            }
+        }
+
+        return searchList;
+    }
+
+    /**
+     *
+     * @param plz
+     *
+     * @return
+     */
+    public CustomerList getCustomerByPlz(int plz) {
+        CustomerList searchList = new CustomerList();
 
         for (Customer c : customers) {
-            if (pattern.matcher(c.getAddressGermany().getLastName().toLowerCase()).matches()) {
+            if (plz == c.getAddressGermany().getPlz()) {
                 searchList.add(c);
             }
         }
@@ -182,10 +195,8 @@ public class CustomerList {
         }
         CustomerList searchList = new CustomerList();
 
-        Pattern pattern = Pattern.compile("\.*" + city + "\.*");
-
         for (Customer c : customers) {
-            if (pattern.matcher(c.getAddressGermany().getCity().toLowerCase()).matches()) {
+            if (c.getAddressGermany().getCity().toLowerCase().contains(city)) {
                 searchList.add(c);
             }
         }
@@ -214,10 +225,8 @@ public class CustomerList {
         }
         CustomerList searchList = new CustomerList();
 
-        Pattern pattern = Pattern.compile("\.*" + street + "\.*");
-
         for (Customer c : customers) {
-            if (pattern.matcher(c.getAddressGermany().getStreet().toLowerCase()).matches()) {
+            if (c.getAddressGermany().getStreet().toLowerCase().contains(street)) {
                 searchList.add(c);
             }
         }

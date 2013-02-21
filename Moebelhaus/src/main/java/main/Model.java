@@ -19,15 +19,20 @@ import order.OrderList;
  */
 public class Model {
 
-    private final ArticleList articleList;
-    private final OrderList orderList;
-    private final CustomerList customerList;
+    public static Model create() {
+        Model model = new Model();
 
-    public Model(ArticleList articleList, OrderList orderList,
-                 CustomerList customerList) {
-        this.articleList = articleList;
-        this.orderList = orderList;
-        this.customerList = customerList;
+        model.articleList = new ArticleList();
+        model.customerList = new CustomerList();
+        model.orderList = new OrderList();
+
+        return model;
+    }
+    private ArticleList articleList;
+    private OrderList orderList;
+    private CustomerList customerList;
+
+    private Model() {
     }
 
     public ArticleList getArticleList() {

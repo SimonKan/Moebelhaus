@@ -8,7 +8,7 @@ package order.discount;
 import order.Order;
 
 /**
- * Discount realisiert ein KommandPattern Die Order ruft die Methode apply des
+ * Discount realisiert ein CommandPattern Die Order ruft die Methode apply des
  * Discounts auf, sodass Discount auf die Summe der Order angewandt wird
  *
  * @author Simon

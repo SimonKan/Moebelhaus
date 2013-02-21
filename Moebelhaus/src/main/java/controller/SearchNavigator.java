@@ -6,7 +6,6 @@
 package controller;
 
 import main.Model;
-import main.Model;
 
 /**
  *
@@ -23,13 +22,19 @@ public class SearchNavigator extends Navigator {
     }
 
     @Override
-    public String getToken() {
-        return "search";
+    public String getName() {
+        return "Suchen";
     }
 
     @Override
-    protected void introduce() {
-        println("Was möchten Sie durchsuchen?");
-        println("Customer | Article | Order");
+    public String getToken() {
+        return "search";
+    }
+    
+    @Override
+    public void showMenu() {
+        println("Wählen Sie einen Bereich aus, den Sie durchsuchen möchten.");
+        println("");
+        super.showMenu();
     }
 }

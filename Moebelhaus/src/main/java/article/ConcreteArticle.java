@@ -18,10 +18,11 @@ public class ConcreteArticle {
     private Article article;
     private long uniqueId;
 
-    /**Konstruktor der Klasse ConcreteArticle abhängig von einem Element article
+    /**
+     * Konstruktor der Klasse ConcreteArticle abhängig von einem Element article
      * vom Typ Article, sodass alle Attribute von Article übernommen werden.
      *
-     * @param article ein Artikel
+     * @param article  ein Artikel
      * @param uniqueId eine UniqueId
      */
     public ConcreteArticle(Article article, long uniqueId) {
@@ -32,8 +33,8 @@ public class ConcreteArticle {
     /*
      * Get Methoden zum Aufruf der uniqueId und zum Aufruf des ursprünglichen
      * Articles der eingeschlossen wurde
-
-    /**
+     *
+     * /**
      *
      * @return {@link Article}
      */
@@ -48,7 +49,7 @@ public class ConcreteArticle {
     public long getUniqueId() {
         return this.uniqueId;
     }
-    
+
     @Override
     public int hashCode() {
         return (int) uniqueId;
