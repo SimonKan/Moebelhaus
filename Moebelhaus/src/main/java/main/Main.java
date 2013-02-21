@@ -30,6 +30,7 @@ public class Main {
     public static void main(String[] args) {
         Model model = Model.create();
 
+        
         model.getCustomerList().add(Customer.create(AddressGermany.create(
             "Hans", "Lollo", 66111, "Saarbrücken", "Im Flitzepuff", "12")));
 
@@ -39,6 +40,7 @@ public class Main {
         model.getCustomerList().add(Customer.create(AddressGermany.create(
             "Dieter", "Schmitt", 66111, "Saarbrücken", "Im Flitzepuff", "12")));
 
+        
         CustomerNavigator cn = new CustomerNavigator(model);
         cn.add(new CustomerManagementController(model));
         cn.add(new CustomerSearchController(model));

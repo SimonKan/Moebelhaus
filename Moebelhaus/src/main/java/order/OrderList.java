@@ -6,7 +6,6 @@
 package order;
 
 import article.ArticleList;
-import article.ConcreteArticle;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -14,7 +13,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * TODO
+ * TODO JavaDoc
  *
  * @author Simon
  */

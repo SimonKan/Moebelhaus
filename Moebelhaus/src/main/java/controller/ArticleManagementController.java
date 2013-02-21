@@ -8,6 +8,7 @@ package controller;
 import article.ArticleList;
 import customer.CustomerList;
 import article.Article;
+import article.ConcreteArticle;
 import java.util.InputMismatchException;
 import main.Model;
 import order.OrderList;
@@ -68,7 +69,7 @@ public class ArticleManagementController extends Controller {
             }
             if ("print".equals(in)) {
                 println("");
-                for (Article a : articleList.toList()) {
+                for (ConcreteArticle a : articleList.toList()) {
                     println(a.toString());
                 }
                 println("");
@@ -82,6 +83,7 @@ public class ArticleManagementController extends Controller {
 
 
                     // TODO
+                    // FIXME
                     while (true) {
                         print("Vorname:      ");
                         name = input.next();

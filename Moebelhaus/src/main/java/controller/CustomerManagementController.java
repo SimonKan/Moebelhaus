@@ -82,7 +82,6 @@ public class CustomerManagementController extends Controller {
                     String street = "";
                     String houseNumber = "";
 
-                    // TODO
                     while (true) {
                         print("Vorname:      ");
                         firstName = input.next();

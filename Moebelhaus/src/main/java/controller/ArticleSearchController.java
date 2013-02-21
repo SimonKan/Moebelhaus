@@ -81,6 +81,7 @@ public class ArticleSearchController extends Controller {
             }
             if ("print".equals(in)) {
                 println("");
+                // FIXME ArticleList#sortById Methode existiert nicht!
                 articleList.sortById(true);
                 for (Customer c : customerList.toList()) {
                     println(c.toString());

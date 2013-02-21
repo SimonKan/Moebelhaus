@@ -5,8 +5,6 @@
  */
 package order.discount;
 
-import misc.UniqueNumberGenerator;
-
 /**
  *
  *
@@ -14,12 +12,6 @@ import misc.UniqueNumberGenerator;
  *
  */
 public class DiscountFactory {
-
-    private UniqueNumberGenerator generator;
-
-    public DiscountFactory() {
-        this.generator = new UniqueNumberGenerator();
-    }
 
     /**
      * Konstruktor der Klasse DiscountOne
@@ -30,39 +22,35 @@ public class DiscountFactory {
      * @return {@link Discount DiscountOne}
      *
      * @throws IllegalArgumentException <ul> <li> wenn Prozentsatz1 negativ</li>
-     * <li>wenn Prozentsatz2 negativ/li> <ul>
+     *                                  <li>wenn Prozentsatz2 negativ/li> <ul>
      */
     public Discount createDiscountOne(float percentage0, float percentage1) {
 
-
-
         // Check Percentage 0 
         if (percentage0 <= 0) {
-            throw new IllegalArgumentException("percentage was negative ");
+            throw new IllegalArgumentException("percentage was negative or zero");
         }
 
         //Check numberSink
         if (percentage1 <= 0) {
-            throw new IllegalArgumentException("percentage was negative ");
+            throw new IllegalArgumentException("percentage was negative or zero");
         }
 
-        return new Discount(new DiscountOne(percentage0, percentage1), generator.getNextNumber());
+        return new DiscountOne(percentage0, percentage1);
     }
 
     /**
      * Konstruktor der Klasse DiscountTwo
      *
-     * @param threshold  Grenze
-     * @param offtake  Abzug
+     * @param threshold Grenze
+     * @param offtake   Abzug
      *
      * @return {@link Discount DiscountTwo}
      *
      * @throws IllegalArgumentException <ul> <li> wenn Grenze negativ</li>
-     * <li>wenn Abzug negativ/li> <ul>
+     *                                  <li>wenn Abzug negativ/li> <ul>
      */
     public Discount createDiscountTwo(float threshold, float offtake) {
-
-
 
         // Check Percentage 0 
         if (threshold <= 0) {
@@ -74,24 +62,20 @@ public class DiscountFactory {
             throw new IllegalArgumentException("offtake was negative ");
         }
 
-        return new Discount(new DiscountOne(threshold, offtake), generator.getNextNumber());
+        return new DiscountOne(threshold, offtake);
     }
-    
-     public Discount createDiscountThree(float threshold, float offtake) {
 
-
-
-        return new Discount(new DiscountThree(), generator.getNextNumber());
+    public Discount createDiscountThree(float threshold, float offtake) {
+        return new DiscountThree();
     }
-     
-     public Discount createDiscountFour(float offtake) {
+
+    public Discount createDiscountFour(float offtake) {
 
         //Check numberSink
         if (offtake <= 0) {
-            throw new IllegalArgumentException("offtake was negative ");
+            throw new IllegalArgumentException("offtake was negative or zero");
         }
 
-        return new Discount(new DiscountFour(offtake), generator.getNextNumber());
+        return new DiscountFour(offtake);
     }
 }
-
