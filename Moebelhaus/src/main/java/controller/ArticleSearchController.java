@@ -1,8 +1,9 @@
 /*
- * StatisticsController.java
+ * ArticleSearchController.java
  *
- * Created on 21.02.2013, 13:10:38
+ * Created on 21.02.2013, 22:44:14
  */
+
 package controller;
 
 import article.ArticleList;
@@ -14,30 +15,45 @@ import order.OrderList;
 /**
  *
  *
- * @Simon
+ * @author Simon
+ * @since 21.02.2013
+ * @version 1.0.0
  */
-public class StatisticsController extends Controller {
 
-    public StatisticsController(Model model) {
+import article.ArticleList;
+import customer.Customer;
+import customer.CustomerList;
+import main.Model;
+import order.OrderList;
+
+/**
+ *
+ *
+ * @author Simon
+ *
+ */
+public class ArticleSearchController extends Controller {
+
+    public ArticleSearchController(Model model) {
         super(model);
     }
 
     @Override
     public String getName() {
-        return "Statistik";
+        return "Article durchsuchen";
     }
 
     @Override
     public String getToken() {
-        return "stats";
+        return "search";
     }
 
     @Override
     public void showMenu() {
-        println("Statistiken");
-        println("Folgende Kriterien:");
+        println("Wählen Sie aus folgenden Kriterien, um nach Artikeln zu suchen");
         println("");
-        println("\t1) Noch garnix! (fname)");
+        println("\t1) Name (name)");
+        println("\t2) Material (mat)");
         println("");
     }
 
@@ -65,6 +81,7 @@ public class StatisticsController extends Controller {
             }
             if ("print".equals(in)) {
                 println("");
+                articleList.sortById(true);
                 for (Customer c : customerList.toList()) {
                     println(c.toString());
                 }
@@ -98,3 +115,4 @@ public class StatisticsController extends Controller {
         } while (true);
     }
 }
+

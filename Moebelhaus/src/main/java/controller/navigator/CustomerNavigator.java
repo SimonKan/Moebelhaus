@@ -10,9 +10,8 @@ import main.Model;
 /**
  *
  *
- * @author Immanuel Haffner <s9imhaff@stud.uni-saarland.de>
- * @since 21.02.2013
- * @version 1.0.0
+ * @Simon
+ * 
  *
  */
 public class CustomerNavigator extends Navigator {
