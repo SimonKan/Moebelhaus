@@ -6,11 +6,6 @@
 
 package controller;
 
-import article.ArticleList;
-import customer.Customer;
-import customer.CustomerList;
-import main.Model;
-import order.OrderList;
 
 /**
  *
@@ -21,7 +16,6 @@ import order.OrderList;
  */
 
 import article.ArticleList;
-import customer.Customer;
 import customer.CustomerList;
 import main.Model;
 import order.OrderList;
@@ -54,6 +48,7 @@ public class ArticleSearchController extends Controller {
         println("");
         println("\t1) Name (name)");
         println("\t2) Material (mat)");
+        println("\t3) Preis (price)");
         println("");
     }
 
@@ -79,16 +74,7 @@ public class ArticleSearchController extends Controller {
                 showMenu();
                 continue;
             }
-            if ("print".equals(in)) {
-                println("");
-                // FIXME ArticleList#sortById Methode existiert nicht!
-                articleList.sortById(true);
-                for (Customer c : customerList.toList()) {
-                    println(c.toString());
-                }
-                println("");
-                continue;
-            }
+
             switch (in.toLowerCase()) {
                 case "fname":
                     print("Bitte Vorname eingeben: ");
