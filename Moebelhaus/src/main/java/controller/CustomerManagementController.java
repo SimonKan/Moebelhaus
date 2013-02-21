@@ -67,6 +67,7 @@ public class CustomerManagementController extends Controller {
             }
             if ("print".equals(in)) {
                 println("");
+                customerList.sortByUniqueId(true);
                 for (Customer c : customerList.toList()) {
                     println(c.toString());
                 }

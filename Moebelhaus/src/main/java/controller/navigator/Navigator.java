@@ -42,6 +42,7 @@ public abstract class Navigator extends Controller {
     protected int read() {
         int result = FAILURE;
         showMenu();
+        // TEST
         do {
             print("Eingabe: ");
             String in = input.next();
@@ -56,6 +57,23 @@ public abstract class Navigator extends Controller {
                 println("");
                 showMenu();
                 continue;
+            }
+            if (in.matches("\\d+")) {
+                println("");
+                println("");
+
+                int pos = Integer.parseInt(in);
+
+                result = SUCCESS;
+                int successor = controllers.get(pos - 1).execute(getOffset() + 1);
+
+                if (successor == FAILURE) {
+                    throw new IllegalStateException(
+                        "cannot return with FAILURE");
+                }
+                if (successor == EXIT) {
+                    return EXIT;
+                }
             }
             for (Controller c : controllers) {
                 if (in.equals(c.getToken())) {

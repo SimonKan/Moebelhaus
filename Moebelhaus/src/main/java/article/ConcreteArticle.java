@@ -51,6 +51,11 @@ public class ConcreteArticle {
     }
 
     @Override
+    public String toString() {
+        return uniqueId + " - " + article.toString();
+    }
+
+    @Override
     public int hashCode() {
         return (int) uniqueId;
     }

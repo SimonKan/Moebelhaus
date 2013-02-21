@@ -5,12 +5,6 @@ package article;
  * vier weitere Unterklassen vererbt.
  *
  * @author Simon
- * @param articleId eindeutige Id des Artikels
- * @param name      Name des Artikels
- * @param price     Preis des Artikels
- * @param material  Material des Artikels
- *
- * @return Article
  */
 public abstract class Article {
 
@@ -70,5 +64,23 @@ public abstract class Article {
      */
     public int getMaterial() {
         return this.material;
+    }
+
+    @Override
+    public String toString() {
+        String s = name + " (" + articleId + "), " + price + "€";
+
+        switch (material) {
+            case Material.WOOD:
+                return s + ", Holz";
+            case Material.IRON:
+                return s + ", Metall";
+            case Material.STONE:
+                return s + ", Stein";
+            case Material.CERAMIC:
+                return s + ", Keramik";
+            default:
+                return s;
+        }
     }
 }

@@ -90,12 +90,26 @@ public class OrderList {
         return orders.contains(order);
     }
 
+    public void sortById(final boolean ascendent) {
+
+        Collections.sort(orders, new Comparator<Order>() {
+            @Override
+            public int compare(Order o1, Order o2) {
+                if (ascendent) {
+                    return (int) (o1.getId() - o2.getId());
+                }
+                return (int) (o2.getId() - o1.getId());
+            }
+        });
+    }
+
     public void sortByPrice(final boolean ascendent) {
+
         Collections.sort(orders, new Comparator<Order>() {
             @Override
             public int compare(Order o1, Order o2) {
                 int r = (int) Math.signum(o1.getPrice() - o2.getPrice());
-                if(ascendent) {
+                if (ascendent) {
                     return r;
                 }
                 return -r;
@@ -103,7 +117,19 @@ public class OrderList {
         });
     }
 
-    public void sortByOrderingDate() {
+    public void sortByOrderingDate(final boolean ascendent) {
+
+        Collections.sort(orders, new Comparator<Order>() {
+            @Override
+            public int compare(Order o1, Order o2) {
+                if (ascendent) {
+                    return o1.getOrderingDate().compareTo(
+                        o2.getOrderingDate());
+                }
+                return o2.getOrderingDate().compareTo(
+                    o1.getOrderingDate());
+            }
+        });
     }
 
     /**

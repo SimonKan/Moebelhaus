@@ -1,6 +1,9 @@
 package article;
 
+import customer.Customer;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -87,6 +90,67 @@ public class ArticleList {
         return articles.contains(article);
     }
 
+    public void sortByUniqueId(final boolean ascendent) {
+
+        Collections.sort(articles, new Comparator<ConcreteArticle>() {
+            @Override
+            public int compare(ConcreteArticle o1, ConcreteArticle o2) {
+                if (ascendent) {
+                    return (int) (o1.getUniqueId() - o2.getUniqueId());
+                }
+                return (int) (o2.getUniqueId() - o1.getUniqueId());
+            }
+        });
+    }
+
+    public void sortByArticleId(final boolean ascendent) {
+        sortByUniqueId(true);
+
+        Collections.sort(articles, new Comparator<ConcreteArticle>() {
+            @Override
+            public int compare(ConcreteArticle o1, ConcreteArticle o2) {
+                if (ascendent) {
+                    return (int) (o1.getArticle().getArticleId()
+                        - o2.getArticle().getArticleId());
+                }
+                return (int) (o2.getArticle().getArticleId()
+                    - o1.getArticle().getArticleId());
+            }
+        });
+    }
+
+    public void sortByName(final boolean ascendent) {
+        sortByUniqueId(true);
+
+        Collections.sort(articles, new Comparator<ConcreteArticle>() {
+            @Override
+            public int compare(ConcreteArticle o1, ConcreteArticle o2) {
+                if (ascendent) {
+                    return o1.getArticle().getName().compareTo(
+                        o2.getArticle().getName());
+                }
+                return o2.getArticle().getName().compareTo(
+                    o1.getArticle().getName());
+            }
+        });
+    }
+
+    public void sortByPrice(final boolean ascendent) {
+        sortByUniqueId(true);
+
+        Collections.sort(articles, new Comparator<ConcreteArticle>() {
+            @Override
+            public int compare(ConcreteArticle o1, ConcreteArticle o2) {
+                if (ascendent) {
+                    return (int) Math.signum(o1.getArticle().getPrice()
+                        - o2.getArticle().getPrice());
+                }
+                return (int) Math.signum(o2.getArticle().getPrice()
+                        - o1.getArticle().getPrice());
+            }
+        });
+    }
+
     /*
      * Methoden zum Durchsuchen der Liste nach uniqueId, articleId, name,
      * material, price Rückgabetyp jeweils eine neue Liste die mit den Elementen
@@ -160,25 +224,6 @@ public class ArticleList {
     }
 
     /**
-     * Durchsucht die Artikelliste nach einem Material und wirft eine Liste aus
-     *
-     * @param material Material des Artikels
-     *
-     * @return {@link ArticleList}
-     */
-    public ArticleList getArticlesByMaterial(int material) {
-        ArticleList searchList = new ArticleList();
-
-        for (ConcreteArticle article : articles) {
-            if (article.getArticle().getMaterial() == material) {
-                searchList.add(article);
-            }
-        }
-
-        return searchList;
-    }
-
-    /**
      * Preis wird um eine Lower und eine UpperBound ergänzt um Preisabschnitte
      * suchen zu können wird die Grenze falsch gewählt gibt das System eine
      * Fehlermeldung aus. Alle Preise größer etwas können durch die Suche nach
@@ -205,6 +250,25 @@ public class ArticleList {
         for (ConcreteArticle article : articles) {
             if (lowerBound <= article.getArticle().getPrice()
                 || article.getArticle().getPrice() <= upperBound) {
+                searchList.add(article);
+            }
+        }
+
+        return searchList;
+    }
+
+    /**
+     * Durchsucht die Artikelliste nach einem Material und wirft eine Liste aus
+     *
+     * @param material Material des Artikels
+     *
+     * @return {@link ArticleList}
+     */
+    public ArticleList getArticlesByMaterial(int material) {
+        ArticleList searchList = new ArticleList();
+
+        for (ConcreteArticle article : articles) {
+            if (article.getArticle().getMaterial() == material) {
                 searchList.add(article);
             }
         }

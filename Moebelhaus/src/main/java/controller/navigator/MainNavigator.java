@@ -59,11 +59,28 @@ public class MainNavigator extends Navigator {
                 showMenu();
                 continue;
             }
+            if (in.matches("\\d+")) {
+                println("");
+                println("");
+
+                int pos = Integer.parseInt(in);
+
+                result = SUCCESS;
+                int successor = controllers.get(pos - 1).execute(getOffset() + 1);
+
+                if (successor == FAILURE) {
+                    throw new IllegalStateException(
+                        "cannot return with FAILURE");
+                }
+                if (successor == EXIT) {
+                    return EXIT;
+                }
+            }
             for (Controller c : controllers) {
                 if (in.equals(c.getToken())) {
                     println("");
                     println("");
-                    
+
                     result = SUCCESS;
                     int successor = c.execute(getOffset() + 1);
 

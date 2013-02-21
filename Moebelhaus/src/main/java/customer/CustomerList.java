@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import order.Order;
 
 /**
  * Klasse CustomerList enthält alle Customer.
@@ -81,11 +80,85 @@ public class CustomerList {
         Collections.sort(customers, new Comparator<Customer>() {
             @Override
             public int compare(Customer o1, Customer o2) {
-                int r = (int) (o1.getId() - o2.getId());
                 if (ascendent) {
-                    return r;
+                    return (int) (o1.getId() - o2.getId());
                 }
-                return -r;
+                return (int) (o2.getId() - o1.getId());
+            }
+        });
+    }
+
+    public void sortByFirstName(final boolean ascendent) {
+
+        Collections.sort(customers, new Comparator<Customer>() {
+            @Override
+            public int compare(Customer o1, Customer o2) {
+                if (ascendent) {
+                    return o1.getAddressGermany().getFirstName()
+                        .compareTo(o2.getAddressGermany().getFirstName());
+                }
+                return o2.getAddressGermany().getFirstName()
+                    .compareTo(o1.getAddressGermany().getFirstName());
+            }
+        });
+    }
+
+    public void sortByLastName(final boolean ascendent) {
+
+        Collections.sort(customers, new Comparator<Customer>() {
+            @Override
+            public int compare(Customer o1, Customer o2) {
+                if (ascendent) {
+                    return o1.getAddressGermany().getLastName()
+                        .compareTo(o2.getAddressGermany().getLastName());
+                }
+                return o2.getAddressGermany().getLastName()
+                    .compareTo(o1.getAddressGermany().getLastName());
+            }
+        });
+    }
+
+    public void sortByPlz(final boolean ascendent) {
+
+        Collections.sort(customers, new Comparator<Customer>() {
+            @Override
+            public int compare(Customer o1, Customer o2) {
+                if (ascendent) {
+                    return o1.getAddressGermany().getPlz()
+                        - o2.getAddressGermany().getPlz();
+                }
+                return o2.getAddressGermany().getPlz()
+                    - o1.getAddressGermany().getPlz();
+            }
+        });
+    }
+
+    public void sortByCity(final boolean ascendent) {
+
+        Collections.sort(customers, new Comparator<Customer>() {
+            @Override
+            public int compare(Customer o1, Customer o2) {
+                if (ascendent) {
+                    return o1.getAddressGermany().getCity()
+                        .compareTo(o2.getAddressGermany().getCity());
+                }
+                return o2.getAddressGermany().getCity()
+                    .compareTo(o1.getAddressGermany().getCity());
+            }
+        });
+    }
+
+    public void sortByStreet(final boolean ascendent) {
+
+        Collections.sort(customers, new Comparator<Customer>() {
+            @Override
+            public int compare(Customer o1, Customer o2) {
+                if (ascendent) {
+                    return o1.getAddressGermany().getStreet()
+                        .compareTo(o2.getAddressGermany().getStreet());
+                }
+                return o2.getAddressGermany().getStreet()
+                    .compareTo(o1.getAddressGermany().getStreet());
             }
         });
     }
