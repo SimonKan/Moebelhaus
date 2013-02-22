@@ -6,9 +6,8 @@
 package controller;
 
 import article.ArticleList;
-import customer.CustomerList;
-import article.Article;
 import article.ConcreteArticle;
+import customer.CustomerList;
 import java.util.InputMismatchException;
 import main.Model;
 import order.OrderList;
@@ -82,8 +81,8 @@ public class ArticleManagementController extends Controller {
                     float price = 0f;
 
 
-                    // TODO
-                    // FIXME
+                    // TODO Art des Artikels erfragen
+                    
                     while (true) {
                         print("Vorname:      ");
                         name = input.next();
@@ -124,12 +123,8 @@ public class ArticleManagementController extends Controller {
                         println("");
                     }
 
-
-
-
-
-                    model.getArticleList().add(Article.create(name, material, price));
-
+                    // TODO neuen Artikel erstellen
+                    
                     println("");
                     println("");
 
@@ -150,7 +145,7 @@ public class ArticleManagementController extends Controller {
                     }
 
                     model.getArticleList().remove(
-                            model.getArticleList().getArticleById(id));
+                            model.getArticleList().getArticleByUniqueId(id));
 
                     println("");
                     println("");
