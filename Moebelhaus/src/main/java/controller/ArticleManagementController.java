@@ -103,7 +103,7 @@ public class ArticleManagementController extends Controller {
                                 break;
                             }
                         } catch (InputMismatchException ex) {
-                            input.skip("\.*");
+                            input.skip("\\.*");
                         }
                         println("(!) Fehlerhafte Eingabe, versuchen Sie es erneut");
                         println("");
@@ -117,7 +117,7 @@ public class ArticleManagementController extends Controller {
                                 break;
                             }
                         } catch (InputMismatchException ex) {
-                            input.skip("\.*");
+                            input.skip("\\.*");
                         }
                         println("(!) Fehlerhafte Eingabe, versuchen Sie es erneut");
                         println("");
@@ -138,7 +138,7 @@ public class ArticleManagementController extends Controller {
                             id = input.nextLong();
                             break;
                         } catch (InputMismatchException ex) {
-                            input.skip("\.*");
+                            input.skip("\\.*");
                         }
                         println("(!) Fehlerhafte Eingabe, versuchen Sie es erneut");
                         println("");
