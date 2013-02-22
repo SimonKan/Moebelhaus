@@ -146,7 +146,7 @@ public class ArticleList {
                         - o2.getArticle().getPrice());
                 }
                 return (int) Math.signum(o2.getArticle().getPrice()
-                        - o1.getArticle().getPrice());
+                    - o1.getArticle().getPrice());
             }
         });
     }

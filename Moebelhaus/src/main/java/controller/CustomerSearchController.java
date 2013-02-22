@@ -51,7 +51,9 @@ public class CustomerSearchController extends Controller {
         showMenu();
         do {
             print("Eingabe: ");
-            String in = input.next();
+            String in = input.nextLine();
+            in = in.split("\\s+")[0];
+
             if ("exit".equals(in)) {
                 return EXIT;
             }
@@ -74,18 +76,20 @@ public class CustomerSearchController extends Controller {
                 continue;
             }
             switch (in.toLowerCase()) {
+                case "1":
                 case "fname":
                     print("Bitte Vorname eingeben: ");
-                    String fname = input.next();
+                    String fname = input.nextLine().trim();
                     customerList = customerList.getCustomerByFirstName(fname);
                     println("");
                     println("");
 
                     result = SUCCESS;
                     break;
+                case "2":
                 case "lname":
                     print("Bitte Nachname eingeben: ");
-                    String lname = input.next();
+                    String lname = input.nextLine().trim();
                     customerList = customerList.getCustomerByLastName(lname);
                     println("");
                     println("");

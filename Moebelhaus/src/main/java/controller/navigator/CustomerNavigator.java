@@ -11,7 +11,7 @@ import main.Model;
  *
  *
  * @Simon
- * 
+ *
  *
  */
 public class CustomerNavigator extends Navigator {

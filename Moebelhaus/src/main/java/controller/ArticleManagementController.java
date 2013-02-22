@@ -82,7 +82,7 @@ public class ArticleManagementController extends Controller {
 
 
                     // TODO Art des Artikels erfragen
-                    
+
                     while (true) {
                         print("Vorname:      ");
                         name = input.next();
@@ -124,7 +124,7 @@ public class ArticleManagementController extends Controller {
                     }
 
                     // TODO neuen Artikel erstellen
-                    
+
                     println("");
                     println("");
 
@@ -145,7 +145,7 @@ public class ArticleManagementController extends Controller {
                     }
 
                     model.getArticleList().remove(
-                            model.getArticleList().getArticleByUniqueId(id));
+                        model.getArticleList().getArticleByUniqueId(id));
 
                     println("");
                     println("");

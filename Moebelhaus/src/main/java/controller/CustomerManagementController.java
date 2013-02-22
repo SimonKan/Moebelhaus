@@ -16,7 +16,7 @@ import order.OrderList;
 /**
  *
  *
- *@author Simon
+ * @author Simon
  */
 public class CustomerManagementController extends Controller {
 
@@ -52,7 +52,9 @@ public class CustomerManagementController extends Controller {
         showMenu();
         do {
             print("Eingabe: ");
-            String in = input.next();
+            String in = input.nextLine();
+            in = in.split("\\s+")[0];
+
             if ("exit".equals(in)) {
                 return EXIT;
             }
@@ -75,6 +77,7 @@ public class CustomerManagementController extends Controller {
                 continue;
             }
             switch (in.toLowerCase()) {
+                case "1":
                 case "add":
                     String firstName = "";
                     String lastName = "";
@@ -85,8 +88,8 @@ public class CustomerManagementController extends Controller {
 
                     while (true) {
                         print("Vorname:      ");
-                        firstName = input.next();
-                        if (firstName.matches("[a-zA-Z]+")) {
+                        firstName = input.nextLine().trim();
+                        if (firstName.matches("[a-zA-Z ]+")) {
                             break;
                         }
                         println("(!) Fehlerhafte Eingabe, versuchen Sie es erneut");
@@ -95,8 +98,8 @@ public class CustomerManagementController extends Controller {
 
                     while (true) {
                         print("Nachname:     ");
-                        lastName = input.next();
-                        if (lastName.matches("[a-zA-Z]+")) {
+                        lastName = input.nextLine().trim();
+                        if (lastName.matches("[a-zA-Z ]+")) {
                             break;
                         }
                         println("(!) Fehlerhafte Eingabe, versuchen Sie es erneut");
@@ -107,6 +110,7 @@ public class CustomerManagementController extends Controller {
                         print("Postleitzahl: ");
                         try {
                             plz = input.nextInt();
+                            input.nextLine();
                             if (plz > 10000 && plz < 100000) {
                                 break;
                             }
@@ -119,8 +123,8 @@ public class CustomerManagementController extends Controller {
 
                     while (true) {
                         print("Stadt:        ");
-                        city = input.next();
-                        if (city.matches("[a-zA-Z]+")) {
+                        city = input.nextLine().trim();
+                        if (city.matches("[a-zA-Z ]+")) {
                             break;
                         }
                         println("(!) Fehlerhafte Eingabe, versuchen Sie es erneut");
@@ -129,8 +133,8 @@ public class CustomerManagementController extends Controller {
 
                     while (true) {
                         print("Straße:       ");
-                        street = input.next();
-                        if (street.matches("[a-zA-Z]+")) {
+                        street = input.nextLine().trim();
+                        if (street.matches("[a-zA-Z ]+")) {
                             break;
                         }
                         println("(!) Fehlerhafte Eingabe, versuchen Sie es erneut");
@@ -139,7 +143,7 @@ public class CustomerManagementController extends Controller {
 
                     while (true) {
                         print("Hausnummer:   ");
-                        houseNumber = input.next();
+                        houseNumber = input.nextLine().trim();
                         if (houseNumber.matches("\\d+[a-z]?")) {
                             break;
                         }
@@ -156,6 +160,7 @@ public class CustomerManagementController extends Controller {
 
                     result = SUCCESS;
                     break;
+                case "2":
                 case "del":
                     print("ID des zu löschenden Kunden: ");
                     long id;

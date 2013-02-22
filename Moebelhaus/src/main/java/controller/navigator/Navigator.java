@@ -45,7 +45,9 @@ public abstract class Navigator extends Controller {
         // TEST
         do {
             print("Eingabe: ");
-            String in = input.next();
+            String in = input.nextLine();
+            in = in.split("\\s+")[0];
+
             if ("exit".equals(in)) {
                 return EXIT;
             }

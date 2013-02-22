@@ -7,6 +7,13 @@ package article;
  */
 public class Table extends Article {
 
+    public static final class Categories {
+        // TODO kategorien einführen!
+        // e.g. Esstisch, Nachttisch, etc.
+
+        public static final int category1 = 1;
+    }
+
     private boolean pullOut;
     private int categorie;
 
@@ -34,5 +41,10 @@ public class Table extends Article {
 
     public int getCategorie() {
         return this.categorie;
+    }
+
+    @Override
+    public String toString() {
+        return "Tisch - " + super.toString();
     }
 }

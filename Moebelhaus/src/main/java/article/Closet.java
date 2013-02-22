@@ -38,4 +38,9 @@ public class Closet extends Article {
     public boolean getSlope() {
         return this.slope;
     }
+
+    @Override
+    public String toString() {
+        return "Klosett - " + super.toString();
+    }
 }

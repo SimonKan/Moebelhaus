@@ -38,4 +38,9 @@ public class Couch extends Article {
     public boolean getPullOut() {
         return this.pullOut;
     }
+
+    @Override
+    public String toString() {
+        return "Couch - " + super.toString();
+    }
 }

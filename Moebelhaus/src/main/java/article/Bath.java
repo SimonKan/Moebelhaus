@@ -45,4 +45,9 @@ public class Bath extends Article {
     public int getNumberSink() {
         return this.numberSink;
     }
+
+    @Override
+    public String toString() {
+        return "Bad - " + super.toString();
+    }
 }

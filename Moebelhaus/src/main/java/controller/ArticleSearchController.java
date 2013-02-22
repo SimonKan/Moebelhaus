@@ -3,9 +3,7 @@
  *
  * Created on 21.02.2013, 22:44:14
  */
-
 package controller;
-
 
 /**
  *
@@ -14,8 +12,8 @@ package controller;
  * @since 21.02.2013
  * @version 1.0.0
  */
-
 import article.ArticleList;
+import article.ConcreteArticle;
 import customer.CustomerList;
 import main.Model;
 import order.OrderList;
@@ -61,7 +59,9 @@ public class ArticleSearchController extends Controller {
         showMenu();
         do {
             print("Eingabe: ");
-            String in = input.next();
+            String in = input.nextLine();
+            in = in.split("\\s+")[0];
+
             if ("exit".equals(in)) {
                 return EXIT;
             }
@@ -74,7 +74,15 @@ public class ArticleSearchController extends Controller {
                 showMenu();
                 continue;
             }
-
+            if ("print".equals(in)) {
+                println("");
+                articleList.sortByUniqueId(true);
+                for (ConcreteArticle ca : articleList.toList()) {
+                    println(ca.toString());
+                }
+                println("");
+                continue;
+            }
             switch (in.toLowerCase()) {
                 case "fname":
                     print("Bitte Vorname eingeben: ");
@@ -102,4 +110,3 @@ public class ArticleSearchController extends Controller {
         } while (true);
     }
 }
-

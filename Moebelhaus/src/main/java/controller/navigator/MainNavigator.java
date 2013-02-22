@@ -49,7 +49,9 @@ public class MainNavigator extends Navigator {
         showMenu();
         do {
             print("Eingabe: ");
-            String in = input.next();
+            String in = input.nextLine();
+            in = in.split("\\s+")[0];
+
             if ("exit".equals(in)) {
                 return SUCCESS;
             }
