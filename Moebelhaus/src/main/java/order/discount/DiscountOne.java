@@ -28,7 +28,7 @@ public class DiscountOne extends Discount {
 
     @Override
     public void apply(Order order) {
-        order.setPrice(order.getPrice() * (1 - percentage0) * (1 - percentage1));
+        order.setPrice(order.getPricePure() * (1 - percentage0) * (1 - percentage1));
     }
     
     @Override

@@ -1,6 +1,8 @@
 package order;
 
+import article.ArticleList;
 import article.ConcreteArticle;
+import customer.Customer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -22,13 +24,20 @@ public class Order {
 
     /**
      *
+     * @param customer
+     *
      * @return Die Order ist leer und hat keinen Preis.
      *
      */
-    public static Order create() {
+    public static Order create(Customer customer) {
+        if (customer == null) {
+            throw new IllegalArgumentException("customer was null");
+        }
+
         Order order = new Order();
 
         order.id = generator.getNextNumber();
+        order.customer = customer;
         order.articles = new ArrayList<>();
         order.discounts = new ArrayList<>();
         order.orderingDate = GregorianCalendar.getInstance().getTime();
@@ -39,6 +48,7 @@ public class Order {
         return order;
     }
     private long id;
+    private Customer customer;
     private List<ConcreteArticle> articles;
     private List<Discount> discounts;
     private float price;
@@ -57,11 +67,16 @@ public class Order {
         return this.id;
     }
 
+    public Customer getCustomer() {
+        return customer;
+    }
+
     /**
      *
      * @return price Preis
      */
     public float getPrice() {
+        price = 0;
         for (ConcreteArticle article : articles) {
             price += article.getArticle().getPrice();
         }
@@ -70,12 +85,26 @@ public class Order {
         }
         return price;
     }
+    
+    public float getPricePure() {
+        return price;
+    }
 
     public void setPrice(float price) {
         if (price < 0) {
             throw new IllegalArgumentException("price was negative");
         }
         this.price = price;
+    }
+
+    public List<ConcreteArticle> getArticles() {
+        return new ArrayList<>(articles);
+    }
+    
+    public void addArticle(ConcreteArticle article) {
+        if(!(articles.contains(article))) {
+            articles.add(article);
+        }
     }
 
     public void addDiscount(Discount discount) {

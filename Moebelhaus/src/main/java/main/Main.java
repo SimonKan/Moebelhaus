@@ -24,8 +24,13 @@ import controller.navigator.CustomerNavigator;
 import controller.navigator.CustomerSearchNavigator;
 import controller.navigator.MainNavigator;
 import controller.navigator.OrderNavigator;
+import controller.navigator.OrderSearchNavigator;
+import controller.order.OrderAddController;
+import controller.order.OrderPrintController;
 import customer.AddressGermany;
 import customer.Customer;
+import order.Order;
+import order.discount.DiscountFactory;
 
 /**
  *
@@ -41,10 +46,10 @@ public class Main {
      */
     public static void main(String[] args) {
         ArticleFactory articleFactory = new ArticleFactory();
-        
+
         Model model = GET_DEFAULT_MODEL(articleFactory);
 
-        
+
         ArticleAddNavigator aan = new ArticleAddNavigator(model);
         aan.add(new ArticleAddTableController(model, articleFactory));
 
@@ -55,7 +60,7 @@ public class Main {
         an.add(aan);
         an.add(asn);
 
-        
+
         CustomerSearchNavigator csn = new CustomerSearchNavigator(model);
         csn.add(new CustomerPrintSearchController(model));
         csn.add(new CustomerSearchByFistNameController(model));
@@ -68,7 +73,12 @@ public class Main {
         cn.add(csn);
 
 
+        OrderSearchNavigator osn = new OrderSearchNavigator(model);
+
         OrderNavigator on = new OrderNavigator(model);
+        on.add(new OrderPrintController(model));
+        on.add(new OrderAddController(model));
+        on.add(osn);
 
 
         MainNavigator main = new MainNavigator(model);
@@ -84,8 +94,9 @@ public class Main {
     private static Model GET_DEFAULT_MODEL(ArticleFactory articleFactory) {
         Model model = Model.create();
 
-
-        // Kunden
+        /*
+         * Kunden
+         */
         model.getCustomerList().add(Customer.create(AddressGermany.create(
             "Reinald", "Böttger", 15526, "Rietz-Neuendorf", "Peter-Vischer-Straße", "17")));
 
@@ -126,105 +137,122 @@ public class Main {
             "Chuck", "Norris", 77868, "Navasota", "La Grange Avenue", "11872")));
 
 
+        /*
+         * Artikel
+         */
         // Bath
         model.getArticleList().add(articleFactory.createBath(1, "Ireviken", 29.99f,
-                                                 Material.CERAMIC, false, 1));
+                                                             Material.CERAMIC, false, 1));
 
         model.getArticleList().add(articleFactory.createBath(1, "Ireviken", 29.99f,
-                                                 Material.CERAMIC, false, 1));
+                                                             Material.CERAMIC, false, 1));
 
 
         model.getArticleList().add(articleFactory.createBath(2, "Edeboviken", 130.00f,
-                                                 Material.CERAMIC, false, 1));
+                                                             Material.CERAMIC, false, 1));
 
         model.getArticleList().add(articleFactory.createBath(2, "Edeboviken", 130.00f,
-                                                 Material.CERAMIC, false, 1));
+                                                             Material.CERAMIC, false, 1));
 
         model.getArticleList().add(articleFactory.createBath(2, "Edeboviken", 130.00f,
-                                                 Material.CERAMIC, false, 1));
+                                                             Material.CERAMIC, false, 1));
 
 
         model.getArticleList().add(articleFactory.createBath(3, "Rättviken", 100.00f,
-                                                 Material.CERAMIC, false, 1));
+                                                             Material.CERAMIC, false, 1));
 
         model.getArticleList().add(articleFactory.createBath(3, "Rättviken", 100.00f,
-                                                 Material.CERAMIC, false, 1));
+                                                             Material.CERAMIC, false, 1));
 
 
         model.getArticleList().add(articleFactory.createBath(4, "Bredviken", 270.00f,
-                                                 Material.CERAMIC, false, 1));
+                                                             Material.CERAMIC, false, 1));
 
         model.getArticleList().add(articleFactory.createBath(4, "Bredviken", 270.00f,
-                                                 Material.CERAMIC, false, 1));
+                                                             Material.CERAMIC, false, 1));
 
         model.getArticleList().add(articleFactory.createBath(4, "Bredviken", 270.00f,
-                                                 Material.CERAMIC, false, 1));
+                                                             Material.CERAMIC, false, 1));
 
         model.getArticleList().add(articleFactory.createBath(4, "Bredviken", 270.00f,
-                                                 Material.CERAMIC, false, 1));
-
-
+                                                             Material.CERAMIC, false, 1));
 
         // Table
         model.getArticleList().add(articleFactory.createTable(11, "Bjursta", 129.00f,
-                                                  Material.WOOD, true,
-                                                  Table.Categories.KITCHENTABLE));
+                                                              Material.WOOD, true,
+                                                              Table.Categories.KITCHENTABLE));
 
         model.getArticleList().add(articleFactory.createTable(11, "Bjursta", 129.00f,
-                                                  Material.WOOD, true,
-                                                  Table.Categories.KITCHENTABLE));
+                                                              Material.WOOD, true,
+                                                              Table.Categories.KITCHENTABLE));
 
         model.getArticleList().add(articleFactory.createTable(11, "Bjursta", 129.00f,
-                                                  Material.WOOD, true,
-                                                  Table.Categories.KITCHENTABLE));
+                                                              Material.WOOD, true,
+                                                              Table.Categories.KITCHENTABLE));
 
 
         model.getArticleList().add(articleFactory.createTable(12, "Björkudden", 89.00f,
-                                                  Material.WOOD, false,
-                                                  Table.Categories.KITCHENTABLE));
+                                                              Material.WOOD, false,
+                                                              Table.Categories.KITCHENTABLE));
 
         model.getArticleList().add(articleFactory.createTable(12, "Björkudden", 89.00f,
-                                                  Material.WOOD, false,
-                                                  Table.Categories.KITCHENTABLE));
+                                                              Material.WOOD, false,
+                                                              Table.Categories.KITCHENTABLE));
 
         model.getArticleList().add(articleFactory.createTable(12, "Björkudden", 89.00f,
-                                                  Material.WOOD, false,
-                                                  Table.Categories.KITCHENTABLE));
+                                                              Material.WOOD, false,
+                                                              Table.Categories.KITCHENTABLE));
 
         model.getArticleList().add(articleFactory.createTable(12, "Björkudden", 89.00f,
-                                                  Material.WOOD, false,
-                                                  Table.Categories.KITCHENTABLE));
+                                                              Material.WOOD, false,
+                                                              Table.Categories.KITCHENTABLE));
 
         model.getArticleList().add(articleFactory.createTable(12, "Björkudden", 89.00f,
-                                                  Material.WOOD, false,
-                                                  Table.Categories.KITCHENTABLE));
+                                                              Material.WOOD, false,
+                                                              Table.Categories.KITCHENTABLE));
 
 
         model.getArticleList().add(articleFactory.createTable(13, "Malm", 29.00f,
-                                                  Material.WOOD, false,
-                                                  Table.Categories.KITCHENTABLE));
+                                                              Material.WOOD, false,
+                                                              Table.Categories.KITCHENTABLE));
 
         model.getArticleList().add(articleFactory.createTable(13, "Malm", 29.00f,
-                                                  Material.WOOD, false,
-                                                  Table.Categories.KITCHENTABLE));
+                                                              Material.WOOD, false,
+                                                              Table.Categories.KITCHENTABLE));
 
         model.getArticleList().add(articleFactory.createTable(13, "Malm", 29.00f,
-                                                  Material.WOOD, false,
-                                                  Table.Categories.KITCHENTABLE));
+                                                              Material.WOOD, false,
+                                                              Table.Categories.KITCHENTABLE));
 
 
         model.getArticleList().add(articleFactory.createTable(14, "Rast", 29.00f,
-                                                  Material.WOOD, false,
-                                                  Table.Categories.COUCHTABLE));
+                                                              Material.WOOD, false,
+                                                              Table.Categories.COUCHTABLE));
 
         model.getArticleList().add(articleFactory.createTable(14, "Rast", 29.00f,
-                                                  Material.WOOD, false,
-                                                  Table.Categories.COUCHTABLE));
+                                                              Material.WOOD, false,
+                                                              Table.Categories.COUCHTABLE));
 
         model.getArticleList().add(articleFactory.createTable(14, "Rast", 29.00f,
-                                                  Material.WOOD, false,
-                                                  Table.Categories.COUCHTABLE));
+                                                              Material.WOOD, false,
+                                                              Table.Categories.COUCHTABLE));
 
+        /*
+         * Bestellungen
+         */
+        Order o0 = Order.create(model.getCustomerList().getCustomerById(1));
+        Order o1 = Order.create(model.getCustomerList().getCustomerById(3));
+        Order o2 = Order.create(model.getCustomerList().getCustomerById(5));
+        
+        o0.addArticle(model.getArticleList().getArticleByUniqueId(1));
+        o0.addArticle(model.getArticleList().getArticleByUniqueId(2));
+        o0.addArticle(model.getArticleList().getArticleByUniqueId(5));
+        
+        o0.addDiscount(DiscountFactory.createDiscountThree());
+        
+        model.getOrderList().add(o0);
+        model.getOrderList().add(o1);
+        model.getOrderList().add(o2);
 
         // Daten kopieren in die Suchlisten
         model.setArticleSearchList(model.getArticleList());

@@ -24,7 +24,7 @@ public class DiscountFactory {
      * @throws IllegalArgumentException <ul> <li> wenn Prozentsatz1 negativ</li>
      *                                  <li>wenn Prozentsatz2 negativ/li> <ul>
      */
-    public Discount createDiscountOne(float percentage0, float percentage1) {
+    public static Discount createDiscountOne(float percentage0, float percentage1) {
 
         // Check Percentage 0
         if (percentage0 <= 0) {
@@ -50,7 +50,7 @@ public class DiscountFactory {
      * @throws IllegalArgumentException <ul> <li> wenn Grenze negativ</li>
      *                                  <li>wenn Abzug negativ/li> <ul>
      */
-    public Discount createDiscountTwo(float threshold, float offtake) {
+    public static Discount createDiscountTwo(float threshold, float offtake) {
 
         // Check threshold 
         if (threshold <= 0) {
@@ -65,11 +65,11 @@ public class DiscountFactory {
         return new DiscountOne(threshold, offtake);
     }
 
-    public Discount createDiscountThree() {
+    public static Discount createDiscountThree() {
         return new DiscountThree();
     }
 
-    public Discount createDiscountFour(float offtake) {
+    public static Discount createDiscountFour(float offtake) {
 
         //Check offtake
         if (offtake <= 0) {

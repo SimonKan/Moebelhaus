@@ -29,7 +29,7 @@ public class DiscountTwo extends Discount {
 
     @Override
     public void apply(Order order) {
-        float price = order.getPrice();
+        float price = order.getPricePure();
         if (price >= threshold) {
             order.setPrice(price - offtake);
         }

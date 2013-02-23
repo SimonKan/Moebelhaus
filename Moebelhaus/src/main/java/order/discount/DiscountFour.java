@@ -24,7 +24,7 @@ public class DiscountFour extends Discount {
 
     @Override
     public void apply(Order order) {
-        order.setPrice(Math.max(0f, order.getPrice() - offtake));
+        order.setPrice(Math.max(0f, order.getPricePure() - offtake));
     }
     
     // TODO toString
