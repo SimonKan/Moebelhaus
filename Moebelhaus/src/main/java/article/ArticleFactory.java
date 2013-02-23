@@ -147,8 +147,8 @@ public class ArticleFactory {
         }
 
         //Check categorie
-        if (categorie <= 0) {
-            throw new IllegalArgumentException("categorie was " + categorie);
+        if (categorie < 0) {
+            throw new IllegalArgumentException("categorie was negative");
         }
 
         return new ConcreteArticle(new Table(articleId, name, price, material,

@@ -8,12 +8,16 @@ package main;
 import article.ArticleFactory;
 import article.Material;
 import article.Table;
-import controller.ArticleSearchController;
-import controller.CustomerManagementController;
-import controller.CustomerSearchController;
+import controller.customer.CustomerAddController;
+import controller.customer.CustomerRemoveController;
+import controller.customer.CustomerSearchByFistNameController;
+import controller.customer.CustomerSearchByLastNameController;
 import controller.StatisticsController;
+import controller.customer.CustomerPrintController;
+import controller.customer.CustomerPrintSearchController;
 import controller.navigator.ArticleNavigator;
 import controller.navigator.CustomerNavigator;
+import controller.navigator.CustomerSearchNavigator;
 import controller.navigator.MainNavigator;
 import controller.navigator.OrderNavigator;
 import customer.AddressGermany;
@@ -34,14 +38,24 @@ public class Main {
     public static void main(String[] args) {
         Model model = GET_DEFAULT_MODEL();
 
+        CustomerPrintController cpc = new CustomerPrintController(model);
+
+
+        CustomerSearchNavigator csn = new CustomerSearchNavigator(model);
+        csn.add(new CustomerPrintSearchController(model));
+        csn.add(new CustomerSearchByFistNameController(model));
+        csn.add(new CustomerSearchByLastNameController(model));
+
         CustomerNavigator cn = new CustomerNavigator(model);
-        cn.add(new CustomerManagementController(model));
-        cn.add(new CustomerSearchController(model));
+        cn.add(cpc);
+        cn.add(new CustomerAddController(model));
+        cn.add(new CustomerRemoveController(model));
+        cn.add(csn);
+
 
         OrderNavigator on = new OrderNavigator(model);
 
         ArticleNavigator an = new ArticleNavigator(model);
-        an.add(new ArticleSearchController(model));
 
 
         MainNavigator main = new MainNavigator(model);
@@ -50,12 +64,12 @@ public class Main {
         main.add(on);
         main.add(new StatisticsController(model));
 
+
         main.execute(0);
     }
 
     private static Model GET_DEFAULT_MODEL() {
         Model model = Model.create();
-
 
 
         // Kunden
@@ -146,63 +160,68 @@ public class Main {
         // Table
         model.getArticleList().add(af.createTable(11, "Bjursta", 129.00f,
                                                   Material.WOOD, true,
-                                                  Table.Categories.category1));
+                                                  Table.Categories.KITCHENTABLE));
 
         model.getArticleList().add(af.createTable(11, "Bjursta", 129.00f,
                                                   Material.WOOD, true,
-                                                  Table.Categories.category1));
+                                                  Table.Categories.KITCHENTABLE));
 
         model.getArticleList().add(af.createTable(11, "Bjursta", 129.00f,
                                                   Material.WOOD, true,
-                                                  Table.Categories.category1));
+                                                  Table.Categories.KITCHENTABLE));
 
 
         model.getArticleList().add(af.createTable(12, "Björkudden", 89.00f,
                                                   Material.WOOD, false,
-                                                  Table.Categories.category1));
+                                                  Table.Categories.KITCHENTABLE));
 
         model.getArticleList().add(af.createTable(12, "Björkudden", 89.00f,
                                                   Material.WOOD, false,
-                                                  Table.Categories.category1));
+                                                  Table.Categories.KITCHENTABLE));
 
         model.getArticleList().add(af.createTable(12, "Björkudden", 89.00f,
                                                   Material.WOOD, false,
-                                                  Table.Categories.category1));
+                                                  Table.Categories.KITCHENTABLE));
 
         model.getArticleList().add(af.createTable(12, "Björkudden", 89.00f,
                                                   Material.WOOD, false,
-                                                  Table.Categories.category1));
+                                                  Table.Categories.KITCHENTABLE));
 
         model.getArticleList().add(af.createTable(12, "Björkudden", 89.00f,
                                                   Material.WOOD, false,
-                                                  Table.Categories.category1));
+                                                  Table.Categories.KITCHENTABLE));
 
 
         model.getArticleList().add(af.createTable(13, "Malm", 29.00f,
                                                   Material.WOOD, false,
-                                                  Table.Categories.category1));
+                                                  Table.Categories.KITCHENTABLE));
 
         model.getArticleList().add(af.createTable(13, "Malm", 29.00f,
                                                   Material.WOOD, false,
-                                                  Table.Categories.category1));
+                                                  Table.Categories.KITCHENTABLE));
 
         model.getArticleList().add(af.createTable(13, "Malm", 29.00f,
                                                   Material.WOOD, false,
-                                                  Table.Categories.category1));
+                                                  Table.Categories.KITCHENTABLE));
 
 
         model.getArticleList().add(af.createTable(14, "Rast", 29.00f,
                                                   Material.WOOD, false,
-                                                  Table.Categories.category1));
+                                                  Table.Categories.COUCHTABLE));
 
         model.getArticleList().add(af.createTable(14, "Rast", 29.00f,
                                                   Material.WOOD, false,
-                                                  Table.Categories.category1));
+                                                  Table.Categories.COUCHTABLE));
 
         model.getArticleList().add(af.createTable(14, "Rast", 29.00f,
                                                   Material.WOOD, false,
-                                                  Table.Categories.category1));
+                                                  Table.Categories.COUCHTABLE));
 
+
+        // Daten kopieren in die Suchlisten
+        model.setArticleSearchList(model.getArticleList());
+        model.setCustomerSearchList(model.getCustomerList());
+        model.setOrderSearchList(model.getOrderList());
 
         return model;
     }

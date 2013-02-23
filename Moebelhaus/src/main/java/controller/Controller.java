@@ -7,9 +7,6 @@ package controller;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Scanner;
 import main.Model;
 
@@ -45,6 +42,7 @@ public abstract class Controller {
 
     public int execute(int offset) {
         this.offset = offset;
+        showMenu();
         int result = read();
         this.offset = 0;
         return result;

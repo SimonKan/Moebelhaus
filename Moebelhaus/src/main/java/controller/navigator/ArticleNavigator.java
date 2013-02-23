@@ -1,7 +1,7 @@
 /*
- * ArticleNavigator.java
+ * CustomerNavigator.java
  *
- * Created on 21.02.2013, 13:38:09
+ * Created on 21.02.2013, 13:31:36
  */
 package controller.navigator;
 
@@ -11,6 +11,8 @@ import main.Model;
  *
  *
  * @Simon
+ *
+ *
  */
 public class ArticleNavigator extends Navigator {
 
@@ -30,7 +32,7 @@ public class ArticleNavigator extends Navigator {
 
     @Override
     public void showMenu() {
-        println("Articlecontroller");
+        println("Artikelmenu");
         println("");
         super.showMenu();
     }

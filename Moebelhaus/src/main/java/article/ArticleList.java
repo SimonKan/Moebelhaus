@@ -90,7 +90,6 @@ public class ArticleList {
         return articles.contains(article);
     }
 
-    // TODO Eig. Überflüssig
     public void sortByUniqueId(final boolean ascendent) {
 
         Collections.sort(articles, new Comparator<ConcreteArticle>() {

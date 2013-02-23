@@ -47,7 +47,7 @@ public abstract class Discount implements Comparable<Discount> {
         if (obj == this) {
             return true;
         }
-        if (obj.getClass() != this.getClass()) {
+        if (!(obj instanceof Discount)) {
             return false;
         }
         final Discount other = (Discount) obj;

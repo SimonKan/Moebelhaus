@@ -8,14 +8,15 @@ package article;
 public class Table extends Article {
 
     public static final class Categories {
-        // TODO kategorien einführen!
-        // e.g. Esstisch, Nachttisch, etc.
 
-        public static final int category1 = 1;
+        public static final int KITCHENTABLE = 0;
+        public static final int DININGTABLE = 1;
+        public static final int LIVINGROOMTABLE = 2;
+        public static final int COUCHTABLE = 3;
     }
 
     private boolean pullOut;
-    private int categorie;
+    private int category;
 
     /**
      * Konstruktor der Klasse Tisch
@@ -25,12 +26,12 @@ public class Table extends Article {
      * @param price
      * @param material
      * @param pullOut
-     * @param categorie
+     * @param category
      */
     public Table(long articleId, String name, float price,
-                 int material, boolean pullOut, int categorie) {
+                 int material, boolean pullOut, int category) {
         super(articleId, name, price, material);
-        this.categorie = categorie;
+        this.category = category;
         this.pullOut = pullOut;
     }
 // Get Methoden zum Aufruf der Attribute,  die ergänzt wurden
@@ -39,8 +40,8 @@ public class Table extends Article {
         return this.pullOut;
     }
 
-    public int getCategorie() {
-        return this.categorie;
+    public int getCategory() {
+        return this.category;
     }
 
     @Override

@@ -34,4 +34,5 @@ public class DiscountTwo extends Discount {
             order.setPrice(price - offtake);
         }
     }
+    // TODO toString
 }

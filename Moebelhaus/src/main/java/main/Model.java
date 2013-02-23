@@ -24,14 +24,22 @@ public class Model {
         Model model = new Model();
 
         model.articleList = new ArticleList();
+        model.articleSearchList = new ArticleList();
+
         model.customerList = new CustomerList();
+        model.customerSearchList = new CustomerList();
+
         model.orderList = new OrderList();
+        model.orderSearchList = new OrderList();
 
         return model;
     }
     private ArticleList articleList;
-    private OrderList orderList;
+    private ArticleList articleSearchList;
     private CustomerList customerList;
+    private CustomerList customerSearchList;
+    private OrderList orderList;
+    private OrderList orderSearchList;
 
     private Model() {
     }
@@ -40,11 +48,35 @@ public class Model {
         return articleList;
     }
 
-    public OrderList getOrderList() {
-        return orderList;
+    public ArticleList getArticleSearchList() {
+        return articleSearchList;
+    }
+
+    public void setArticleSearchList(ArticleList articleSearchList) {
+        this.articleSearchList = new ArticleList(articleSearchList.toList());
     }
 
     public CustomerList getCustomerList() {
         return customerList;
+    }
+
+    public CustomerList getCustomerSearchList() {
+        return customerSearchList;
+    }
+
+    public void setCustomerSearchList(CustomerList customerSearchList) {
+        this.customerSearchList = new CustomerList(customerSearchList.toList());
+    }
+
+    public OrderList getOrderList() {
+        return orderList;
+    }
+
+    public OrderList getOrderSearchList() {
+        return orderSearchList;
+    }
+
+    public void setOrderSearchList(OrderList orderSearchList) {
+        this.orderSearchList = new OrderList(orderSearchList.toList());
     }
 }

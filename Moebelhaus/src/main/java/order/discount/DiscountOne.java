@@ -30,4 +30,10 @@ public class DiscountOne extends Discount {
     public void apply(Order order) {
         order.setPrice(order.getPrice() * (1 - percentage0) * (1 - percentage1));
     }
+    
+    @Override
+    public String toString() {
+        return "Wendet zerst " + percentage0 + "% Rabatt an,"
+            + "danach nochmal " + percentage1 + "% Rabatt";
+    }
 }

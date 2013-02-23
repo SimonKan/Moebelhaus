@@ -23,4 +23,5 @@ public class DiscountThree extends Discount {
     public void apply(Order order) {
         order.setPrice(order.getPrice() / 1.19f);
     }
+    // TODO toString
 }

@@ -26,12 +26,12 @@ public class DiscountFactory {
      */
     public Discount createDiscountOne(float percentage0, float percentage1) {
 
-        // Check Percentage 0 
+        // Check Percentage 0
         if (percentage0 <= 0) {
             throw new IllegalArgumentException("percentage was negative or zero");
         }
 
-        //Check numberSink
+        //Check Percentage 1
         if (percentage1 <= 0) {
             throw new IllegalArgumentException("percentage was negative or zero");
         }
@@ -52,12 +52,12 @@ public class DiscountFactory {
      */
     public Discount createDiscountTwo(float threshold, float offtake) {
 
-        // Check Percentage 0 
+        // Check threshold 
         if (threshold <= 0) {
             throw new IllegalArgumentException("threshold was negative ");
         }
 
-        //Check numberSink
+        //Check offtake
         if (offtake <= 0) {
             throw new IllegalArgumentException("offtake was negative ");
         }
@@ -65,13 +65,13 @@ public class DiscountFactory {
         return new DiscountOne(threshold, offtake);
     }
 
-    public Discount createDiscountThree(float threshold, float offtake) {
+    public Discount createDiscountThree() {
         return new DiscountThree();
     }
 
     public Discount createDiscountFour(float offtake) {
 
-        //Check numberSink
+        //Check offtake
         if (offtake <= 0) {
             throw new IllegalArgumentException("offtake was negative or zero");
         }

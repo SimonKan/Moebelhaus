@@ -32,7 +32,7 @@ public class CustomerNavigator extends Navigator {
 
     @Override
     public void showMenu() {
-        println("Kundencontroller");
+        println("Kundenmenu");
         println("");
         super.showMenu();
     }

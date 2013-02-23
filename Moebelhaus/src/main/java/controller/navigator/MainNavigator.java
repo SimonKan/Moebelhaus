@@ -46,7 +46,8 @@ public class MainNavigator extends Navigator {
     @Override
     protected int read() {
         int result = FAILURE;
-        showMenu();
+//        showMenu();
+        
         do {
             print("Eingabe: ");
             String in = input.nextLine();
