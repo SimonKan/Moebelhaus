@@ -9,10 +9,10 @@ public class Table extends Article {
 
     public static final class Categories {
 
-        public static final int KITCHENTABLE = 0;
-        public static final int DININGTABLE = 1;
-        public static final int LIVINGROOMTABLE = 2;
-        public static final int COUCHTABLE = 3;
+        public static final int KITCHENTABLE = 1;
+        public static final int DININGTABLE = 2;
+        public static final int LIVINGROOMTABLE = 3;
+        public static final int COUCHTABLE = 4;
     }
 
     private boolean pullOut;

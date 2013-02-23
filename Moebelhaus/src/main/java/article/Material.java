@@ -15,8 +15,8 @@ package article;
  */
 public class Material {
 
-    public static final int WOOD = 0;
-    public static final int IRON = 1;
-    public static final int STONE = 2;
-    public static final int CERAMIC = 3;
+    public static final int WOOD = 1;
+    public static final int IRON = 2;
+    public static final int STONE = 3;
+    public static final int CERAMIC = 4;
 }

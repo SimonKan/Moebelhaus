@@ -6,10 +6,8 @@
 package controller.customer;
 
 import controller.Controller;
-import controller.Controller;
 import customer.AddressGermany;
 import customer.Customer;
-import java.util.InputMismatchException;
 import main.Model;
 
 /**
@@ -39,12 +37,11 @@ public class CustomerAddController extends Controller {
     @Override
     public void showMenu() {
         println("Bitte füllen Sie die folgenden Felder aus.");
+        println("");
     }
 
     @Override
     protected int read() {
-        showMenu();
-
         String fname = "";
         String lname = "";
         int plz = 0;
@@ -119,7 +116,7 @@ public class CustomerAddController extends Controller {
         model.getCustomerList().add(Customer.create(
             AddressGermany.create(fname, lname, plz, city,
                                   street, houseNumber)));
-        
+
         model.setCustomerSearchList(model.getCustomerList());
 
         return SUCCESS;

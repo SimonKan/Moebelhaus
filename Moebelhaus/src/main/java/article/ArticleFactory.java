@@ -117,7 +117,7 @@ public class ArticleFactory {
      * @param price     Preis des Artikels
      * @param material  Material des Artikels
      * @param pullOut   ob ausziehbar
-     * @param categorie welche Kategorie
+     * @param category welche Kategorie
      *
      * @return {@link Article Tisch}
      *
@@ -130,7 +130,7 @@ public class ArticleFactory {
      *
      */
     public ConcreteArticle createTable(long articleId, String name, float price,
-                                       int material, boolean pullOut, int categorie) {
+                                       int material, boolean pullOut, int category) {
 
         // Check name 
         if (name == null) {
@@ -147,12 +147,12 @@ public class ArticleFactory {
         }
 
         //Check categorie
-        if (categorie < 0) {
+        if (category < 0) {
             throw new IllegalArgumentException("categorie was negative");
         }
 
         return new ConcreteArticle(new Table(articleId, name, price, material,
-                                             pullOut, categorie), generator.getNextNumber());
+                                             pullOut, category), generator.getNextNumber());
     }
 
     /**
