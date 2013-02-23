@@ -12,7 +12,7 @@ import order.OrderList;
 /**
  *
  *
- * @author Immanuel Haffner <s9imhaff@stud.uni-saarland.de>
+ * @author Simon
  * @since 20.02.2013
  * @version 1.0.0
  *

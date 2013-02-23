@@ -3,8 +3,10 @@
  *
  * Created on 21.02.2013, 13:39:01
  */
-package controller.navigator;
+package controller.order;
 
+import controller.navigator.Navigator;
+import controller.navigator.Navigator;
 import main.Model;
 
 /**

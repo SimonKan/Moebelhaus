@@ -3,8 +3,9 @@
  *
  * Created on 21.02.2013, 13:31:36
  */
-package controller.navigator;
+package controller.navigator.customer;
 
+import controller.navigator.Navigator;
 import main.Model;
 
 /**
@@ -14,25 +15,25 @@ import main.Model;
  *
  *
  */
-public class ArticleNavigator extends Navigator {
+public class CustomerNavigator extends Navigator {
 
-    public ArticleNavigator(Model model) {
+    public CustomerNavigator(Model model) {
         super(model);
     }
 
     @Override
     public String getName() {
-        return "Artikel";
+        return "Kunden";
     }
 
     @Override
     public String getToken() {
-        return "article";
+        return "customer";
     }
 
     @Override
     public void showMenu() {
-        println("Artikelmenu");
+        println("Kundenmenu");
         println("");
         super.showMenu();
     }

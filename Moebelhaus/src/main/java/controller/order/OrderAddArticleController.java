@@ -1,5 +1,5 @@
 /*
- * OrderModifyController.java
+ * OrderAddArticleController.java
  *
  * Created on 23.02.2013, 18:09:16
  */
@@ -13,32 +13,32 @@ import order.Order;
 /**
  *
  *
- * @author Immanuel Haffner <s9imhaff@stud.uni-saarland.de>
+ * @author Simon
  * @since 23.02.2013
  * @version 1.0.0
  *
  */
-public class OrderModifyController extends Controller {
+public class OrderAddArticleController extends Controller {
 
-    public static final String ESCAPE = "~";
+    public static final String ESCAPE = "abort";
 
-    public OrderModifyController(Model model) {
+    public OrderAddArticleController(Model model) {
         super(model);
     }
 
     @Override
     public String getName() {
-        return "Bestellungen bearbeiten";
+        return "Artikel hinzufügen";
     }
 
     @Override
     public String getToken() {
-        return "mod";
+        return "article";
     }
 
     @Override
     public void showMenu() {
-        println("Hier können Sie Bestellungen bearbeiten");
+        println("Hier können Sie Artikel zu einer Bestellung hinzufügen");
         println("");
     }
 
@@ -52,7 +52,6 @@ public class OrderModifyController extends Controller {
             input.nextLine();
             order = model.getOrderList().getOrderByUniqueId(id);
             if (order != null) {
-                model.getOrderList().remove(order);
                 break;
             }
             println("(!) Fehlerhafte Eingabe, Order mit ID " + id

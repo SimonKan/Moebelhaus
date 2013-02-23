@@ -14,7 +14,7 @@ import order.discount.Discount;
 /**
  *
  *
- * @author Immanuel Haffner <s9imhaff@stud.uni-saarland.de>
+ * @author Simon
  * @since 23.02.2013
  * @version 1.0.0
  *

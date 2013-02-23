@@ -17,16 +17,18 @@ import controller.customer.CustomerPrintSearchController;
 import controller.customer.CustomerRemoveController;
 import controller.customer.CustomerSearchByFistNameController;
 import controller.customer.CustomerSearchByLastNameController;
-import controller.navigator.ArticleAddNavigator;
-import controller.navigator.ArticleNavigator;
-import controller.navigator.ArticleSearchNavigator;
-import controller.navigator.CustomerNavigator;
-import controller.navigator.CustomerSearchNavigator;
+import controller.navigator.article.ArticleAddNavigator;
+import controller.navigator.article.ArticleNavigator;
+import controller.navigator.article.ArticleSearchNavigator;
+import controller.navigator.customer.CustomerNavigator;
+import controller.navigator.customer.CustomerSearchNavigator;
 import controller.navigator.MainNavigator;
-import controller.navigator.OrderNavigator;
-import controller.navigator.OrderSearchNavigator;
+import controller.order.OrderAddDiscountController;
+import controller.order.OrderNavigator;
+import controller.order.OrderSearchNavigator;
 import controller.order.OrderAddController;
-import controller.order.OrderModifyController;
+import controller.order.OrderAddArticleController;
+import controller.order.OrderModifyNavigator;
 import controller.order.OrderPrintController;
 import controller.order.OrderRemoveController;
 import customer.AddressGermany;
@@ -75,13 +77,17 @@ public class Main {
         cn.add(csn);
 
 
+        OrderModifyNavigator omn = new OrderModifyNavigator(model);
+        omn.add(new OrderAddArticleController(model));
+        omn.add(new OrderAddDiscountController(model));
+
         OrderSearchNavigator osn = new OrderSearchNavigator(model);
 
         OrderNavigator on = new OrderNavigator(model);
         on.add(new OrderPrintController(model));
         on.add(new OrderAddController(model));
         on.add(new OrderRemoveController(model));
-        on.add(new OrderModifyController(model));
+        on.add(omn);
         on.add(osn);
 
 
