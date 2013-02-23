@@ -12,9 +12,11 @@ import order.OrderList;
 /**
  *
  *
- * @author Simon
+ * @author Immanuel Haffner <s9imhaff@stud.uni-saarland.de>
+ * @since 20.02.2013
+ * @version 1.0.0
  *
- * TODO WHY :D
+ * TODO WHY
  */
 public class Model {
 

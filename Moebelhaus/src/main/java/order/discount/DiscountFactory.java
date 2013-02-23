@@ -57,7 +57,7 @@ public class DiscountFactory {
             throw new IllegalArgumentException("threshold was negative ");
         }
 
-        //Check Offtake
+        //Check numberSink
         if (offtake <= 0) {
             throw new IllegalArgumentException("offtake was negative ");
         }
@@ -71,7 +71,7 @@ public class DiscountFactory {
 
     public Discount createDiscountFour(float offtake) {
 
-        //Check Offtake
+        //Check numberSink
         if (offtake <= 0) {
             throw new IllegalArgumentException("offtake was negative or zero");
         }

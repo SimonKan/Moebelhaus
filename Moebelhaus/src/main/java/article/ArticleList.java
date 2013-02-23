@@ -90,10 +90,7 @@ public class ArticleList {
         return articles.contains(article);
     }
 
-    /**
-     * TODO Eigentlich überflüssig
-     * @param ascendent
-     */
+    // TODO Eig. Überflüssig
     public void sortByUniqueId(final boolean ascendent) {
 
         Collections.sort(articles, new Comparator<ConcreteArticle>() {
@@ -183,8 +180,10 @@ public class ArticleList {
      * zurück
      *
      * @param aid ArtikelId
-     * TODO warum hier ne liste gibt doch nur einen Artikel mit der Id
+     *
      * @return {@link ArticleList searchlist}
+     * 
+     * TODO warum hier eine Liste
      */
     public ArticleList getArticlesByArticleId(long aid) {
         ArticleList searchList = new ArticleList();

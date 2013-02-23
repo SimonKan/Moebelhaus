@@ -59,9 +59,8 @@ public class ConcreteArticle {
     public int hashCode() {
         return (int) uniqueId;
     }
-    
-    // TODO erklären wichtig 
 
+    // TODO Erklärung
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
