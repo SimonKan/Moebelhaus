@@ -18,45 +18,44 @@ import order.Order;
  * @version 1.0.0
  *
  */
-public class OrderAddController extends Controller {
+public class OrderRemoveController extends Controller {
 
-    public OrderAddController(Model model) {
+    public OrderRemoveController(Model model) {
         super(model);
     }
 
     @Override
     public String getName() {
-        return "Bestellung hinzufügen";
+        return "Bestellung löschen";
     }
 
     @Override
     public String getToken() {
-        return "add";
+        return "del";
     }
 
     @Override
     public void showMenu() {
-        println("Füllen Sie die folgenden Felder aus.");
     }
 
     @Override
     protected int read() {
-        Customer customer = null;
+        long id = 0;
 
         while (true) {
-            print("ID des Käufers: ");
-            long id = input.nextLong();
+            print("ID der zu löschenden Bestellung: ");
+            id = input.nextLong();
             input.nextLine();
-            customer = model.getCustomerList().getCustomerById(id);
-            if (customer != null) {
+            Order order = model.getOrderList().getOrderByUniqueId(id);
+            if (order != null) {
+                model.getOrderList().remove(order);
                 break;
             }
-            println("(!) Fehlerhafte Eingabe, Kunde mit ID " + id
+            println("(!) Fehlerhafte Eingabe, Order mit ID " + id
                 + "existiert nicht");
             println("");
         }
 
-        model.getOrderList().add(Order.create(customer));
         model.setOrderSearchList(model.getOrderList());
 
         return SUCCESS;

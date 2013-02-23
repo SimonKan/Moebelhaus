@@ -8,15 +8,15 @@ package main;
 import article.ArticleFactory;
 import article.Material;
 import article.Table;
-import controller.customer.CustomerAddController;
-import controller.customer.CustomerRemoveController;
-import controller.customer.CustomerSearchByFistNameController;
-import controller.customer.CustomerSearchByLastNameController;
 import controller.StatisticsController;
 import controller.article.ArticleAddTableController;
 import controller.article.ArticlePrintController;
+import controller.customer.CustomerAddController;
 import controller.customer.CustomerPrintController;
 import controller.customer.CustomerPrintSearchController;
+import controller.customer.CustomerRemoveController;
+import controller.customer.CustomerSearchByFistNameController;
+import controller.customer.CustomerSearchByLastNameController;
 import controller.navigator.ArticleAddNavigator;
 import controller.navigator.ArticleNavigator;
 import controller.navigator.ArticleSearchNavigator;
@@ -26,7 +26,9 @@ import controller.navigator.MainNavigator;
 import controller.navigator.OrderNavigator;
 import controller.navigator.OrderSearchNavigator;
 import controller.order.OrderAddController;
+import controller.order.OrderModifyController;
 import controller.order.OrderPrintController;
+import controller.order.OrderRemoveController;
 import customer.AddressGermany;
 import customer.Customer;
 import order.Order;
@@ -78,6 +80,8 @@ public class Main {
         OrderNavigator on = new OrderNavigator(model);
         on.add(new OrderPrintController(model));
         on.add(new OrderAddController(model));
+        on.add(new OrderRemoveController(model));
+        on.add(new OrderModifyController(model));
         on.add(osn);
 
 
@@ -243,13 +247,13 @@ public class Main {
         Order o0 = Order.create(model.getCustomerList().getCustomerById(1));
         Order o1 = Order.create(model.getCustomerList().getCustomerById(3));
         Order o2 = Order.create(model.getCustomerList().getCustomerById(5));
-        
+
         o0.addArticle(model.getArticleList().getArticleByUniqueId(1));
         o0.addArticle(model.getArticleList().getArticleByUniqueId(2));
         o0.addArticle(model.getArticleList().getArticleByUniqueId(5));
-        
+
         o0.addDiscount(DiscountFactory.createDiscountThree());
-        
+
         model.getOrderList().add(o0);
         model.getOrderList().add(o1);
         model.getOrderList().add(o2);

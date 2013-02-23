@@ -30,4 +30,16 @@ public class OrderSearchNavigator extends Navigator {
     public String getToken() {
         return "search";
     }
+
+    @Override
+    public int read() {
+        int res;
+        do {
+            res = super.read();
+            showMenu();
+        } while (res == SUCCESS);
+
+        model.setOrderSearchList(model.getOrderList());
+        return res;
+    }
 }
