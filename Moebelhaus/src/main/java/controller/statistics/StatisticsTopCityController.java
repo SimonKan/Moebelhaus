@@ -6,7 +6,6 @@
 package controller.statistics;
 
 import controller.Controller;
-import customer.Customer;
 import java.util.Arrays;
 import main.Model;
 import order.Order;
@@ -19,18 +18,18 @@ import order.Order;
  * @version 1.0.0
  *
  */
-public class StatisticsTopCustomerController extends Controller {
+public class StatisticsTopCityController extends Controller {
 
     private final int amount;
 
-    public StatisticsTopCustomerController(Model model, int amount) {
+    public StatisticsTopCityController(Model model, int amount) {
         super(model);
         this.amount = amount;
     }
 
     @Override
     public String getName() {
-        return "Wichtigste " + amount + " Kunden";
+        return "Wichtigste " + amount + " Städte";
     }
 
     @Override
@@ -40,27 +39,28 @@ public class StatisticsTopCustomerController extends Controller {
 
     @Override
     public void showMenu() {
-        println("Hier sehen Sie die " + amount + " Kunden mit der höchsten");
+        println("Hier sehen Sie die " + amount + " Städte mit der höchsten");
         println("Kaufkraft, geordnet in absteigender Reihenfolge.");
         println("");
 
-        float[] money = new float[model.getCustomerList().toList().size()];
+        float[] money = new float[100000];  // 90.000 mögliche Plz (10.000 - 100.000)
+        // der Einfachheit wegen nehmen wir 100.000
+
         Arrays.fill(money, 0f);    // alle Werte mit 0 initialisieren
 
         for (Order order : model.getOrderList().toList()) {
-            int index = model.getCustomerList().toList().indexOf(order.getCustomer());
-            money[index] += order.getPrice();
+            money[order.getCustomer().getAddressGermany().getPlz()] += order.getPrice();
         }
 
         int size = Math.min(amount, model.getCustomerList().toList().size());
 
-        Customer[] customers = new Customer[size];  // Top 10 Kunden
+        int[] plzs = new int[size];  // Top 10 Plz's
 
         for (int i = 0; i < size; i++) {
             float max = -1f;
             int index = 0;
 
-            // Finde Kunden mit momentan höchster Kaufkraft
+            // Finde Plz mit momentan höchster Kaufkraft
             for (int j = 0; j < money.length; j++) {
                 if (money[j] > max) {
                     max = money[j];
@@ -68,8 +68,10 @@ public class StatisticsTopCustomerController extends Controller {
                 }
             }
 
-            println("\t" + model.getCustomerList().toList().get(index)
-                + "\t  [" + money[index] + "€]");
+            // wenn Plz gültig
+            if (index >= 10000) {
+                println("\t" + index);
+            }
             money[index] = -1f;
         }
 

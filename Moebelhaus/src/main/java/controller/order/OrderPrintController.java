@@ -48,10 +48,10 @@ public class OrderPrintController extends Controller {
             println("");
             println("\tBestelldatum: " + o.getOrderingDate());
             if (o.isBooked()) {
-                println("Buchungsdatum: " + o.getBookingDate());
+                println("\tBuchungsdatum: " + o.getBookingDate());
             }
             if (o.isDelivered()) {
-                println("Zustellungsdatum: " + o.getDeliveryDate());
+                println("\tZustellungsdatum: " + o.getDeliveryDate());
             }
             println("");
             println("Artikel:");

@@ -11,20 +11,23 @@ import main.Model;
 /**
  *
  *
- * @author Simon <s9imhaff@stud.uni-saarland.de>
+ * @author Simon
  * @since 24.02.2013
  * @version 1.0.0
  *
  */
 public class StatisticsTopNavigator extends Navigator {
+    
+    private final int amount;
 
-    public StatisticsTopNavigator(Model model) {
+    public StatisticsTopNavigator(Model model, int amount) {
         super(model);
+        this.amount = amount;
     }
 
     @Override
     public String getName() {
-        return "Top";
+        return "Top " + amount;
     }
 
     @Override

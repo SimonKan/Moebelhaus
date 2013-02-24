@@ -11,7 +11,7 @@ import main.Model;
 /**
  *
  *
- * @author Simon <s9imhaff@stud.uni-saarland.de>
+ * @author Simon
  * @since 24.02.2013
  * @version 1.0.0
  *

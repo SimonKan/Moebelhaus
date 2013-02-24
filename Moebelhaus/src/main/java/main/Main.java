@@ -45,10 +45,14 @@ import controller.order.search.OrderSearchByCustomerNavigator;
 import controller.order.search.OrderSearchByPriceController;
 import controller.order.search.OrderSearchNavigator;
 import controller.statistics.StatisticsNavigator;
+import controller.statistics.StatisticsPerformanceController;
+import controller.statistics.StatisticsTopCityController;
 import controller.statistics.StatisticsTopCustomerController;
 import controller.statistics.StatisticsTopNavigator;
 import customer.AddressGermany;
 import customer.Customer;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import order.Order;
 import order.discount.DiscountFactory;
 
@@ -157,12 +161,14 @@ public class Main {
 //******************************************************************************
 
         // Statistics Top Navigator
-        StatisticsTopNavigator stn = new StatisticsTopNavigator(model);
-        stn.add(new StatisticsTopCustomerController(model));
+        StatisticsTopNavigator stn = new StatisticsTopNavigator(model, 5);
+        stn.add(new StatisticsTopCustomerController(model, 5));
+        stn.add(new StatisticsTopCityController(model, 5));
 
         // Statistics Main Menu
         StatisticsNavigator sn = new StatisticsNavigator(model);
         sn.add(stn);
+        sn.add(new StatisticsPerformanceController(model));
 
 //******************************************************************************
 //
@@ -333,11 +339,21 @@ public class Main {
         Order o1 = Order.create(model.getCustomerList().getCustomerById(3));
         Order o2 = Order.create(model.getCustomerList().getCustomerById(5));
 
+        o0.setBookingDate(GregorianCalendar.getInstance().getTime());
+        o1.setBookingDate(GregorianCalendar.getInstance().getTime());
+        o2.setBookingDate(GregorianCalendar.getInstance().getTime());
+
         o0.addArticle(model.getArticleList().getArticleByUniqueId(1));
         o0.addArticle(model.getArticleList().getArticleByUniqueId(2));
         o0.addArticle(model.getArticleList().getArticleByUniqueId(5));
 
         o0.addDiscount(DiscountFactory.createDiscountThree());
+
+        o0.setDeliveryDate(new Date(
+            GregorianCalendar.getInstance().getTimeInMillis() + 897232437));
+
+        o1.setDeliveryDate(new Date(
+            GregorianCalendar.getInstance().getTimeInMillis() + 782345526));
 
         model.getOrderList().add(o0);
         model.getOrderList().add(o1);
