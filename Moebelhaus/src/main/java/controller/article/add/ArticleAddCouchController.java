@@ -3,7 +3,7 @@
  *
  * Created on 23.02.2013, 14:04:00
  */
-package controller.article;
+package controller.article.add;
 
 import article.ArticleFactory;
 import controller.Controller;
@@ -51,7 +51,7 @@ public class ArticleAddCouchController extends Controller {
         String name = "";
         float price = 0f;
         int material = 0;
-        boolean pullOut= false;
+        boolean pullOut = false;
         boolean corner = false;
 
         while (true) {
@@ -75,9 +75,7 @@ public class ArticleAddCouchController extends Controller {
             println("");
         }
 
-
         while (true) {
-
             print("Preis:         ");
             price = input.nextFloat();
             input.nextLine();
@@ -106,15 +104,15 @@ public class ArticleAddCouchController extends Controller {
             println("(!) Fehlerhafte Eingabe, versuchen Sie es erneut");
             println("");
         }
-        
-         do {
+
+        do {
             print("Ausziehbar? (Ja/Nein): ");
 
             String s = input.nextLine();
 
             switch (s.toLowerCase()) {
                 case "ja":
-                   pullOut = true;
+                    pullOut = true;
                     break;
                 case "nein":
                     pullOut = false;
@@ -146,15 +144,13 @@ public class ArticleAddCouchController extends Controller {
             }
         } while (false);
 
-      
-
         println("");
         println("");
 
 
         model.getArticleList().add(articleFactory.createCouch(articleId, name,
                                                               price, material,
-                                                              corner, pullOut));
+                                                              pullOut, corner));
 
         model.setArticleSearchList(model.getArticleList());
 

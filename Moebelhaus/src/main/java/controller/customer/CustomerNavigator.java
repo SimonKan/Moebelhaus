@@ -3,9 +3,9 @@
  *
  * Created on 21.02.2013, 13:31:36
  */
-package controller.navigator.customer;
+package controller.customer;
 
-import controller.navigator.Navigator;
+import controller.Navigator;
 import main.Model;
 
 /**

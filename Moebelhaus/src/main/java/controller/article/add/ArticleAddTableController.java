@@ -3,7 +3,7 @@
  *
  * Created on 23.02.2013, 14:04:00
  */
-package controller.article;
+package controller.article.add;
 
 import article.ArticleFactory;
 import controller.Controller;
@@ -17,11 +17,11 @@ import main.Model;
  * @version 1.0.0
  *
  */
-public class ArticleAddClosetController extends Controller {
+public class ArticleAddTableController extends Controller {
 
     private ArticleFactory articleFactory;
 
-    public ArticleAddClosetController(Model model, ArticleFactory articleFactory) {
+    public ArticleAddTableController(Model model, ArticleFactory articleFactory) {
         super(model);
         if (articleFactory == null) {
             throw new IllegalArgumentException("articleFactory was null");
@@ -31,12 +31,12 @@ public class ArticleAddClosetController extends Controller {
 
     @Override
     public String getName() {
-        return "Schrank hinzufügen";
+        return "Tisch hinzufügen";
     }
 
     @Override
     public String getToken() {
-        return "closet";
+        return "table";
     }
 
     @Override
@@ -51,8 +51,8 @@ public class ArticleAddClosetController extends Controller {
         String name = "";
         float price = 0f;
         int material = 0;
-        int doors = 0;
-        boolean slope = false;
+        boolean pullOut = false;
+        int category = 0;
 
         while (true) {
             print("Artikelnummer: ");
@@ -74,10 +74,8 @@ public class ArticleAddClosetController extends Controller {
             println("(!) Fehlerhafte Eingabe, versuchen Sie es erneut");
             println("");
         }
-
-
+        
         while (true) {
-
             print("Preis:         ");
             price = input.nextFloat();
             input.nextLine();
@@ -107,33 +105,17 @@ public class ArticleAddClosetController extends Controller {
             println("");
         }
 
-        
-        
-        while (true) {
-            println("Geben sie die Anzahl der Türen an :");
-
-            print("Bitte Zahl eingeben: ");
-             doors = input.nextInt();
-            input.nextLine();
-            if (doors > 0) {
-                break;
-            }
-            println("(!) Fehlerhafte Eingabe, versuchen Sie es erneut");
-            println("");
-        }
-        
-        
         do {
-            print("Neigung? (Ja/Nein): ");
+            print("Ausziehbar? (Ja/Nein): ");
 
             String s = input.nextLine();
 
             switch (s.toLowerCase()) {
                 case "ja":
-                    slope = true;
+                    pullOut = true;
                     break;
                 case "nein":
-                    slope = false;
+                    pullOut = false;
                     break;
                 default:
                     println("(!) Fehlerhafte Eingabe, versuchen Sie es erneut");
@@ -142,15 +124,32 @@ public class ArticleAddClosetController extends Controller {
             }
         } while (false);
 
-        
+        while (true) {
+            println("Wählen Sie aus folgenden Tischarten:");
+            println("");
+            println("\t1. Küchentisch");
+            println("\t2. Esstisch");
+            println("\t3. Wohnzimmertisch");
+            println("\t4. Couchtisch");
+            println("");
+
+            print("Bitte Zahl eingeben: ");
+            category = input.nextInt();
+            input.nextLine();
+            if (category > 0) {
+                break;
+            }
+            println("(!) Fehlerhafte Eingabe, versuchen Sie es erneut");
+            println("");
+        }
 
         println("");
         println("");
 
 
-        model.getArticleList().add(articleFactory.createCloset(articleId, name,
+        model.getArticleList().add(articleFactory.createTable(articleId, name,
                                                               price, material,
-                                                              doors, slope));
+                                                              pullOut, category));
 
         model.setArticleSearchList(model.getArticleList());
 

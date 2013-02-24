@@ -5,8 +5,8 @@
  */
 package controller.order;
 
-import controller.navigator.Navigator;
-import controller.navigator.Navigator;
+import controller.Navigator;
+import controller.Navigator;
 import main.Model;
 
 /**

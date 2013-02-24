@@ -3,13 +3,11 @@
  *
  * Created on 23.02.2013, 14:53:56
  */
-package controller.order;
+package controller.article.search;
 
-import controller.article.*;
 import article.ConcreteArticle;
 import controller.Controller;
 import main.Model;
-import order.Order;
 
 /**
  *
@@ -19,15 +17,15 @@ import order.Order;
  * @version 1.0.0
  *
  */
-public class OrderPrintSearchController extends Controller {
+public class ArticlePrintSearchController extends Controller {
 
-    public OrderPrintSearchController(Model model) {
+    public ArticlePrintSearchController(Model model) {
         super(model);
     }
 
     @Override
     public String getName() {
-        return "Orders anzeigen";
+        return "Artikel anzeigen";
     }
 
     @Override
@@ -37,12 +35,12 @@ public class OrderPrintSearchController extends Controller {
 
     @Override
     public void showMenu() {
-        println("Dies sind die gesuchten Orders.");
+        println("Dies sind die gesuchten Artikel.");
         println("");
 
-        model.getOrderList().sortByPrice(true);
-        for (Order o : model.getOrderSearchList().toList()) {
-            println(o.toString());
+        model.getArticleList().sortByUniqueId(true);
+        for (ConcreteArticle a : model.getArticleSearchList().toList()) {
+            println(a.toString());
         }
         
         println("");
@@ -54,4 +52,3 @@ public class OrderPrintSearchController extends Controller {
         return SUCCESS;
     }
 }
-// TODO RÜCKGABETYP DER ORDER KOMISCHE ANZEIGE

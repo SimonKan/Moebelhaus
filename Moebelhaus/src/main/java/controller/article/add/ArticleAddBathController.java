@@ -3,7 +3,7 @@
  *
  * Created on 23.02.2013, 14:04:00
  */
-package controller.article;
+package controller.article.add;
 
 import article.ArticleFactory;
 import controller.Controller;
@@ -17,11 +17,11 @@ import main.Model;
  * @version 1.0.0
  *
  */
-public class ArticleAddTableController extends Controller {
+public class ArticleAddBathController extends Controller {
 
     private ArticleFactory articleFactory;
 
-    public ArticleAddTableController(Model model, ArticleFactory articleFactory) {
+    public ArticleAddBathController(Model model, ArticleFactory articleFactory) {
         super(model);
         if (articleFactory == null) {
             throw new IllegalArgumentException("articleFactory was null");
@@ -31,12 +31,12 @@ public class ArticleAddTableController extends Controller {
 
     @Override
     public String getName() {
-        return "Tisch hinzufügen";
+        return "Bad hinzufügen";
     }
 
     @Override
     public String getToken() {
-        return "table";
+        return "bath";
     }
 
     @Override
@@ -51,8 +51,8 @@ public class ArticleAddTableController extends Controller {
         String name = "";
         float price = 0f;
         int material = 0;
-        boolean pullOut = false;
-        int category = 0;
+        boolean bathTub = false;
+        int numberSink = 0;
 
         while (true) {
             print("Artikelnummer: ");
@@ -75,9 +75,7 @@ public class ArticleAddTableController extends Controller {
             println("");
         }
 
-
         while (true) {
-
             print("Preis:         ");
             price = input.nextFloat();
             input.nextLine();
@@ -108,16 +106,16 @@ public class ArticleAddTableController extends Controller {
         }
 
         do {
-            print("Ausziehbar? (Ja/Nein): ");
+            print("Badewanne? (Ja/Nein): ");
 
             String s = input.nextLine();
 
             switch (s.toLowerCase()) {
                 case "ja":
-                    pullOut = true;
+                    bathTub = true;
                     break;
                 case "nein":
-                    pullOut = false;
+                    bathTub = false;
                     break;
                 default:
                     println("(!) Fehlerhafte Eingabe, versuchen Sie es erneut");
@@ -127,18 +125,12 @@ public class ArticleAddTableController extends Controller {
         } while (false);
 
         while (true) {
-            println("Wählen Sie aus folgenden Tischarten:");
-            println("");
-            println("\t1. Küchentisch");
-            println("\t2. Esstisch");
-            println("\t3. Wohnzimmertisch");
-            println("\t4. Couchtisch");
-            println("");
+            println("Geben sie die Anzahl der Waschbecken an :");
 
             print("Bitte Zahl eingeben: ");
-            category = input.nextInt();
+            numberSink = input.nextInt();
             input.nextLine();
-            if (category > 0) {
+            if (numberSink > 0) {
                 break;
             }
             println("(!) Fehlerhafte Eingabe, versuchen Sie es erneut");
@@ -149,9 +141,9 @@ public class ArticleAddTableController extends Controller {
         println("");
 
 
-        model.getArticleList().add(articleFactory.createTable(articleId, name,
-                                                              price, material,
-                                                              pullOut, category));
+        model.getArticleList().add(articleFactory.createBath(articleId, name,
+                                                             price, material,
+                                                             bathTub, numberSink));
 
         model.setArticleSearchList(model.getArticleList());
 

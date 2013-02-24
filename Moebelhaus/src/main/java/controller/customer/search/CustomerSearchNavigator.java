@@ -1,12 +1,11 @@
 /*
- * OrderSearchNavigator.java
+ * CustomerSearchNavigator.java
  *
- * Created on 23.02.2013, 16:37:07
+ * Created on 23.02.2013, 14:17:21
  */
-package controller.order;
+package controller.customer.search;
 
-import controller.navigator.Navigator;
-import controller.navigator.Navigator;
+import controller.Navigator;
 import main.Model;
 
 /**
@@ -17,15 +16,15 @@ import main.Model;
  * @version 1.0.0
  *
  */
-public class OrderSearchNavigator extends Navigator {
+public class CustomerSearchNavigator extends Navigator {
 
-    public OrderSearchNavigator(Model model) {
+    public CustomerSearchNavigator(Model model) {
         super(model);
     }
 
     @Override
     public String getName() {
-        return "Bestellungen durchsuchen";
+        return "Kunden durchsuchen";
     }
 
     @Override
@@ -41,7 +40,7 @@ public class OrderSearchNavigator extends Navigator {
             showMenu();
         } while (res == SUCCESS);
 
-        model.setOrderSearchList(model.getOrderList());
+        model.setCustomerSearchList(model.getCustomerList());
         return res;
     }
 }

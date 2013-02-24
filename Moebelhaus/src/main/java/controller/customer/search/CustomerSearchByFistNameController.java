@@ -3,8 +3,9 @@
  *
  * Created on 23.02.2013, 14:18:16
  */
-package controller.customer;
+package controller.customer.search;
 
+import controller.Controller;
 import controller.Controller;
 import customer.CustomerList;
 import main.Model;
@@ -17,20 +18,20 @@ import main.Model;
  * @version 1.0.0
  *
  */
-public class CustomerSearchByLastNameController extends Controller {
+public class CustomerSearchByFistNameController extends Controller {
 
-    public CustomerSearchByLastNameController(Model model) {
+    public CustomerSearchByFistNameController(Model model) {
         super(model);
     }
 
     @Override
     public String getName() {
-        return "Nachname";
+        return "Vorname";
     }
 
     @Override
     public String getToken() {
-        return "lname";
+        return "fname";
     }
 
     @Override
@@ -39,10 +40,10 @@ public class CustomerSearchByLastNameController extends Controller {
 
     @Override
     protected int read() {
-        print("Bitte Nachname eingeben: ");
-        String lname = input.nextLine().trim();
+        print("Bitte Vorname eingeben: ");
+        String fname = input.nextLine().trim();
         model.setCustomerSearchList(
-            model.getCustomerSearchList().getCustomerByLastName(lname));
+            model.getCustomerSearchList().getCustomerByFirstName(fname));
         println("");
         println("");
 

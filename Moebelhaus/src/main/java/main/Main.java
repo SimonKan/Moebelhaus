@@ -8,38 +8,37 @@ package main;
 import article.ArticleFactory;
 import article.Material;
 import article.Table;
-import controller.StatisticsController;
-import controller.article.ArticleAddBathController;
-import controller.article.ArticleAddClosetController;
-import controller.article.ArticleAddCouchController;
-import controller.article.ArticleAddTableController;
+import controller.MainNavigator;
+import controller.article.ArticleNavigator;
 import controller.article.ArticlePrintController;
-import controller.article.ArticlePrintSearchController;
-import controller.article.ArticleSearchByIdController;
-import controller.article.ArticleSearchByMaterialController;
-import controller.article.ArticleSearchByPriceController;
+import controller.article.add.ArticleAddBathController;
+import controller.article.add.ArticleAddClosetController;
+import controller.article.add.ArticleAddCouchController;
+import controller.article.add.ArticleAddNavigator;
+import controller.article.add.ArticleAddTableController;
+import controller.article.search.ArticlePrintSearchController;
+import controller.article.search.ArticleSearchByArticleIdController;
+import controller.article.search.ArticleSearchByMaterialController;
+import controller.article.search.ArticleSearchByPriceController;
+import controller.article.search.ArticleSearchNavigator;
 import controller.customer.CustomerAddController;
+import controller.customer.CustomerNavigator;
 import controller.customer.CustomerPrintController;
-import controller.customer.CustomerPrintSearchController;
 import controller.customer.CustomerRemoveController;
-import controller.customer.CustomerSearchByFistNameController;
-import controller.customer.CustomerSearchByLastNameController;
-import controller.navigator.article.ArticleAddNavigator;
-import controller.navigator.article.ArticleNavigator;
-import controller.navigator.article.ArticleSearchNavigator;
-import controller.navigator.customer.CustomerNavigator;
-import controller.navigator.customer.CustomerSearchNavigator;
-import controller.navigator.MainNavigator;
-import controller.order.OrderAddDiscountController;
-import controller.order.OrderNavigator;
-import controller.order.OrderSearchNavigator;
-import controller.order.OrderAddController;
+import controller.customer.search.CustomerPrintSearchController;
+import controller.customer.search.CustomerSearchByFistNameController;
+import controller.customer.search.CustomerSearchByLastNameController;
+import controller.customer.search.CustomerSearchNavigator;
 import controller.order.OrderAddArticleController;
+import controller.order.OrderAddController;
+import controller.order.OrderAddDiscountController;
 import controller.order.OrderModifyNavigator;
+import controller.order.OrderNavigator;
 import controller.order.OrderPrintController;
-import controller.order.OrderPrintSearchController;
 import controller.order.OrderRemoveController;
-import controller.order.OrderSearchByPriceController;
+import controller.order.search.OrderPrintSearchController;
+import controller.order.search.OrderSearchByPriceController;
+import controller.order.search.OrderSearchNavigator;
 import customer.AddressGermany;
 import customer.Customer;
 import order.Order;
@@ -62,30 +61,46 @@ public class Main {
 
         Model model = GET_DEFAULT_MODEL(articleFactory);
 
+//******************************************************************************
+//
+//      Article
+//
+//******************************************************************************
 
+        // Add Articles
         ArticleAddNavigator aan = new ArticleAddNavigator(model);
         aan.add(new ArticleAddBathController(model, articleFactory));
         aan.add(new ArticleAddClosetController(model, articleFactory));
         aan.add(new ArticleAddCouchController(model, articleFactory));
         aan.add(new ArticleAddTableController(model, articleFactory));
 
+        // Search Articles
         ArticleSearchNavigator asn = new ArticleSearchNavigator(model);
         asn.add(new ArticlePrintSearchController(model));
-        asn.add(new ArticleSearchByMaterialController(model));
+        asn.add(new ArticleSearchByArticleIdController(model));
         asn.add(new ArticleSearchByPriceController(model));
-        asn.add(new ArticleSearchByIdController(model));
+        asn.add(new ArticleSearchByMaterialController(model));
 
+        // Article Main Menu
         ArticleNavigator an = new ArticleNavigator(model);
         an.add(new ArticlePrintController(model));
         an.add(aan);
         an.add(asn);
 
 
+//******************************************************************************
+// 
+//      Customer
+// 
+//******************************************************************************
+
+        // Search Customers
         CustomerSearchNavigator csn = new CustomerSearchNavigator(model);
         csn.add(new CustomerPrintSearchController(model));
         csn.add(new CustomerSearchByFistNameController(model));
         csn.add(new CustomerSearchByLastNameController(model));
 
+        // Customer Main Menu
         CustomerNavigator cn = new CustomerNavigator(model);
         cn.add(new CustomerPrintController(model));
         cn.add(new CustomerAddController(model));
@@ -93,14 +108,23 @@ public class Main {
         cn.add(csn);
 
 
+//******************************************************************************
+//
+//      Order
+//
+//******************************************************************************
+
+        // Modify Orders
         OrderModifyNavigator omn = new OrderModifyNavigator(model);
         omn.add(new OrderAddArticleController(model));
         omn.add(new OrderAddDiscountController(model));
 
+        // Search Orders
         OrderSearchNavigator osn = new OrderSearchNavigator(model);
         osn.add(new OrderPrintSearchController(model));
         osn.add(new OrderSearchByPriceController(model));
 
+        // Order Main Menu
         OrderNavigator on = new OrderNavigator(model);
         on.add(new OrderPrintController(model));
         on.add(new OrderAddController(model));
@@ -109,11 +133,16 @@ public class Main {
         on.add(osn);
 
 
+//******************************************************************************
+//
+//      Main Menu
+//
+//******************************************************************************
+
         MainNavigator main = new MainNavigator(model);
-        main.add(an);
-        main.add(cn);
-        main.add(on);
-        main.add(new StatisticsController(model));
+        main.add(an);   // Article Main Menu
+        main.add(cn);   // Customer Main Menu
+        main.add(on);   // Order Main Menu
 
 
         main.execute(0);

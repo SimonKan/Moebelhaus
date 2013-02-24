@@ -1,57 +1,60 @@
-package controller.navigator;
+/*
+ * MainNavigator.java
+ *
+ * Created on 20.02.2013, 22:11:53
+ */
+package controller;
 
 import controller.Controller;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import main.Model;
 
 /**
  *
- * @author Simon
+ *
+ * @Simon
+ *
  */
-public abstract class Navigator extends Controller {
+public class MainNavigator extends Navigator {
 
-    protected final List<Controller> controllers;
-
-    public Navigator(Model model) {
+    public MainNavigator(Model model) {
         super(model);
-        controllers = new ArrayList<>();
     }
 
-    public void add(Controller c) {
-        if (!controllers.contains(c)) {
-            controllers.add(c);
-        }
+    @Override
+    public String getName() {
+        return "Main";
     }
 
-    public void remove(Controller c) {
-        controllers.remove(c);
+    @Override
+    public String getToken() {
+        return "main";
     }
 
     @Override
     public void showMenu() {
-        for (int i = 0; i < controllers.size(); i++) {
-            println("\t" + (i + 1) + ") " + controllers.get(i).getName()
-                + " (" + controllers.get(i).getToken() + ")");
-        }
+        println("Willkommen im Möbelhaus Management System.");
+        println("Von hier aus stehen Ihnen eine Liste von Möglichkeiten zur");
+        println("Verfügung.");
+        println("Zum Auswählen geben Sie entweder die Nummer oder den Befehl ");
+        println("in den runden Klammern ein.");
+        println("Um das Programm zu Beenden, geben Sie 'exit' ein. Um den ");
+        println("aktuellen Vorgang abzubrechen, geben Sie 'abort' ein.");
         println("");
+        super.showMenu();
     }
 
     @Override
     protected int read() {
         int result = FAILURE;
-
+//        showMenu();
+        
         do {
             print("Eingabe: ");
             String in = input.nextLine();
             in = in.split("\\s+")[0];
 
             if ("exit".equals(in)) {
-                return EXIT;
-            }
-            if ("abort".equals(in)) {
-                return ABORT;
+                return SUCCESS;
             }
             if ("help".equals(in)) {
                 println("");
@@ -89,7 +92,7 @@ public abstract class Navigator extends Controller {
                             "cannot return with FAILURE");
                     }
                     if (successor == EXIT) {
-                        return EXIT;
+                        return SUCCESS;
                     }
                 }
             }
@@ -97,8 +100,12 @@ public abstract class Navigator extends Controller {
                 println("(!) Fehlerhafte Eingabe, versuchen Sie es erneut.");
                 println("");
                 println("");
+            } else {
+                result = FAILURE;
+                println("");
+                println("");
+                showMenu();
             }
-        } while (result == FAILURE);
-        return result;
+        } while (true);
     }
 }

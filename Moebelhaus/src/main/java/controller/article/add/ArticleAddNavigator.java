@@ -3,9 +3,9 @@
  *
  * Created on 23.02.2013, 15:41:44
  */
-package controller.navigator.article;
+package controller.article.add;
 
-import controller.navigator.Navigator;
+import controller.Navigator;
 import main.Model;
 
 /**

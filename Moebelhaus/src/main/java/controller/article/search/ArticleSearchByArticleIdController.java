@@ -3,7 +3,7 @@
  *
  * Created on 23.02.2013, 14:18:16
  */
-package controller.article;
+package controller.article.search;
 
 import controller.Controller;
 import main.Model;
@@ -16,9 +16,9 @@ import main.Model;
  * @version 1.0.0
  *
  */
-public class ArticleSearchByIdController extends Controller {
+public class ArticleSearchByArticleIdController extends Controller {
 
-    public ArticleSearchByIdController(Model model) {
+    public ArticleSearchByArticleIdController(Model model) {
         super(model);
     }
 
@@ -39,7 +39,8 @@ public class ArticleSearchByIdController extends Controller {
     @Override
     protected int read() {
         print("Bitte Artikel-Id eingeben: ");
-        Long id = input.nextLong();
+        long id = input.nextLong();
+        input.nextLine();
         model.setArticleSearchList(
             model.getArticleSearchList().getArticlesByArticleId(id));
         println("");

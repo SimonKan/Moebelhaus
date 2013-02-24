@@ -3,9 +3,8 @@
  *
  * Created on 23.02.2013, 14:18:16
  */
-package controller.order;
+package controller.article.search;
 
-import controller.article.*;
 import controller.Controller;
 import main.Model;
 
@@ -17,9 +16,9 @@ import main.Model;
  * @version 1.0.0
  *
  */
-public class OrderSearchByPriceController extends Controller {
+public class ArticleSearchByPriceController extends Controller {
 
-    public OrderSearchByPriceController(Model model) {
+    public ArticleSearchByPriceController(Model model) {
         super(model);
     }
 
@@ -40,11 +39,14 @@ public class OrderSearchByPriceController extends Controller {
     @Override
     protected int read() {
         print("Bitte Preisuntergrenze eingeben: ");
-        Long lowerBound = input.nextLong();
+        float lowerBound = input.nextFloat();
+        input.nextLine();
         print("Bitte Preisobergrenze eingeben: ");
-        Long upperBound = input.nextLong();
-        model.setOrderSearchList(
-                model.getOrderSearchList().getOrdersByPrice(lowerBound, upperBound));
+        float upperBound = input.nextLong();
+        input.nextLine();
+        model.setArticleSearchList(
+            model.getArticleSearchList().getArticlesByPrice(lowerBound,
+                                                            upperBound));
         println("");
         println("");
 

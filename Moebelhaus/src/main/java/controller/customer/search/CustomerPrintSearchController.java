@@ -3,7 +3,7 @@
  *
  * Created on 23.02.2013, 14:53:56
  */
-package controller.customer;
+package controller.customer.search;
 
 import controller.Controller;
 import customer.Customer;
