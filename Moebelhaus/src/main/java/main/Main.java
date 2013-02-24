@@ -65,6 +65,48 @@ import order.discount.DiscountFactory;
  */
 public class Main {
 
+    /*
+     * TODO Liste mit Anmerkungen und Ideen
+     *
+     * - für irgendwas fehlt noch ein Remove Controller (leider hab ich
+     * vergessen für was)
+     * PS: Könnte der unten erwähnte Controller sein... :P
+     *
+     * - Irgendwie müssen Artikel nach dem Kauf (nach dem Bezahlen, Buchen) aus
+     * dem Lagerhaus entfernt werden. Allerdings könnte es dann zu einem Problem
+     * kommen, wenn ein Artikel in mehreren Bestellungen steht.
+     * Eine Möglichkeit wäre, einen Artikel sofort beim Hinzufügen in eine
+     * Bestellung aus dem Lagerhaus (model) zu löschen und einen Controller zum
+     * Stornieren von Bestellungen hinzuzufügen. Beim Stornieren würden dann die
+     * Artikel in der Bestellung zurück ins Lagerhaus transferiert.
+     * Alternativ könnte ein Controller zum Löschen von Bestellungen erstellt
+     * werden, der beim Löschen die Artikel der Bestellung wieder zurück ins
+     * Lagerhaus transferiert.
+     * Letzteres könnte mehr Sinn machen, da somit sowohl Stornierungen
+     * (unbezahlte Bestellungen) als auch Rücknahmen (bereits bezahlte
+     * Bestellungen) möglich wären.
+     *
+     * - Erläuterung für Simon: Unterschied zwischen JavaDoc und Kommentaren
+     * - Erläuterung für Simon: static-Modifier
+     * - Erläuterung für Simon: final-Modifier
+     *
+     * - kleiner Test:
+     *
+     * 1) Abnahme des Klassendiagramms.
+     * Wichtig: Die komplette Controller-Hierarchie (!) , Zerlegung des
+     * Programms in grobe Hauptbestandteile, Relationen zwischen Klassen
+     * aufzeigen.
+     *
+     * 2) Ein kleines Use-Case Szenario durchspielen (Dabei sollte Simon
+     * lediglich zeigen, wie man mit dem Programm umgeht.)
+     *
+     * 3) Vereinzelte Code Reviews.
+     * Wichtig ist abstrakte Fabrik, statische Fabrik, dynamische Fabrik,
+     * Fabrikmethode, Sortiermethoden (e.g. bei CustomerList), Method-Chaining
+     *
+     * 4) Ein (einziger) sequentieller Ablauf (e.g. Suchen eines Kundens nach
+     * Vorname).
+     */
     /**
      * @param args the command line arguments
      */
@@ -74,10 +116,10 @@ public class Main {
         Model model = GET_DEFAULT_MODEL(articleFactory);
 
 
-/*
- * Article
- * 
- */
+        /*
+         * Article
+         *
+         */
         // Add Articles
         ArticleAddNavigator aan = new ArticleAddNavigator(model);
         aan.add(new ArticleAddBathController(model, articleFactory));
@@ -100,9 +142,9 @@ public class Main {
         an.add(asn);
 
 
-/*
- * Customer
- */
+        /*
+         * Customer
+         */
         // Search Customers
         CustomerSearchNavigator csn = new CustomerSearchNavigator(model);
         csn.add(new CustomerPrintSearchController(model));
@@ -119,9 +161,9 @@ public class Main {
         cn.add(csn);
 
 
-/*
- * Order
- */
+        /*
+         * Order
+         */
 
         // Modify Orders
         OrderModifyNavigator omn = new OrderModifyNavigator(model);
@@ -147,9 +189,9 @@ public class Main {
         on.add(omn);
         on.add(osn);
 
-/*
- * Statistic
- */
+        /*
+         * Statistic
+         */
 
         // Statistics Top Navigator
         StatisticsTopNavigator stn = new StatisticsTopNavigator(model, 5);
@@ -161,9 +203,9 @@ public class Main {
         sn.add(stn);
         sn.add(new StatisticsPerformanceController(model));
 
-/*
- * Main Menü
- */
+        /*
+         * Main Menü
+         */
 
         MainNavigator main = new MainNavigator(model);
         main.add(an);   // Article Main Menu

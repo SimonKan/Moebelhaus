@@ -263,6 +263,8 @@ public class ArticleList {
      * @param material Material des Artikels
      *
      * @return {@link ArticleList}
+     * 
+     * @see Material
      */
     public ArticleList getArticlesByMaterial(int material) {
         ArticleList searchList = new ArticleList();
