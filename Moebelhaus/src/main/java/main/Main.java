@@ -37,7 +37,9 @@ import controller.order.OrderAddController;
 import controller.order.OrderAddArticleController;
 import controller.order.OrderModifyNavigator;
 import controller.order.OrderPrintController;
+import controller.order.OrderPrintSearchController;
 import controller.order.OrderRemoveController;
+import controller.order.OrderSearchByPriceController;
 import customer.AddressGermany;
 import customer.Customer;
 import order.Order;
@@ -96,6 +98,8 @@ public class Main {
         omn.add(new OrderAddDiscountController(model));
 
         OrderSearchNavigator osn = new OrderSearchNavigator(model);
+        osn.add(new OrderPrintSearchController(model));
+        osn.add(new OrderSearchByPriceController(model));
 
         OrderNavigator on = new OrderNavigator(model);
         on.add(new OrderPrintController(model));
