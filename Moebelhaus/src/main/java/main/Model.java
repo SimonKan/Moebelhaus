@@ -16,7 +16,6 @@ import order.OrderList;
  * @since 20.02.2013
  * @version 1.0.0
  *
- * TODO WHY
  */
 public class Model {
 

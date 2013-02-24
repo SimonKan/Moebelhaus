@@ -60,7 +60,6 @@ public class ConcreteArticle {
         return (int) uniqueId;
     }
 
-    // TODO Erklärung
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {

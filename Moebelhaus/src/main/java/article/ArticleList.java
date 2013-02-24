@@ -181,8 +181,6 @@ public class ArticleList {
      * @param aid ArtikelId
      *
      * @return {@link ArticleList searchlist}
-     * 
-     * TODO warum hier eine Liste
      */
     public ArticleList getArticlesByArticleId(long aid) {
         ArticleList searchList = new ArticleList();
