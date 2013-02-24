@@ -6,7 +6,6 @@
 package controller.article;
 
 import controller.Navigator;
-import controller.Navigator;
 import main.Model;
 
 /**
@@ -34,7 +33,11 @@ public class ArticleNavigator extends Navigator {
 
     @Override
     public void showMenu() {
-        println("Artikelmenu");
+        println("Artikelverwaltung");
+        println("");
+        println("Wählen Sie eine der folgenden Optionen aus oder geben Sie");
+        println("'abort' ein, um zurück ins Hauptmenü zu gelangen.");
+        println("Geben Sie 'exit' ein, um das Programm zu beenden");
         println("");
         super.showMenu();
     }

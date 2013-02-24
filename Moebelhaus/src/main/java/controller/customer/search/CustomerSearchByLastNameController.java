@@ -6,7 +6,6 @@
 package controller.customer.search;
 
 import controller.Controller;
-import customer.CustomerList;
 import main.Model;
 
 /**

@@ -25,7 +25,7 @@ public class ArticlePrintSearchController extends Controller {
 
     @Override
     public String getName() {
-        return "Artikel anzeigen";
+        return "Gesuchte Artikel anzeigen";
     }
 
     @Override
@@ -36,6 +36,7 @@ public class ArticlePrintSearchController extends Controller {
     @Override
     public void showMenu() {
         println("Dies sind die gesuchten Artikel.");
+        println("");
         println("");
 
         model.getArticleList().sortByUniqueId(true);

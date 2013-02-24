@@ -44,4 +44,15 @@ public class OrderSearchNavigator extends Navigator {
         model.setOrderSearchList(model.getOrderList());
         return res;
     }
+    
+    @Override
+    public void showMenu() {
+        println("Durchsuchen der Bestellungen");
+        println("");
+        println("Wählen Sie eine der folgenden Optionen aus oder geben Sie");
+        println("'abort' ein, um zurück ins Hauptmenü zu gelangen.");
+        println("Geben Sie 'exit' ein, um das Programm zu beenden");
+        println("");
+        super.showMenu();
+    }
 }

@@ -3,7 +3,7 @@
  *
  * Created on 23.02.2013, 14:18:16
  */
-package controller.article.search;
+package controller.customer.search;
 
 import controller.Controller;
 import main.Model;
@@ -16,20 +16,20 @@ import main.Model;
  * @version 1.0.0
  *
  */
-public class ArticleSearchByArticleIdController extends Controller {
+public class CustomerSearchByCityController extends Controller {
 
-    public ArticleSearchByArticleIdController(Model model) {
+    public CustomerSearchByCityController(Model model) {
         super(model);
     }
 
     @Override
     public String getName() {
-        return "Artikel ID";
+        return "Stadt";
     }
 
     @Override
     public String getToken() {
-        return "aid";
+        return "city";
     }
 
     @Override
@@ -38,11 +38,10 @@ public class ArticleSearchByArticleIdController extends Controller {
 
     @Override
     protected int read() {
-        print("Bitte Artikel-ID eingeben: ");
-        long id = input.nextLong();
-        input.nextLine();
-        model.setArticleSearchList(
-            model.getArticleSearchList().getArticlesByArticleId(id));
+        print("Bitte Stadt eingeben: ");
+        String city = input.nextLine().trim();
+        model.setCustomerSearchList(
+            model.getCustomerSearchList().getCustomerByCity(city));
         println("");
         println("");
 

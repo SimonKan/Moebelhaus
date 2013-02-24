@@ -25,7 +25,7 @@ public class ArticlePrintController extends Controller {
 
     @Override
     public String getName() {
-        return "Zeigt alle Artikel an";
+        return "Artikel anzeigen";
     }
 
     @Override
@@ -35,7 +35,8 @@ public class ArticlePrintController extends Controller {
 
     @Override
     public void showMenu() {
-        println("Dies sind alle Artikel");
+        println("Dies sind alle Artikel.");
+        println("");
         println("");
 
         model.getArticleList().sortByUniqueId(true);

@@ -16,20 +16,20 @@ import main.Model;
  * @version 1.0.0
  *
  */
-public class ArticleSearchByArticleIdController extends Controller {
+public class ArticleSearchByNameController extends Controller {
 
-    public ArticleSearchByArticleIdController(Model model) {
+    public ArticleSearchByNameController(Model model) {
         super(model);
     }
 
     @Override
     public String getName() {
-        return "Artikel ID";
+        return "Name";
     }
 
     @Override
     public String getToken() {
-        return "aid";
+        return "name";
     }
 
     @Override
@@ -38,11 +38,10 @@ public class ArticleSearchByArticleIdController extends Controller {
 
     @Override
     protected int read() {
-        print("Bitte Artikel-ID eingeben: ");
-        long id = input.nextLong();
-        input.nextLine();
+        print("Bitte Name eingeben: ");
+        String name = input.nextLine().trim();
         model.setArticleSearchList(
-            model.getArticleSearchList().getArticlesByArticleId(id));
+            model.getArticleSearchList().getArticlesByName(name));
         println("");
         println("");
 

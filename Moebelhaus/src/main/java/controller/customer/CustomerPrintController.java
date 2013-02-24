@@ -37,6 +37,7 @@ public class CustomerPrintController extends Controller {
     public void showMenu() {
         println("Dies sind alle Kunden.");
         println("");
+        println("");
 
         model.getCustomerList().sortByUniqueId(true);
         for (Customer c : model.getCustomerList().toList()) {

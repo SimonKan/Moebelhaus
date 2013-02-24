@@ -20,7 +20,7 @@ import order.Order;
  */
 public class OrderAddArticleController extends Controller {
 
-    public static final String ESCAPE = "abort";
+    public static final String ESCAPE = "OK";
 
     public OrderAddArticleController(Model model) {
         super(model);
@@ -38,7 +38,9 @@ public class OrderAddArticleController extends Controller {
 
     @Override
     public void showMenu() {
-        println("Hier können Sie Artikel zu einer Bestellung hinzufügen");
+        println("Hier können Sie Artikel zu einer Bestellung hinzufügen.");
+        println("Wählen Sie zunächst die Bestellung aus, der Artikel");
+        println("hinzugefügt werden sollen.");
         println("");
     }
 
@@ -63,12 +65,12 @@ public class OrderAddArticleController extends Controller {
         println("Geben Sie die IDs der hinzuzufügenden Artikel an und beenden "
             + "Sie den Vorgang mit '" + ESCAPE + "'");
 
-        String in = "";
+        String in;
 
         while (true) {
             print("Eingabe: ");
             in = input.nextLine();
-            if (ESCAPE.equals(in)) {
+            if (ESCAPE.toLowerCase().equals(in.toLowerCase())) {
                 break;
             }
             try {

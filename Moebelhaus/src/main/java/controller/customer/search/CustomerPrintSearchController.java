@@ -25,7 +25,7 @@ public class CustomerPrintSearchController extends Controller {
 
     @Override
     public String getName() {
-        return "Kunden anzeigen";
+        return "Gesuchte Kunden anzeigen";
     }
 
     @Override
@@ -36,6 +36,7 @@ public class CustomerPrintSearchController extends Controller {
     @Override
     public void showMenu() {
         println("Dies sind die gesuchten Kunden.");
+        println("");
         println("");
 
         model.getCustomerList().sortByUniqueId(true);

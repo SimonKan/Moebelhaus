@@ -10,6 +10,7 @@ import article.ConcreteArticle;
 import controller.Controller;
 import main.Model;
 import order.Order;
+import order.discount.Discount;
 
 /**
  *
@@ -27,7 +28,7 @@ public class OrderPrintSearchController extends Controller {
 
     @Override
     public String getName() {
-        return "Orders anzeigen";
+        return "Gesuchte Bestellungen anzeigen";
     }
 
     @Override
@@ -39,14 +40,35 @@ public class OrderPrintSearchController extends Controller {
     public void showMenu() {
         println("Dies sind die gesuchten Orders.");
         println("");
+        println("");
 
-        model.getOrderList().sortByPrice(true);
+        model.getOrderSearchList().sortById(true);
         for (Order o : model.getOrderSearchList().toList()) {
-            println(o.toString());
+            println("Bestellung #" + o.getId());
+            println("\tKunde: " + o.getCustomer());
+            println("");
+            println("\tBestelldatum: " + o.getOrderingDate());
+            if (o.isBooked()) {
+                println("Buchungsdatum: " + o.getBookingDate());
+            }
+            if (o.isDelivered()) {
+                println("Zustellungsdatum: " + o.getDeliveryDate());
+            }
+            println("");
+            println("Artikel:");
+            for (ConcreteArticle a : o.getArticles()) {
+                println("\t" + a);
+            }
+            println("");
+            println("Rabatte:");
+            for (Discount d : o.getDiscounts()) {
+                println("\t" + d);
+            }
+            println("");
+            println("Preis: " + o.getPrice() + "€");
+            println("");
+            println("");
         }
-        
-        println("");
-        println("");
     }
 
     @Override
@@ -54,4 +76,6 @@ public class OrderPrintSearchController extends Controller {
         return SUCCESS;
     }
 }
-// TODO RÜCKGABETYP DER ORDER KOMISCHE ANZEIGE
+// TODO (DONE) RÜCKGABETYP DER ORDER KOMISCHE ANZEIGE
+// Statt toString (native toString) Text erzeugen wie in OrderPrintController
+// siehe Zeile 43 - 69

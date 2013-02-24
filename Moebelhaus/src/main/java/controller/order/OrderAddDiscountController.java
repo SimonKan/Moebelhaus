@@ -20,7 +20,7 @@ import order.discount.DiscountFactory;
  */
 public class OrderAddDiscountController extends Controller {
 
-    public static final String ESCAPE = "abort";
+    public static final String ESCAPE = "OK";
 
     public OrderAddDiscountController(Model model) {
         super(model);
@@ -39,6 +39,8 @@ public class OrderAddDiscountController extends Controller {
     @Override
     public void showMenu() {
         println("Hier können Sie Rabatte zu einer Bestellung hinzufügen");
+        println("Wählen Sie zunächst die Bestellung aus, der Rabatte");
+        println("hinzugefügt werden sollen.");
         println("");
     }
 
@@ -54,8 +56,8 @@ public class OrderAddDiscountController extends Controller {
             if (order != null) {
                 break;
             }
-            println("(!) Fehlerhafte Eingabe, Order mit ID " + id
-                + "existiert nicht");
+            println("(!) Fehlerhafte Eingabe, Order mit ID ");
+            println("\t" + id + "existiert nicht");
             println("");
         }
 
@@ -65,8 +67,8 @@ public class OrderAddDiscountController extends Controller {
         String in;
 
         while (true) {
-            println("Geben Sie die IDs der hinzuzufügenden Rabatte an und beenden "
-                + "Sie den Vorgang mit '" + ESCAPE + "'");
+            println("Geben Sie die IDs der hinzuzufügenden Rabatte an und");
+            println("beenden Sie den Vorgang mit '" + ESCAPE + "'");
             println("");
             println("\t1) Prozentrabatt");
             println("\t2) Abzug über Grenze");
@@ -76,7 +78,7 @@ public class OrderAddDiscountController extends Controller {
 
             print("Eingabe: ");
             in = input.nextLine();
-            if (ESCAPE.equals(in)) {
+            if (ESCAPE.toLowerCase().equals(in.toLowerCase())) {
                 break;
             }
             try {

@@ -19,6 +19,7 @@ import controller.article.add.ArticleAddTableController;
 import controller.article.search.ArticlePrintSearchController;
 import controller.article.search.ArticleSearchByArticleIdController;
 import controller.article.search.ArticleSearchByMaterialController;
+import controller.article.search.ArticleSearchByNameController;
 import controller.article.search.ArticleSearchByPriceController;
 import controller.article.search.ArticleSearchNavigator;
 import controller.customer.CustomerAddController;
@@ -26,8 +27,10 @@ import controller.customer.CustomerNavigator;
 import controller.customer.CustomerPrintController;
 import controller.customer.CustomerRemoveController;
 import controller.customer.search.CustomerPrintSearchController;
+import controller.customer.search.CustomerSearchByCityController;
 import controller.customer.search.CustomerSearchByFistNameController;
 import controller.customer.search.CustomerSearchByLastNameController;
+import controller.customer.search.CustomerSearchByPlzController;
 import controller.customer.search.CustomerSearchNavigator;
 import controller.order.OrderAddArticleController;
 import controller.order.OrderAddController;
@@ -78,6 +81,7 @@ public class Main {
         ArticleSearchNavigator asn = new ArticleSearchNavigator(model);
         asn.add(new ArticlePrintSearchController(model));
         asn.add(new ArticleSearchByArticleIdController(model));
+        asn.add(new ArticleSearchByNameController(model));
         asn.add(new ArticleSearchByPriceController(model));
         asn.add(new ArticleSearchByMaterialController(model));
 
@@ -99,6 +103,8 @@ public class Main {
         csn.add(new CustomerPrintSearchController(model));
         csn.add(new CustomerSearchByFistNameController(model));
         csn.add(new CustomerSearchByLastNameController(model));
+        csn.add(new CustomerSearchByPlzController(model));
+        csn.add(new CustomerSearchByCityController(model));
 
         // Customer Main Menu
         CustomerNavigator cn = new CustomerNavigator(model);

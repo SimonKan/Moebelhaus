@@ -3,7 +3,7 @@
  *
  * Created on 23.02.2013, 14:18:16
  */
-package controller.order.search;
+package controller.customer.search;
 
 import controller.Controller;
 import main.Model;
@@ -16,20 +16,20 @@ import main.Model;
  * @version 1.0.0
  *
  */
-public class OrderSearchByPriceController extends Controller {
+public class CustomerSearchByPlzController extends Controller {
 
-    public OrderSearchByPriceController(Model model) {
+    public CustomerSearchByPlzController(Model model) {
         super(model);
     }
 
     @Override
     public String getName() {
-        return "Preis";
+        return "Postleitzahl";
     }
 
     @Override
     public String getToken() {
-        return "price";
+        return "plz";
     }
 
     @Override
@@ -38,14 +38,11 @@ public class OrderSearchByPriceController extends Controller {
 
     @Override
     protected int read() {
-        print("Bitte Preisuntergrenze eingeben: ");
-        float lowerBound = input.nextFloat();
+        print("Bitte Postleitzahl eingeben: ");
+        int plz = input.nextInt();
         input.nextLine();
-        print("Bitte Preisobergrenze eingeben: ");
-        float upperBound = input.nextFloat();
-        input.nextLine();
-        model.setOrderSearchList(
-            model.getOrderSearchList().getOrdersByPrice(lowerBound, upperBound));
+        model.setCustomerSearchList(
+            model.getCustomerSearchList().getCustomerByPlz(plz));
         println("");
         println("");
 

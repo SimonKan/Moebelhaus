@@ -39,6 +39,7 @@ public class OrderPrintController extends Controller {
     public void showMenu() {
         println("Dies sind alle Bestellungen");
         println("");
+        println("");
 
         model.getOrderList().sortById(true);
         for (Order o : model.getOrderList().toList()) {

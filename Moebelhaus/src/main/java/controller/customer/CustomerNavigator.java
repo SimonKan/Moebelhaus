@@ -33,7 +33,11 @@ public class CustomerNavigator extends Navigator {
 
     @Override
     public void showMenu() {
-        println("Kundenmenu");
+        println("Kundenverwaltung");
+        println("");
+        println("Wählen Sie eine der folgenden Optionen aus oder geben Sie");
+        println("'abort' ein, um zurück ins Hauptmenü zu gelangen.");
+        println("Geben Sie 'exit' ein, um das Programm zu beenden");
         println("");
         super.showMenu();
     }
