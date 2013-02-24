@@ -6,7 +6,6 @@
 package controller.navigator.article;
 
 import controller.navigator.Navigator;
-import controller.navigator.Navigator;
 import main.Model;
 
 /**

@@ -9,8 +9,15 @@ import article.ArticleFactory;
 import article.Material;
 import article.Table;
 import controller.StatisticsController;
+import controller.article.ArticleAddBathController;
+import controller.article.ArticleAddClosetController;
+import controller.article.ArticleAddCouchController;
 import controller.article.ArticleAddTableController;
 import controller.article.ArticlePrintController;
+import controller.article.ArticlePrintSearchController;
+import controller.article.ArticleSearchByIdController;
+import controller.article.ArticleSearchByMaterialController;
+import controller.article.ArticleSearchByPriceController;
 import controller.customer.CustomerAddController;
 import controller.customer.CustomerPrintController;
 import controller.customer.CustomerPrintSearchController;
@@ -55,9 +62,16 @@ public class Main {
 
 
         ArticleAddNavigator aan = new ArticleAddNavigator(model);
+        aan.add(new ArticleAddBathController(model, articleFactory));
+        aan.add(new ArticleAddClosetController(model, articleFactory));
+        aan.add(new ArticleAddCouchController(model, articleFactory));
         aan.add(new ArticleAddTableController(model, articleFactory));
 
         ArticleSearchNavigator asn = new ArticleSearchNavigator(model);
+        asn.add(new ArticlePrintSearchController(model));
+        asn.add(new ArticleSearchByMaterialController(model));
+        asn.add(new ArticleSearchByPriceController(model));
+        asn.add(new ArticleSearchByIdController(model));
 
         ArticleNavigator an = new ArticleNavigator(model);
         an.add(new ArticlePrintController(model));
