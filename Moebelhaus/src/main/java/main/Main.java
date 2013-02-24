@@ -93,9 +93,9 @@ public class Main {
      * - kleiner Test:
      *
      * 1) Abnahme des Klassendiagramms.
-     * Wichtig: Die komplette Controller-Hierarchie (!) , Zerlegung des
+     * Wichtig: Die Entwurfsmuster aufzeigen (!), Zerlegung des
      * Programms in grobe Hauptbestandteile, Relationen zwischen Klassen
-     * aufzeigen.
+     * aufzeigen, komplette Controller-Hierarchie (!).
      *
      * 2) Ein kleines Use-Case Szenario durchspielen (Dabei sollte Simon
      * lediglich zeigen, wie man mit dem Programm umgeht.)
