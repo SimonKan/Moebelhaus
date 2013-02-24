@@ -85,7 +85,7 @@ public class Order {
         }
         return price;
     }
-    
+
     public float getPricePure() {
         return price;
     }
@@ -100,9 +100,9 @@ public class Order {
     public List<ConcreteArticle> getArticles() {
         return new ArrayList<>(articles);
     }
-    
+
     public void addArticle(ConcreteArticle article) {
-        if(!(articles.contains(article))) {
+        if (!(articles.contains(article))) {
             articles.add(article);
         }
     }

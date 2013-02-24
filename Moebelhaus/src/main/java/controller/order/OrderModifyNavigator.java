@@ -31,7 +31,7 @@ public class OrderModifyNavigator extends Navigator {
     public String getToken() {
         return "mod";
     }
-    
+
     @Override
     public void showMenu() {
         println("Bearbeiten einer Bestellung");

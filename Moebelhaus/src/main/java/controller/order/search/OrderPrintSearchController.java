@@ -38,7 +38,7 @@ public class OrderPrintSearchController extends Controller {
 
     @Override
     public void showMenu() {
-        println("Dies sind die gesuchten Orders.");
+        println("Dies sind die gesuchten Bestellungen.");
         println("");
         println("");
 

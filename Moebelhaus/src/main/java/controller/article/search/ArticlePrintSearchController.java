@@ -43,7 +43,7 @@ public class ArticlePrintSearchController extends Controller {
         for (ConcreteArticle a : model.getArticleSearchList().toList()) {
             println(a.toString());
         }
-        
+
         println("");
         println("");
     }

@@ -40,8 +40,13 @@ import controller.order.OrderNavigator;
 import controller.order.OrderPrintController;
 import controller.order.OrderRemoveController;
 import controller.order.search.OrderPrintSearchController;
+import controller.order.search.OrderSearchByCustomerIdController;
+import controller.order.search.OrderSearchByCustomerNavigator;
 import controller.order.search.OrderSearchByPriceController;
 import controller.order.search.OrderSearchNavigator;
+import controller.statistics.StatisticsNavigator;
+import controller.statistics.StatisticsTopCustomerController;
+import controller.statistics.StatisticsTopNavigator;
 import customer.AddressGermany;
 import customer.Customer;
 import order.Order;
@@ -125,9 +130,15 @@ public class Main {
         omn.add(new OrderAddArticleController(model));
         omn.add(new OrderAddDiscountController(model));
 
+        // Search Orders By Customer Information
+        OrderSearchByCustomerNavigator oscn =
+            new OrderSearchByCustomerNavigator(model);
+        oscn.add(new OrderSearchByCustomerIdController(model));
+
         // Search Orders
         OrderSearchNavigator osn = new OrderSearchNavigator(model);
         osn.add(new OrderPrintSearchController(model));
+        osn.add(oscn);
         osn.add(new OrderSearchByPriceController(model));
 
         // Order Main Menu
@@ -141,6 +152,20 @@ public class Main {
 
 //******************************************************************************
 //
+//      Order
+//
+//******************************************************************************
+
+        // Statistics Top Navigator
+        StatisticsTopNavigator stn = new StatisticsTopNavigator(model);
+        stn.add(new StatisticsTopCustomerController(model));
+
+        // Statistics Main Menu
+        StatisticsNavigator sn = new StatisticsNavigator(model);
+        sn.add(stn);
+
+//******************************************************************************
+//
 //      Main Menu
 //
 //******************************************************************************
@@ -149,6 +174,7 @@ public class Main {
         main.add(an);   // Article Main Menu
         main.add(cn);   // Customer Main Menu
         main.add(on);   // Order Main Menu
+        main.add(sn);   // Statistis Main Menu
 
 
         main.execute(0);

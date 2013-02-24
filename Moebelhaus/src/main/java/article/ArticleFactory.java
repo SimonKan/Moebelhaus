@@ -117,7 +117,7 @@ public class ArticleFactory {
      * @param price     Preis des Artikels
      * @param material  Material des Artikels
      * @param pullOut   ob ausziehbar
-     * @param category welche Kategorie
+     * @param category  welche Kategorie
      *
      * @return {@link Article Tisch}
      *

@@ -44,7 +44,7 @@ public class OrderSearchNavigator extends Navigator {
         model.setOrderSearchList(model.getOrderList());
         return res;
     }
-    
+
     @Override
     public void showMenu() {
         println("Durchsuchen der Bestellungen");

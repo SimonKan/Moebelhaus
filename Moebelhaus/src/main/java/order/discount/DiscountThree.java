@@ -23,7 +23,7 @@ public class DiscountThree extends Discount {
     public void apply(Order order) {
         order.setPrice(order.getPricePure() / 1.19f);
     }
-    
+
     @Override
     public String toString() {
         return "19% MwSt. geschenkt";

@@ -43,7 +43,7 @@ public class CustomerPrintSearchController extends Controller {
         for (Customer c : model.getCustomerSearchList().toList()) {
             println(c.toString());
         }
-        
+
         println("");
         println("");
     }

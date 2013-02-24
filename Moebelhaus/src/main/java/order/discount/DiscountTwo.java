@@ -34,9 +34,10 @@ public class DiscountTwo extends Discount {
             order.setPrice(price - offtake);
         }
     }
-   @Override
+
+    @Override
     public String toString() {
-        return "Wendet bei einem Mindestkaufpreis" +threshold + "einen Abzug von"
+        return "Wendet bei einem Mindestkaufpreis" + threshold + "einen Abzug von"
             + offtake + "an ";
     }
 }

@@ -47,7 +47,7 @@ public class MainNavigator extends Navigator {
     protected int read() {
         int result = FAILURE;
 //        showMenu();
-        
+
         do {
             print("Eingabe: ");
             String in = input.nextLine();

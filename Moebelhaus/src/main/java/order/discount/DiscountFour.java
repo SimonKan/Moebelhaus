@@ -26,9 +26,9 @@ public class DiscountFour extends Discount {
     public void apply(Order order) {
         order.setPrice(Math.max(0f, order.getPricePure() - offtake));
     }
-    
+
     @Override
     public String toString() {
-        return "Wendet einen Abzug von " + offtake +" an"; 
+        return "Wendet einen Abzug von " + offtake + " an";
     }
 }

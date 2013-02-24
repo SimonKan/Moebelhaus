@@ -74,7 +74,7 @@ public class ArticleAddTableController extends Controller {
             println("(!) Fehlerhafte Eingabe, versuchen Sie es erneut");
             println("");
         }
-        
+
         while (true) {
             print("Preis:         ");
             price = input.nextFloat();
