@@ -10,7 +10,7 @@ import customer.CustomerList;
 import order.OrderList;
 
 /**
- *
+ * OberKlasse mit Zugriff auf alle Listen.
  *
  * @author Simon
  * @since 20.02.2013

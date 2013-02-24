@@ -14,10 +14,10 @@ import order.discount.Discount;
 
 /**
  *
- *
+ * Controller zum Ausdrucken der Orders nach einem Durchsuchen der Orderliste 
+ * nach den möglichen Kriterien.
+ * 
  * @author Simon
- * @since 23.02.2013
- * @version 1.0.0
  *
  */
 public class OrderPrintSearchController extends Controller {
@@ -76,6 +76,3 @@ public class OrderPrintSearchController extends Controller {
         return SUCCESS;
     }
 }
-// TODO (DONE) RÜCKGABETYP DER ORDER KOMISCHE ANZEIGE
-// Statt toString (native toString) Text erzeugen wie in OrderPrintController
-// siehe Zeile 43 - 69

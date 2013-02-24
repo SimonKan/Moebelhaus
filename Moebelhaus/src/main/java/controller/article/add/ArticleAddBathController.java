@@ -10,7 +10,8 @@ import controller.Controller;
 import main.Model;
 
 /**
- *
+ * ControllerKlasse zum erstellen eines Bads
+ * Fragt die relevanten Kriterien ab, diese müssen eingegeben werden. 
  *
  * @author Simon
  * @since 23.02.2013

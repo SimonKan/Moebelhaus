@@ -9,7 +9,7 @@ import controller.Navigator;
 import main.Model;
 
 /**
- *
+ * Navigator zum Erzeugen des KundenMenüs.
  *
  * @Simon
  *

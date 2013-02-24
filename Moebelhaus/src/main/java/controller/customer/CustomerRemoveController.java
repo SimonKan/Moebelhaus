@@ -10,7 +10,7 @@ import java.util.InputMismatchException;
 import main.Model;
 
 /**
- *
+ * Controller zum Entfernen eines Kunden aus der Liste anhand seiner Id. 
  *
  * @author Simon
  * @since 23.02.2013

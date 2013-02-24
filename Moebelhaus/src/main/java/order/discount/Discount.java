@@ -8,7 +8,8 @@ package order.discount;
 import order.Order;
 
 /**
- * Discount realisiert ein CommandPattern Die Order ruft die Methode apply des
+ * Discount realisiert ein Kommandoschema.
+ * Die Order ruft die Methode apply des
  * Discounts auf, sodass Discount auf die Summe der Order angewandt wird
  *
  * @author Simon
@@ -25,6 +26,8 @@ public abstract class Discount implements Comparable<Discount> {
     }
 
     /**
+     * Methode die den Discount auf den Orderpreis anwendet 
+     * 
      * @param order
      */
     public abstract void apply(Order order);

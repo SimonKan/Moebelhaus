@@ -9,7 +9,8 @@ import controller.Controller;
 import main.Model;
 
 /**
- *
+ * ControllerKlasse zum Durchsuchen der Artikelliste anhand des Preises 
+ * Mit oberer und unterer Grenze. 
  *
  * @author Simon
  * @since 23.02.2013

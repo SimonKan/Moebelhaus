@@ -9,7 +9,7 @@ import controller.Controller;
 import main.Model;
 
 /**
- *
+ * Controller zum Druchsuchen der Artikel anhand des Namens.
  *
  * @author Simon
  * @since 23.02.2013

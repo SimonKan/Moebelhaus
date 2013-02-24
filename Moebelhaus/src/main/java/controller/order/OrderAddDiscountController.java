@@ -11,7 +11,8 @@ import order.Order;
 import order.discount.DiscountFactory;
 
 /**
- *
+ * Controller der einer bestehenden Order einen Discount der vier Typen hinzufügt.
+ * Die jeweiligen relevanten Werte des Discounts werden im Anschluss abgefragt.
  *
  * @author Simon
  * @since 23.02.2013

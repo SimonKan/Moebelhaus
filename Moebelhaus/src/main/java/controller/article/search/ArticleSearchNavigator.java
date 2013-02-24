@@ -9,7 +9,8 @@ import controller.Navigator;
 import main.Model;
 
 /**
- *
+ * NavigatorKlasse ( Unterklasse von Navigator), die das Menü für das Durchsuchen
+ * der Listen aufbaut. 
  *
  * @author Simon
  * @since 23.02.2013

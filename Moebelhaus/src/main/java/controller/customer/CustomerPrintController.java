@@ -10,7 +10,7 @@ import customer.Customer;
 import main.Model;
 
 /**
- *
+ * Controller zum Ausdrucken der gesamten Kundenliste.
  *
  * @author Simon
  * @since 23.02.2013

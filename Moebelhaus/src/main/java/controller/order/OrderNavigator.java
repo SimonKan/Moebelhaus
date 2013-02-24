@@ -10,9 +10,9 @@ import controller.Navigator;
 import main.Model;
 
 /**
+ * HauptNavigator der Klasse Order.
  *
- *
- * @@author Simon
+ * @author Simon
  *
  */
 public class OrderNavigator extends Navigator {

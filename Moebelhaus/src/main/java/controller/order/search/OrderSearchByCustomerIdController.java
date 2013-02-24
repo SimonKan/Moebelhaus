@@ -10,7 +10,7 @@ import main.Model;
 import order.Order;
 
 /**
- *
+ * Controller zum Durchsuchen der OrderList anhand der KundenId.
  *
  * @author Simon
  * @since 23.02.2013

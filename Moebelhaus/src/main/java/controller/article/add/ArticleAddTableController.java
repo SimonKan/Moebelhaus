@@ -10,7 +10,8 @@ import controller.Controller;
 import main.Model;
 
 /**
- *
+ * ControllerKlasse zum erstellen eines Tisches.
+ * Die nötigen Daten müssen eingegeben werden und werden abgefragt.
  *
  * @author Simon
  * @since 23.02.2013

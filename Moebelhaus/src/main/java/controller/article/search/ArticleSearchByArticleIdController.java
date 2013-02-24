@@ -9,7 +9,7 @@ import controller.Controller;
 import main.Model;
 
 /**
- *
+ * Controller zum Durchsuchen der ArticleList anhand der Id des Artikels.
  *
  * @author Simon
  * @since 23.02.2013

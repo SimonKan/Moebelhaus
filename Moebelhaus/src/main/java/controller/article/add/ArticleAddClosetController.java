@@ -10,7 +10,8 @@ import controller.Controller;
 import main.Model;
 
 /**
- *
+ *ControllerKlasse zum erstellen eines Schranks
+ * Fragt die relevanten Daten ab, diese müssen eingegeben werden.
  *
  * @author Simon
  * @since 23.02.2013

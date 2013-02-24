@@ -8,7 +8,8 @@ package order.discount;
 import order.Order;
 
 /**
- *
+ * Discount der beim Überschreiten einer bestimmten Grenze den Rechnungsbetrag
+ * um einen fixen Betrag mindert. 
  *
  * @author Simon
  */

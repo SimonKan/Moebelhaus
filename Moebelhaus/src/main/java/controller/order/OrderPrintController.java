@@ -12,7 +12,7 @@ import order.Order;
 import order.discount.Discount;
 
 /**
- *
+ * Controller zum Auswerfen aller Orders in der Liste.
  *
  * @author Simon
  * @since 23.02.2013

@@ -10,7 +10,8 @@ import customer.Customer;
 import main.Model;
 
 /**
- *
+ * Controller zum Ausdrucken der Suchliste, nach einer Suche von Kunden.
+ * Im Suchmenü des CustomerSeachNavigators.
  *
  * @author Simon
  * @since 23.02.2013

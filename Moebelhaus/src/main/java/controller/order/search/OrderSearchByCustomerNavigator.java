@@ -9,7 +9,7 @@ import controller.Navigator;
 import main.Model;
 
 /**
- *
+ * Navigator der KundenSuche in Order.
  *
  * @author Simon
  * @since 24.02.2013

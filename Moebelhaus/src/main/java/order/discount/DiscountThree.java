@@ -8,7 +8,7 @@ package order.discount;
 import order.Order;
 
 /**
- *
+ * Discount der die Mehrwertsteuer von der Rechnung abzieht.
  *
  * @author Simon
  *

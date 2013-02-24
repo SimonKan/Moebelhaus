@@ -9,7 +9,8 @@ import controller.Controller;
 import main.Model;
 
 /**
- *
+ * Unterklasse von Navigator
+ * Erzeugt Hauptmenü
  *
  * @Simon
  *

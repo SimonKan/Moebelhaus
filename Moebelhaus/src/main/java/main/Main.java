@@ -73,12 +73,11 @@ public class Main {
 
         Model model = GET_DEFAULT_MODEL(articleFactory);
 
-//******************************************************************************
-//
-//      Article
-//
-//******************************************************************************
 
+/*
+ * Article
+ * 
+ */
         // Add Articles
         ArticleAddNavigator aan = new ArticleAddNavigator(model);
         aan.add(new ArticleAddBathController(model, articleFactory));
@@ -101,12 +100,9 @@ public class Main {
         an.add(asn);
 
 
-//******************************************************************************
-// 
-//      Customer
-// 
-//******************************************************************************
-
+/*
+ * Customer
+ */
         // Search Customers
         CustomerSearchNavigator csn = new CustomerSearchNavigator(model);
         csn.add(new CustomerPrintSearchController(model));
@@ -123,11 +119,9 @@ public class Main {
         cn.add(csn);
 
 
-//******************************************************************************
-//
-//      Order
-//
-//******************************************************************************
+/*
+ * Order
+ */
 
         // Modify Orders
         OrderModifyNavigator omn = new OrderModifyNavigator(model);
@@ -153,12 +147,9 @@ public class Main {
         on.add(omn);
         on.add(osn);
 
-
-//******************************************************************************
-//
-//      Order
-//
-//******************************************************************************
+/*
+ * Statistic
+ */
 
         // Statistics Top Navigator
         StatisticsTopNavigator stn = new StatisticsTopNavigator(model, 5);
@@ -170,11 +161,9 @@ public class Main {
         sn.add(stn);
         sn.add(new StatisticsPerformanceController(model));
 
-//******************************************************************************
-//
-//      Main Menu
-//
-//******************************************************************************
+/*
+ * Main Menü
+ */
 
         MainNavigator main = new MainNavigator(model);
         main.add(an);   // Article Main Menu

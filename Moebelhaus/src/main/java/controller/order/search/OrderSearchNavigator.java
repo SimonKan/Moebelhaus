@@ -10,7 +10,7 @@ import controller.Navigator;
 import main.Model;
 
 /**
- *
+ * Navigator der DurchsuchFunktion der OrderKlasse.
  *
  * @author Simon
  * @since 23.02.2013

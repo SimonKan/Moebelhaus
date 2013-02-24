@@ -86,10 +86,18 @@ public class Order {
         return price;
     }
 
+    /**
+     *GetterMethode für den Preis ohne Steuern
+     * @return price Preis
+     */
     public float getPricePure() {
         return price;
     }
 
+    /**
+     * Methode zum Festlegen des Preises
+     * @param price
+     */
     public void setPrice(float price) {
         if (price < 0) {
             throw new IllegalArgumentException("price was negative");
@@ -97,16 +105,28 @@ public class Order {
         this.price = price;
     }
 
+    /**
+     * Erstellung einer Liste.
+     * @return
+     */
     public List<ConcreteArticle> getArticles() {
         return new ArrayList<>(articles);
     }
 
+    /**
+     * Methode zum Hinzufügen eines Aricles
+     * @param article
+     */
     public void addArticle(ConcreteArticle article) {
         if (!(articles.contains(article))) {
             articles.add(article);
         }
     }
 
+    /**
+     *Methode zum hinzufügen eines Discounts
+     * @param discount
+     */
     public void addDiscount(Discount discount) {
         if (discount == null) {
             throw new IllegalArgumentException("discount was null");
@@ -119,12 +139,16 @@ public class Order {
         Collections.sort(discounts);
     }
 
+    /**
+     * GetterMethode für Discounts
+     * @return Discount 
+     */
     public List<Discount> getDiscounts() {
         return new ArrayList<>(discounts);
     }
 
     /**
-     *
+     * GetterMethode für das Bestellungsdatum
      * @return orderingDate Tag der Bestellung
      */
     public Date getOrderingDate() {
@@ -132,7 +156,7 @@ public class Order {
     }
 
     /**
-     *
+     * GetterMethode für den Buchungsstatus
      * @return booked Gebucht oder Nicht
      */
     public boolean isBooked() {
@@ -140,7 +164,7 @@ public class Order {
     }
 
     /**
-     *
+     * GetterMethode für das Buchungsdatum.
      * @return bookingDate Tag der Buchung
      */
     public Date getBookingDate() {

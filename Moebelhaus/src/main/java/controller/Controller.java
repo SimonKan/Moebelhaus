@@ -11,7 +11,9 @@ import java.util.Scanner;
 import main.Model;
 
 /**
- *
+ * Die Klasse Controller dient als Oberklasse für alle Controller zur Verwaltung
+ * des Programms
+ * 
  *
  * @ Simon
  *
@@ -26,6 +28,13 @@ public abstract class Controller {
     protected final Model model;
     private int offset;
 
+    /**
+     *Konstruktor der Klasse Controller, erstellt ein Modell, dass an alle
+     * Unterklassen vererbt.
+     * 
+     * @param model
+     * 
+     */
     public Controller(Model model) {
         if (model == null) {
             throw new IllegalArgumentException("model was null");
@@ -36,10 +45,24 @@ public abstract class Controller {
             new InputStreamReader(System.in)));
     }
 
+    /**
+     * Abstracte Methode die den Namen im Menü generiert.
+     * @return
+     */
     public abstract String getName();
+    
 
+    /**
+     * Abstrakte Methode die das Token(Kürzel) im Menü generiert.
+     * @return
+     */
     public abstract String getToken();
 
+    /**
+     * Führt die Schritte im Menü aus.
+     * @param offset
+     * @return result
+     */
     public int execute(int offset) {
         this.offset = offset;
         showMenu();
@@ -52,10 +75,17 @@ public abstract class Controller {
         return offset;
     }
 
+    /**
+     * Zeigt das Menü an.
+     */
     public abstract void showMenu();
 
     protected abstract int read();
 
+    /**
+     * TODO
+     * @param s
+     */
     protected void print(String s) {
         String hash = "";
         for (int i = 0; i < offset; i++) {
@@ -65,6 +95,10 @@ public abstract class Controller {
         System.out.print((offset <= 0 ? "" : " ") + s);
     }
 
+    /**
+     * Führt Zeilenumbruch aus.
+     * @param s
+     */
     protected void println(String s) {
         print(s + "\n");
     }

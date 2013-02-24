@@ -10,7 +10,7 @@ import controller.Controller;
 import main.Model;
 
 /**
- *
+ * Controller zum auswerfen aller bisher im System vorhandenen Artikel
  *
  * @author Simon
  * @since 23.02.2013

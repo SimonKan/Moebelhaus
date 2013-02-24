@@ -9,7 +9,8 @@ import controller.Navigator;
 import main.Model;
 
 /**
- *
+ * NavigatorKlasse für das Menü zum hinzufügen von Artikeln der verschiedenen
+ * Unterklassen.
  *
  * @author Simon
  * @since 23.02.2013

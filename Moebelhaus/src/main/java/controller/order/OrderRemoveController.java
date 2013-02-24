@@ -11,7 +11,7 @@ import main.Model;
 import order.Order;
 
 /**
- *
+ * Controller zum entfernen einer Order.
  *
  * @author Simon
  * @since 23.02.2013
