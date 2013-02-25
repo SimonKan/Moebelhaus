@@ -9,7 +9,7 @@ import order.Order;
 
 /**
  * Discount der einen festlegbaren Rabatt auf die Rechnung gibt.
- * Dieser wird von der RechnungsSumme abgezogen. 
+ * Dieser wird von der RechnungsSumme abgezogen.
  *
  * @author Simon
  *

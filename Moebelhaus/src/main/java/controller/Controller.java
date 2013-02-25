@@ -13,7 +13,7 @@ import main.Model;
 /**
  * Die Klasse Controller dient als Oberklasse für alle Controller zur Verwaltung
  * des Programms
- * 
+ *
  *
  * @ Simon
  *
@@ -29,11 +29,11 @@ public abstract class Controller {
     private int offset;
 
     /**
-     *Konstruktor der Klasse Controller, erstellt ein Modell, dass an alle
+     * Konstruktor der Klasse Controller, erstellt ein Modell, dass an alle
      * Unterklassen vererbt.
-     * 
+     *
      * @param model
-     * 
+     *
      */
     public Controller(Model model) {
         if (model == null) {
@@ -47,20 +47,23 @@ public abstract class Controller {
 
     /**
      * Abstracte Methode die den Namen im Menü generiert.
+     *
      * @return
      */
     public abstract String getName();
-    
 
     /**
      * Abstrakte Methode die das Token(Kürzel) im Menü generiert.
+     *
      * @return
      */
     public abstract String getToken();
 
     /**
      * Führt die Schritte im Menü aus.
+     *
      * @param offset
+     *
      * @return result
      */
     public int execute(int offset) {
@@ -96,6 +99,7 @@ public abstract class Controller {
 
     /**
      * Führt Zeilenumbruch aus.
+     *
      * @param s
      */
     protected void println(String s) {

@@ -11,7 +11,7 @@ import main.Model;
 import order.Order;
 
 /**
- * Controller zum Hinzufügen eines Artikels zu einer schon erstellten Order 
+ * Controller zum Hinzufügen eines Artikels zu einer schon erstellten Order
  * anhand der ArtikelId.
  *
  * @author Simon

@@ -8,6 +8,7 @@ import main.Model;
 
 /**
  * Oberklasse zum Aufstellen der Navigation durch das Menü.
+ *
  * @author Simon
  */
 public abstract class Navigator extends Controller {

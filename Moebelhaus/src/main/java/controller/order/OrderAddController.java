@@ -11,7 +11,7 @@ import main.Model;
 import order.Order;
 
 /**
- * Controller zum Hinzufügen einer neuen Order eines Kunden. 
+ * Controller zum Hinzufügen einer neuen Order eines Kunden.
  * Die Order bekommt eine automatische Id. Der Kunde wird über seine UniqueId
  * angegeben.
  *

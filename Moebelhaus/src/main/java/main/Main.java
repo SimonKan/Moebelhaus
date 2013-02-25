@@ -46,7 +46,6 @@ import controller.order.search.OrderSearchByPriceController;
 import controller.order.search.OrderSearchNavigator;
 import controller.statistics.StatisticsNavigator;
 import controller.statistics.StatisticsPerformanceController;
-import controller.statistics.StatisticsTopNavigator;
 import customer.AddressGermany;
 import customer.Customer;
 import java.util.Date;
@@ -149,12 +148,8 @@ public class Main {
          * Statistic
          */
 
-        // Statistics Top Navigator
-        StatisticsTopNavigator stn = new StatisticsTopNavigator(model, 5);
-
         // Statistics Main Menu
         StatisticsNavigator sn = new StatisticsNavigator(model);
-        sn.add(stn);
         sn.add(new StatisticsPerformanceController(model));
 
         /*

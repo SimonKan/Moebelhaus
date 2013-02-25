@@ -10,7 +10,7 @@ import controller.Controller;
 import main.Model;
 
 /**
- * ControllerKlasse zum Anzeigen aller vorhandenen Kunden im System. 
+ * ControllerKlasse zum Anzeigen aller vorhandenen Kunden im System.
  *
  * @author Simon
  * @since 23.02.2013
@@ -38,9 +38,9 @@ public class ArticlePrintController extends Controller {
         println("Dies sind alle Artikel.");
         println("");
         println("");
-        
+
 // Sortiert die Kunden nach der UniqueId
-        
+
         model.getArticleList().sortByUniqueId(true);
         for (ConcreteArticle a : model.getArticleList().toList()) {
             println(a.toString());

@@ -14,9 +14,9 @@ import order.discount.Discount;
 
 /**
  *
- * Controller zum Ausdrucken der Orders nach einem Durchsuchen der Orderliste 
+ * Controller zum Ausdrucken der Orders nach einem Durchsuchen der Orderliste
  * nach den möglichen Kriterien.
- * 
+ *
  * @author Simon
  *
  */

@@ -11,7 +11,8 @@ import customer.Customer;
 import main.Model;
 
 /**
- * Controller zum Hinzufügen eines Kunden anhand der gegebenen eindeutigen Merkmale.
+ * Controller zum Hinzufügen eines Kunden anhand der gegebenen eindeutigen
+ * Merkmale.
  *
  * @author Simon
  * @since 23.02.2013

@@ -88,6 +88,7 @@ public class Order {
 
     /**
      * Hilfsmethode zum Berechnen der Preise für Discounts.
+     *
      * @return price Preis
      */
     public float getPricePure() {
@@ -96,6 +97,7 @@ public class Order {
 
     /**
      * Methode zum Festlegen des Preises
+     *
      * @param price
      */
     public void setPrice(float price) {
@@ -107,6 +109,7 @@ public class Order {
 
     /**
      * Erstellung einer Liste.
+     *
      * @return
      */
     public List<ConcreteArticle> getArticles() {
@@ -115,6 +118,7 @@ public class Order {
 
     /**
      * Methode zum Hinzufügen eines Aricles
+     *
      * @param article
      */
     public void addArticle(ConcreteArticle article) {
@@ -124,7 +128,8 @@ public class Order {
     }
 
     /**
-     *Methode zum hinzufügen eines Discounts
+     * Methode zum hinzufügen eines Discounts
+     *
      * @param discount
      */
     public void addDiscount(Discount discount) {
@@ -141,7 +146,8 @@ public class Order {
 
     /**
      * GetterMethode für Discounts
-     * @return Discount 
+     *
+     * @return Discount
      */
     public List<Discount> getDiscounts() {
         return new ArrayList<>(discounts);
@@ -149,6 +155,7 @@ public class Order {
 
     /**
      * GetterMethode für das Bestellungsdatum
+     *
      * @return orderingDate Tag der Bestellung
      */
     public Date getOrderingDate() {
@@ -157,6 +164,7 @@ public class Order {
 
     /**
      * GetterMethode für den Buchungsstatus
+     *
      * @return booked Gebucht oder Nicht
      */
     public boolean isBooked() {
@@ -165,6 +173,7 @@ public class Order {
 
     /**
      * GetterMethode für das Buchungsdatum.
+     *
      * @return bookingDate Tag der Buchung
      */
     public Date getBookingDate() {

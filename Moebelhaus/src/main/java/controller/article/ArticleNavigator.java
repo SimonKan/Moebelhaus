@@ -13,7 +13,7 @@ import main.Model;
  * Navigator der Klasse Artikel
  * Erbt von der NavigatorOberklasse
  * Und erzeugt das Menü in der Artikelverwaltung
- * 
+ *
  * @Simon
  *
  *

@@ -10,7 +10,7 @@ import main.Model;
 
 /**
  * HauptNavigator der StatisticKlasse.
- * 
+ *
  *
  * @author Simon
  * @since 24.02.2013

@@ -26,8 +26,8 @@ public abstract class Discount implements Comparable<Discount> {
     }
 
     /**
-     * Methode die den Discount auf den Orderpreis anwendet 
-     * 
+     * Methode die den Discount auf den Orderpreis anwendet
+     *
      * @param order
      */
     public abstract void apply(Order order);

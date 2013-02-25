@@ -8,7 +8,7 @@ package order.discount;
 import order.Order;
 
 /**
- *Rabatt der nacheinenader zwei Prozentsätze auf die Rechnung anwendet und um 
+ * Rabatt der nacheinenader zwei Prozentsätze auf die Rechnung anwendet und um
  * diese Prozentsätze den Rechnungsbetrag mindert.
  *
  * @author Simon
