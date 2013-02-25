@@ -87,7 +87,7 @@ public class Order {
     }
 
     /**
-     *GetterMethode für den Preis ohne Steuern
+     * Hilfsmethode zum Berechnen der Preise für Discounts.
      * @return price Preis
      */
     public float getPricePure() {

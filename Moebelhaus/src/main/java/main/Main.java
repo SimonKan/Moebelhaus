@@ -46,8 +46,6 @@ import controller.order.search.OrderSearchByPriceController;
 import controller.order.search.OrderSearchNavigator;
 import controller.statistics.StatisticsNavigator;
 import controller.statistics.StatisticsPerformanceController;
-import controller.statistics.StatisticsTopCityController;
-import controller.statistics.StatisticsTopCustomerController;
 import controller.statistics.StatisticsTopNavigator;
 import customer.AddressGermany;
 import customer.Customer;
@@ -65,48 +63,6 @@ import order.discount.DiscountFactory;
  */
 public class Main {
 
-    /*
-     * TODO Liste mit Anmerkungen und Ideen
-     *
-     * - für irgendwas fehlt noch ein Remove Controller (leider hab ich
-     * vergessen für was)
-     * PS: Könnte der unten erwähnte Controller sein... :P
-     *
-     * - Irgendwie müssen Artikel nach dem Kauf (nach dem Bezahlen, Buchen) aus
-     * dem Lagerhaus entfernt werden. Allerdings könnte es dann zu einem Problem
-     * kommen, wenn ein Artikel in mehreren Bestellungen steht.
-     * Eine Möglichkeit wäre, einen Artikel sofort beim Hinzufügen in eine
-     * Bestellung aus dem Lagerhaus (model) zu löschen und einen Controller zum
-     * Stornieren von Bestellungen hinzuzufügen. Beim Stornieren würden dann die
-     * Artikel in der Bestellung zurück ins Lagerhaus transferiert.
-     * Alternativ könnte ein Controller zum Löschen von Bestellungen erstellt
-     * werden, der beim Löschen die Artikel der Bestellung wieder zurück ins
-     * Lagerhaus transferiert.
-     * Letzteres könnte mehr Sinn machen, da somit sowohl Stornierungen
-     * (unbezahlte Bestellungen) als auch Rücknahmen (bereits bezahlte
-     * Bestellungen) möglich wären.
-     *
-     * - Erläuterung für Simon: Unterschied zwischen JavaDoc und Kommentaren
-     * - Erläuterung für Simon: static-Modifier
-     * - Erläuterung für Simon: final-Modifier
-     *
-     * - kleiner Test:
-     *
-     * 1) Abnahme des Klassendiagramms.
-     * Wichtig: Die Entwurfsmuster aufzeigen (!), Zerlegung des
-     * Programms in grobe Hauptbestandteile, Relationen zwischen Klassen
-     * aufzeigen, komplette Controller-Hierarchie (!).
-     *
-     * 2) Ein kleines Use-Case Szenario durchspielen (Dabei sollte Simon
-     * lediglich zeigen, wie man mit dem Programm umgeht.)
-     *
-     * 3) Vereinzelte Code Reviews.
-     * Wichtig ist abstrakte Fabrik, statische Fabrik, dynamische Fabrik,
-     * Fabrikmethode, Sortiermethoden (e.g. bei CustomerList), Method-Chaining
-     *
-     * 4) Ein (einziger) sequentieller Ablauf (e.g. Suchen eines Kundens nach
-     * Vorname).
-     */
     /**
      * @param args the command line arguments
      */
@@ -195,8 +151,6 @@ public class Main {
 
         // Statistics Top Navigator
         StatisticsTopNavigator stn = new StatisticsTopNavigator(model, 5);
-        stn.add(new StatisticsTopCustomerController(model, 5));
-        stn.add(new StatisticsTopCityController(model, 5));
 
         // Statistics Main Menu
         StatisticsNavigator sn = new StatisticsNavigator(model);
